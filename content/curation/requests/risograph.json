@@ -1,0 +1,17 @@
+{
+  "styleId": "risograph",
+  "queries": [
+    {
+      "source": "commons",
+      "search": "risograph print",
+      "open": true,
+      "max": 30
+    },
+    {
+      "source": "commons",
+      "search": "riso print illustration",
+      "open": true,
+      "max": 15
+    }
+  ]
+}

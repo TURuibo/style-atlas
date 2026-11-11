@@ -1,0 +1,71 @@
+{
+  "styleId": "picture-books",
+  "picks": [
+    {
+      "id": "pratham-0133-01",
+      "cover": true,
+      "subjects": [
+        "figures",
+        "daily-life"
+      ],
+      "reason": "Rajiv Eipe：数字笔刷画出纸纹和平涂，一群孩子热闹地跳舞"
+    },
+    {
+      "id": "pratham-0154-06",
+      "subjects": [
+        "figures",
+        "flora-fauna",
+        "narrative"
+      ],
+      "reason": "Rayika Sen：深蓝叶丛的图案化背景，黑白小女孩很醒目"
+    },
+    {
+      "id": "pratham-0276-07",
+      "title": "Owl in a tree at night",
+      "subjects": [
+        "flora-fauna",
+        "landscape"
+      ],
+      "reason": "Wiehan de Jager：像版画的肌理和三色平涂（图库描述与画面不符，标题按画面改写）"
+    },
+    {
+      "id": "pratham-0240-02",
+      "subjects": [
+        "narrative",
+        "flora-fauna"
+      ],
+      "reason": "Delwyn Remedios：数字厚涂的森林生日会，光线柔和"
+    },
+    {
+      "id": "pratham-0332-05",
+      "subjects": [
+        "narrative",
+        "figures"
+      ],
+      "reason": "Manjari Chakravarti：拼贴感的鱼雨，色块大胆"
+    },
+    {
+      "id": "pratham-0134-04",
+      "subjects": [
+        "landscape",
+        "narrative"
+      ],
+      "reason": "Sangeeta Das：暴风雨里的海浪，深蓝夜色"
+    },
+    {
+      "id": "pratham-0008-08",
+      "subjects": [
+        "figures",
+        "daily-life"
+      ],
+      "reason": "Soumya Menon：卡通线稿加平涂，表情夸张"
+    },
+    {
+      "id": "pratham-0027-02",
+      "subjects": [
+        "landscape"
+      ],
+      "reason": "Sanjay Sarkar：细腻的手绘森林小屋"
+    }
+  ]
+}

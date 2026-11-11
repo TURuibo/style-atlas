@@ -16,4 +16,13 @@ describe('外链按钮组', () => {
     )
     expect(externalSearchLinks('x').map((l) => l.label)).not.toContain('维基百科')
   })
+  it('按风格追加 Pixiv、站酷等站内搜索，排在维基百科前面，关键词编码', () => {
+    const links = externalSearchLinks('anime background', { sources: [], name: '日本动画美术' }, [
+      { site: 'pixiv', q: '背景' },
+      { site: 'zcool', q: '国潮插画' },
+    ])
+    expect(links.map((l) => l.label)).toEqual(['Google 图片', 'Pinterest', 'Behance', 'ArtStation', 'Pixiv', '站酷', '维基百科'])
+    expect(links[4]?.url).toBe('https://www.pixiv.net/tags/%E8%83%8C%E6%99%AF/artworks')
+    expect(links[5]?.url).toContain('zcool.com.cn/search/content?word=%E5%9B%BD')
+  })
 })

@@ -4,11 +4,25 @@ export interface ExternalLink {
   url: string
 }
 
+/** 按风格追加的站内搜索（风格文件的 externalExtra） */
+export type ExtraSite = 'pixiv' | 'zcool' | 'dribbble' | 'xiaohongshu'
+
+const extraSites: Record<ExtraSite, { label: string; url: (q: string) => string }> = {
+  pixiv: { label: 'Pixiv', url: (q) => `https://www.pixiv.net/tags/${q}/artworks` },
+  zcool: { label: '站酷', url: (q) => `https://www.zcool.com.cn/search/content?word=${q}` },
+  dribbble: { label: 'Dribbble', url: (q) => `https://dribbble.com/search/${q}` },
+  xiaohongshu: { label: '小红书', url: (q) => `https://www.xiaohongshu.com/search_result?keyword=${q}` },
+}
+
 /**
- * 外链按钮组：Google 图片、Pinterest、Behance、ArtStation，再加维基百科。
+ * 外链按钮组：Google 图片、Pinterest、Behance、ArtStation，再加按风格挑的站（Pixiv、站酷等）和维基百科。
  * 维基百科优先用风格文件里列的条目，没有就在中文维基里搜风格名。
  */
-export function externalSearchLinks(query: string, wiki?: { sources?: readonly string[]; name?: string }): ExternalLink[] {
+export function externalSearchLinks(
+  query: string,
+  wiki?: { sources?: readonly string[]; name?: string },
+  extra: readonly { site: ExtraSite; q: string }[] = [],
+): ExternalLink[] {
   const q = encodeURIComponent(query)
   const links: ExternalLink[] = [
     { label: 'Google 图片', url: `https://www.google.com/search?tbm=isch&q=${q}` },
@@ -16,6 +30,10 @@ export function externalSearchLinks(query: string, wiki?: { sources?: readonly s
     { label: 'Behance', url: `https://www.behance.net/search/projects?search=${q}` },
     { label: 'ArtStation', url: `https://www.artstation.com/search?sort_by=relevance&query=${q}` },
   ]
+  for (const { site, q: siteQuery } of extra) {
+    const def = extraSites[site]
+    links.push({ label: def.label, url: def.url(encodeURIComponent(siteQuery)) })
+  }
   if (wiki) {
     const sources = wiki.sources ?? []
     const page =

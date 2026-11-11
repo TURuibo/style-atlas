@@ -1,7 +1,7 @@
 import { Link } from 'react-router'
 import { scoreLabels } from '../../components/RatingBar'
 import { Card, Page, Section } from '../../components/ui'
-import { artworksById, content, publicUrl, stylesById, subjectNames } from '../../content'
+import { artworksById, content, modernChapters, publicUrl, stylesById, subjectNames } from '../../content'
 import { revealGroups, revealSummary, roundScores, subjectHint } from '../../lib/reveal'
 import { lastCompletedBlindRound } from '../../lib/storage'
 import { useUserStore } from '../../store/userStore'
@@ -27,17 +27,25 @@ export function RevealPage() {
   }
 
   const scores = roundScores(round, state.ratings)
-  const groups = revealGroups(round, scores, artworksById, stylesById, content.families)
+  const modern = round.kind === 'modern'
+  const groups = revealGroups(
+    round,
+    scores,
+    artworksById,
+    stylesById,
+    content.families,
+    modern ? modernChapters.flatMap((c) => c.styles) : undefined,
+  )
   const hint = subjectHint(groups, artworksById, subjectNames)
   const rated = scores.size
 
   return (
-    <Page back kicker={`第 ${round.number} 轮 · 评了 ${rated} / ${round.artworkIds.length} 张`} title="揭晓">
+    <Page back kicker={`第 ${round.number} 轮${modern ? ' · 现代专场' : ''} · 评了 ${rated} / ${round.artworkIds.length} 张`} title="揭晓">
       <p className="font-serif text-lg leading-relaxed">{revealSummary(groups)}</p>
       {hint && <p className="mt-2 rounded-xl bg-accent-soft px-4 py-3 text-sm text-accent">{hint}</p>}
 
       {groups.map((group) => (
-        <Section key={group.family.id} title={group.family.nameZh}>
+        <Section key={group.id} title={group.nameZh}>
           <ul className="grid grid-cols-3 gap-2">
             {group.items.map((item) => {
               const art = artworksById.get(item.artworkId)!

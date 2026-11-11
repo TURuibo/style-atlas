@@ -15,7 +15,9 @@ describe('content', () => {
 
   it('九大类齐全且顺序正确', () => {
     expect(bundle?.families.map((f) => f.order)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9])
-    expect(bundle?.families.reduce((sum, f) => sum + f.planned, 0)).toBe(77)
+    // 77 种加上 2026-11-11 现代第 1 批新增的 3 种
+    expect(bundle?.families.reduce((sum, f) => sum + f.planned, 0)).toBe(80)
+    expect(bundle?.plan.length).toBe(80)
   })
 
   it('金标准样例（浮世绘）五个段落都解析出来了', () => {
@@ -84,6 +86,40 @@ describe('checkContent 规则', () => {
     expect(draft.warnings.join()).toMatch(/至少 4 幅/)
   })
 
+  it('现代线路：站必须存在、不能重复、段 id 不能和大类撞名', () => {
+    const { bundle } = loadContent()
+    if (!bundle) throw new Error('no bundle')
+    const chapter = bundle.route.chapters[0]!
+    const broken: ContentBundle = {
+      ...bundle,
+      route: {
+        ...bundle.route,
+        chapters: [
+          { ...chapter, id: 'modern', styles: [...chapter.styles, 'no-such-style'] },
+          { ...chapter, id: 'again' },
+        ],
+      },
+    }
+    const errors = checkContent(broken, { imageExists: () => true }).errors.join('\n')
+    expect(errors).toMatch(/no-such-style 不存在/)
+    expect(errors).toMatch(/和大类同名/)
+    expect(errors).toMatch(/出现了不止一次/)
+  })
+
+  it('CC BY 的图要有作者、版本、许可链接，且只能用在开放许可风格', () => {
+    const { bundle } = loadContent()
+    if (!bundle) throw new Error('no bundle')
+    const art = bundle.artworks.find((a) => a.styleIds.includes('ukiyo-e'))!
+    const ccby = { ...art, license: 'CC BY' as const, artist: undefined, credit: '无许可说明' }
+    const b: ContentBundle = { ...bundle, artworks: bundle.artworks.map((a) => (a.id === art.id ? ccby : a)) }
+    const errors = checkContent(b, { imageExists: () => true }).errors.join('\n')
+    expect(errors).toMatch(new RegExp(`${art.id} 是 CC BY，缺作者`))
+    expect(errors).toMatch(/缺许可版本/)
+    expect(errors).toMatch(/缺许可链接/)
+    expect(errors).toMatch(/鸣谢里没写 CC BY/)
+    expect(errors).toMatch(/只有 open-license 风格可以用/)
+  })
+
   it('不认识的地区 id 是错误', () => {
     const b = bundleWith({ regions: ['atlantis'] })
     expect(checkContent(b, { imageExists: () => true }).errors.join()).toMatch(/atlantis/)
@@ -98,7 +134,7 @@ describe('覆盖报告', () => {
     const report = coverageReport(bundle, () => 1024, '2026-11-11')
     expect(report).toContain('# 图片覆盖报告')
     expect(report).toMatch(/浮世绘 `ukiyo-e` \| ready \| 真迹 \| \d+ \|/)
-    expect(report).toContain('外链风格（版权未过期，只给搜索链接）：日本漫画')
+    expect(report).toMatch(/外链风格（找不到开放图，只给搜索链接）：.*日本漫画/)
     expect(artistKey('Attributed to Qiu Ying')).toBe('ying')
     expect(artistKey('Alphonse Mucha (Czech, 1860–1939)')).toBe(artistKey('Alphonse Marie Mucha'))
     expect(artistKey('Kitagawa Utamaro 喜多川 歌麿')).toBe('utamaro')

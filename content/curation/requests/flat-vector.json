@@ -1,0 +1,29 @@
+{
+  "styleId": "flat-vector",
+  "queries": [
+    {
+      "source": "commons",
+      "search": "flat design illustration",
+      "open": true,
+      "max": 20
+    },
+    {
+      "source": "commons",
+      "search": "flat vector illustration people",
+      "open": true,
+      "max": 20
+    },
+    {
+      "source": "commons",
+      "search": "Open Peeps",
+      "open": true,
+      "max": 10
+    },
+    {
+      "source": "commons",
+      "search": "Corporate Memphis",
+      "open": true,
+      "max": 10
+    }
+  ]
+}

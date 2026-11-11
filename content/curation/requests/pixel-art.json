@@ -1,0 +1,17 @@
+{
+  "styleId": "pixel-art",
+  "queries": [
+    {
+      "source": "commons",
+      "category": "Pixel art",
+      "open": true,
+      "max": 40
+    },
+    {
+      "source": "commons",
+      "search": "pixel art scene",
+      "open": true,
+      "max": 20
+    }
+  ]
+}

@@ -1,40 +1,51 @@
 import { useEffect } from 'react'
 import { Link, useParams } from 'react-router'
 import { Badge, Card, Chip, ListLink, Page, Section } from '../../components/ui'
-import { artworksById, coverOfStyle, familiesById, formatYear, publicUrl, regionName, stylesOfFamily } from '../../content'
-import type { Artwork } from '../../content/schema'
+import {
+  artworksById,
+  chapterLabel,
+  chaptersById,
+  coverOfStyle,
+  formatYear,
+  publicUrl,
+  regionName,
+  styleNameZh,
+  stylesById,
+} from '../../content'
+import type { Artwork, Style } from '../../content/schema'
 import { useUserStore } from '../../store/userStore'
 import { NotFound } from '../NotFound'
 
 /**
- * 章节开头（SPEC §4.4）：大类一句话、3 条标志特征、覆盖的地域与年代、3 张代表图，
- * 下面是按年代排的站。
+ * 章节开头（SPEC §4.4）：一句话、3 条标志特征、覆盖的地域与年代、3 张代表图，
+ * 下面是本章的站；现代线路的段按 route.yaml 的站序，大类按年代。还没写的风格列为“待上线”。
  */
 export function ChapterPage() {
-  const { familyId = '' } = useParams()
-  const family = familiesById.get(familyId)
+  const { chapterId = '' } = useParams()
+  const chapter = chaptersById.get(chapterId)
   const setTourPosition = useUserStore((s) => s.setTourPosition)
   const visited = useUserStore((s) => s.state.progress.visitedStyles)
 
   useEffect(() => {
-    if (family) setTourPosition(family.id)
-  }, [family, setTourPosition])
+    if (chapter) setTourPosition(chapter.id)
+  }, [chapter, setTourPosition])
 
-  if (!family) return <NotFound />
-  const styles = stylesOfFamily(family.id)
+  if (!chapter) return <NotFound />
+  const styles = chapter.styles.map((id) => stylesById.get(id)).filter((s): s is Style => Boolean(s))
   const regions = [...new Set(styles.flatMap((s) => s.regions))]
   const start = Math.min(...styles.map((s) => s.era.start))
   const ends = styles.map((s) => s.era.end)
   const end = ends.includes(null) ? null : Math.max(...(ends as number[]))
-  // 代表图：大类指定的，不够再用各站封面
+  // 代表图：章节指定的，不够再用各站封面
   const picks: Artwork[] = [
-    ...family.coverArtworkIds.map((id) => artworksById.get(id)).filter((a): a is Artwork => Boolean(a)),
+    ...chapter.coverArtworkIds.map((id) => artworksById.get(id)).filter((a): a is Artwork => Boolean(a)),
     ...styles.map(coverOfStyle).filter((a): a is Artwork => Boolean(a)),
   ]
   const images = [...new Map(picks.map((a) => [a.id, a])).values()].slice(0, 3)
+  const modern = chapter.group === 'modern'
 
   return (
-    <Page back kicker={`第 ${family.order} 章 · ${family.nameEn}`} title={family.nameZh} subtitle={family.glance}>
+    <Page back kicker={`${chapterLabel(chapter)} · ${chapter.nameEn}`} title={chapter.nameZh} subtitle={chapter.glance}>
       {images.length > 0 && (
         <div className="mb-4 grid grid-cols-3 gap-2">
           {images.map((art) => (
@@ -49,9 +60,9 @@ export function ChapterPage() {
       )}
 
       <Card>
-        <p className="leading-relaxed">{family.summary}</p>
+        <p className="leading-relaxed">{chapter.summary}</p>
         <ul className="mt-3 space-y-1.5 text-sm">
-          {family.traits.map((trait) => (
+          {chapter.traits.map((trait) => (
             <li key={trait} className="flex gap-2">
               <span aria-hidden className="text-accent">
                 ◆
@@ -76,16 +87,16 @@ export function ChapterPage() {
 
       {styles.length > 0 && (
         <Link
-          to={`/tour/${family.id}/${styles[0]!.id}`}
+          to={`/tour/${chapter.id}/${styles[0]!.id}`}
           className="mt-4 flex min-h-12 items-center justify-center rounded-xl bg-accent text-sm font-medium text-paper active:opacity-80"
         >
           从第一站开始
         </Link>
       )}
 
-      <Section title="这一章的站" aside={<span className="text-xs text-muted">按年代</span>}>
+      <Section title={modern ? '这一段的站' : '这一章的站'} aside={<span className="text-xs text-muted">{modern ? '从今天往回走' : '按年代'}</span>}>
         {styles.length === 0 ? (
-          <p className="text-sm text-muted">这一章的内容还在准备，计划 {family.planned} 种风格。</p>
+          <p className="text-sm text-muted">这里的内容还在准备，计划 {chapter.planned} 种风格。</p>
         ) : (
           <div>
             {styles.map((style) => {
@@ -93,7 +104,7 @@ export function ChapterPage() {
               return (
                 <ListLink
                   key={style.id}
-                  to={`/tour/${family.id}/${style.id}`}
+                  to={`/tour/${chapter.id}/${style.id}`}
                   title={style.nameZh}
                   detail={`${style.nameEn} · ${style.regions.map(regionName).join('、')} · ${style.era.label}`}
                   badge={
@@ -119,6 +130,11 @@ export function ChapterPage() {
               )
             })}
           </div>
+        )}
+        {chapter.upcoming.length > 0 && (
+          <p className="mt-3 text-sm leading-relaxed text-muted">
+            待上线：{chapter.upcoming.map(styleNameZh).join('、')}
+          </p>
         )}
       </Section>
     </Page>

@@ -1346,5 +1346,535 @@
       "figures"
     ],
     "blindEligible": true
+  },
+  {
+    "id": "pratham-0002-05",
+    "styleIds": [
+      "gouache"
+    ],
+    "title": "King chasing a dog",
+    "artist": "Parismita",
+    "date": "",
+    "source": "pratham",
+    "sourceUrl": "https://storyweaver.org.in/stories/7-fat-king-thin-dog",
+    "license": "CC BY",
+    "licenseVersion": "4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "credit": "King chasing a dog，Parismita，年代不详。StoryWeaver / Pratham Books，CC BY 4.0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/pratham-0002-05-480.webp",
+      "display": "img/art/pratham-0002-05-1600.webp",
+      "width": 959,
+      "height": 1063
+    },
+    "sourceSize": {
+      "width": 959,
+      "height": 1063
+    },
+    "palette": [
+      "#FBE3A5",
+      "#E1A31D",
+      "#D8BF8D",
+      "#836742",
+      "#B69265"
+    ],
+    "subjects": [
+      "figures",
+      "narrative"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "pratham-0004-17",
+    "styleIds": [
+      "gouache"
+    ],
+    "title": "House with a thatched roof under a pink sky",
+    "artist": "Madhuvanti Anantharajan",
+    "date": "",
+    "source": "pratham",
+    "sourceUrl": "https://storyweaver.org.in/stories/21-chuskit-goes-to-school",
+    "license": "PD",
+    "credit": "House with a thatched roof under a pink sky，Madhuvanti Anantharajan，年代不详。StoryWeaver / Pratham Books，公共领域。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/pratham-0004-17-480.webp",
+      "display": "img/art/pratham-0004-17-1600.webp",
+      "width": 639,
+      "height": 689
+    },
+    "sourceSize": {
+      "width": 639,
+      "height": 689
+    },
+    "palette": [
+      "#C18270",
+      "#A89C85",
+      "#CCBCA5",
+      "#756242",
+      "#EFEBE4"
+    ],
+    "subjects": [
+      "landscape",
+      "daily-life"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "pratham-0008-08",
+    "styleIds": [
+      "picture-books"
+    ],
+    "title": "Two boys fishing and girl and cat, big fish nearby",
+    "artist": "Soumya Menon",
+    "date": "",
+    "source": "pratham",
+    "sourceUrl": "https://storyweaver.org.in/stories/49-my-fish-no-my-fish",
+    "license": "CC BY",
+    "licenseVersion": "4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "credit": "Two boys fishing and girl and cat, big fish nearby，Soumya Menon，年代不详。StoryWeaver / Pratham Books，CC BY 4.0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/pratham-0008-08-480.webp",
+      "display": "img/art/pratham-0008-08-1600.webp",
+      "width": 959,
+      "height": 944
+    },
+    "sourceSize": {
+      "width": 959,
+      "height": 944
+    },
+    "palette": [
+      "#B6AD3A",
+      "#FEFEFE",
+      "#E7DBB4",
+      "#593122",
+      "#4B738C"
+    ],
+    "subjects": [
+      "figures",
+      "daily-life"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "pratham-0027-02",
+    "styleIds": [
+      "picture-books"
+    ],
+    "title": "A house in the forest",
+    "artist": "Sanjay Sarkar",
+    "date": "",
+    "source": "pratham",
+    "sourceUrl": "https://storyweaver.org.in/stories/140-jungle-brew",
+    "license": "CC BY",
+    "licenseVersion": "4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "credit": "A house in the forest，Sanjay Sarkar，年代不详。StoryWeaver / Pratham Books，CC BY 4.0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/pratham-0027-02-480.webp",
+      "display": "img/art/pratham-0027-02-1600.webp",
+      "width": 959,
+      "height": 459
+    },
+    "sourceSize": {
+      "width": 959,
+      "height": 459
+    },
+    "palette": [
+      "#587159",
+      "#8D916F",
+      "#845E44",
+      "#414636",
+      "#CAC7B5"
+    ],
+    "subjects": [
+      "landscape"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "pratham-0069-08",
+    "styleIds": [
+      "gouache"
+    ],
+    "title": "Boy and a peacock in the rain",
+    "artist": "Zainab Tambawalla",
+    "date": "",
+    "source": "pratham",
+    "sourceUrl": "https://storyweaver.org.in/stories/369-the-red-raincoat",
+    "license": "CC BY",
+    "licenseVersion": "4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "credit": "Boy and a peacock in the rain，Zainab Tambawalla，年代不详。StoryWeaver / Pratham Books，CC BY 4.0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/pratham-0069-08-480.webp",
+      "display": "img/art/pratham-0069-08-1600.webp",
+      "width": 959,
+      "height": 459
+    },
+    "sourceSize": {
+      "width": 959,
+      "height": 459
+    },
+    "palette": [
+      "#23566F",
+      "#85A765",
+      "#657F47",
+      "#50A3BF",
+      "#8DC6C0"
+    ],
+    "subjects": [
+      "figures",
+      "flora-fauna",
+      "landscape"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "pratham-0133-01",
+    "styleIds": [
+      "picture-books"
+    ],
+    "title": "Boy playing the drums and children dancing behind him",
+    "artist": "Rajiv Eipe",
+    "date": "",
+    "source": "pratham",
+    "sourceUrl": "https://storyweaver.org.in/stories/1121-the-boy-and-the-drum-a-shorter-version",
+    "license": "CC BY",
+    "licenseVersion": "4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "credit": "Boy playing the drums and children dancing behind him，Rajiv Eipe，年代不详。StoryWeaver / Pratham Books，CC BY 4.0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/pratham-0133-01-480.webp",
+      "display": "img/art/pratham-0133-01-1600.webp",
+      "width": 959,
+      "height": 944
+    },
+    "sourceSize": {
+      "width": 959,
+      "height": 944
+    },
+    "palette": [
+      "#9B3C4F",
+      "#FDF4D1",
+      "#AD8E77",
+      "#F0C58F",
+      "#C37C54"
+    ],
+    "subjects": [
+      "figures",
+      "daily-life"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "pratham-0134-04",
+    "styleIds": [
+      "picture-books"
+    ],
+    "title": "Manta ray caught in a thunder storm",
+    "artist": "Sangeeta Das",
+    "date": "",
+    "source": "pratham",
+    "sourceUrl": "https://storyweaver.org.in/stories/1205-pishi-caught-in-a-storm",
+    "license": "CC BY",
+    "licenseVersion": "4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "credit": "Manta ray caught in a thunder storm，Sangeeta Das，年代不详。StoryWeaver / Pratham Books，CC BY 4.0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/pratham-0134-04-480.webp",
+      "display": "img/art/pratham-0134-04-1600.webp",
+      "width": 959,
+      "height": 459
+    },
+    "sourceSize": {
+      "width": 959,
+      "height": 459
+    },
+    "palette": [
+      "#0C6691",
+      "#1C2344",
+      "#23496D",
+      "#4E82A1",
+      "#ABD7D9"
+    ],
+    "subjects": [
+      "landscape",
+      "narrative"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "pratham-0146-08",
+    "styleIds": [
+      "gouache"
+    ],
+    "title": "Mother and daughter with a yellow sari",
+    "artist": "Gayathri Manikandan",
+    "date": "",
+    "source": "pratham",
+    "sourceUrl": "https://storyweaver.org.in/stories/1481-my-diwali-book",
+    "license": "CC BY",
+    "licenseVersion": "4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "credit": "Mother and daughter with a yellow sari，Gayathri Manikandan，年代不详。StoryWeaver / Pratham Books，CC BY 4.0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/pratham-0146-08-480.webp",
+      "display": "img/art/pratham-0146-08-1600.webp",
+      "width": 959,
+      "height": 1416
+    },
+    "sourceSize": {
+      "width": 959,
+      "height": 1416
+    },
+    "palette": [
+      "#F0DE72",
+      "#EED008",
+      "#C58520",
+      "#E8EBB6",
+      "#A2291C"
+    ],
+    "subjects": [
+      "figures",
+      "daily-life"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "pratham-0154-06",
+    "styleIds": [
+      "picture-books"
+    ],
+    "title": "A girl entering a thick forest at night",
+    "artist": "Rayika Sen",
+    "date": "",
+    "source": "pratham",
+    "sourceUrl": "https://storyweaver.org.in/stories/1722-the-princess-and-the-veggy-lion",
+    "license": "CC BY",
+    "licenseVersion": "4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "credit": "A girl entering a thick forest at night，Rayika Sen，年代不详。StoryWeaver / Pratham Books，CC BY 4.0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/pratham-0154-06-480.webp",
+      "display": "img/art/pratham-0154-06-1600.webp",
+      "width": 959,
+      "height": 943
+    },
+    "sourceSize": {
+      "width": 959,
+      "height": 943
+    },
+    "palette": [
+      "#0B2C39",
+      "#030C10",
+      "#064969",
+      "#637B52",
+      "#CDCED0"
+    ],
+    "subjects": [
+      "figures",
+      "flora-fauna",
+      "narrative"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "pratham-0240-02",
+    "styleIds": [
+      "picture-books"
+    ],
+    "title": "Bear and the girl with the birthday cake",
+    "artist": "Delwyn Remedios",
+    "date": "",
+    "source": "pratham",
+    "sourceUrl": "https://storyweaver.org.in/stories/2711-the-day-it-rained-fish",
+    "license": "CC BY",
+    "licenseVersion": "4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "credit": "Bear and the girl with the birthday cake，Delwyn Remedios，年代不详。StoryWeaver / Pratham Books，CC BY 4.0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/pratham-0240-02-480.webp",
+      "display": "img/art/pratham-0240-02-1600.webp",
+      "width": 959,
+      "height": 459
+    },
+    "sourceSize": {
+      "width": 959,
+      "height": 459
+    },
+    "palette": [
+      "#DAD079",
+      "#7B4B3A",
+      "#A59944",
+      "#F2F2C0",
+      "#2D251A"
+    ],
+    "subjects": [
+      "narrative",
+      "flora-fauna"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "pratham-0276-07",
+    "styleIds": [
+      "picture-books"
+    ],
+    "title": "Owl in a tree at night",
+    "artist": "Wiehan de Jager",
+    "date": "",
+    "source": "pratham",
+    "sourceUrl": "https://storyweaver.org.in/stories/3266-king-of-birds",
+    "license": "CC BY",
+    "licenseVersion": "4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "credit": "Owl in a tree at night，Wiehan de Jager，年代不详。StoryWeaver / Pratham Books，CC BY 4.0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/pratham-0276-07-480.webp",
+      "display": "img/art/pratham-0276-07-1600.webp",
+      "width": 959,
+      "height": 945
+    },
+    "sourceSize": {
+      "width": 959,
+      "height": 945
+    },
+    "palette": [
+      "#FBFBF7",
+      "#4C87A2",
+      "#689CB2",
+      "#B5BFAA",
+      "#3C3D38"
+    ],
+    "subjects": [
+      "flora-fauna",
+      "landscape"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "pratham-0314-04",
+    "styleIds": [
+      "gouache"
+    ],
+    "title": "Mother and Daughter",
+    "artist": "Rupa Prakash",
+    "date": "",
+    "source": "pratham",
+    "sourceUrl": "https://storyweaver.org.in/stories/3794-loving-family",
+    "license": "CC BY",
+    "licenseVersion": "4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "credit": "Mother and Daughter，Rupa Prakash，年代不详。StoryWeaver / Pratham Books，CC BY 4.0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/pratham-0314-04-480.webp",
+      "display": "img/art/pratham-0314-04-1600.webp",
+      "width": 479,
+      "height": 689
+    },
+    "sourceSize": {
+      "width": 479,
+      "height": 689
+    },
+    "palette": [
+      "#F4ED94",
+      "#C5AB8D",
+      "#6E6E7C",
+      "#2B3030",
+      "#8379CE"
+    ],
+    "subjects": [
+      "figures",
+      "daily-life"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "pratham-0332-05",
+    "styleIds": [
+      "picture-books"
+    ],
+    "title": "Falling fish, girl watching cat eat fish",
+    "artist": "Manjari Chakravarti",
+    "date": "",
+    "source": "pratham",
+    "sourceUrl": "https://storyweaver.org.in/stories/3979-oh-the-way-we-ran-in-the-fish-rain",
+    "license": "CC BY",
+    "licenseVersion": "4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "credit": "Falling fish, girl watching cat eat fish，Manjari Chakravarti，年代不详。StoryWeaver / Pratham Books，CC BY 4.0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/pratham-0332-05-480.webp",
+      "display": "img/art/pratham-0332-05-1600.webp",
+      "width": 959,
+      "height": 517
+    },
+    "sourceSize": {
+      "width": 959,
+      "height": 517
+    },
+    "palette": [
+      "#819D97",
+      "#5B67A2",
+      "#94BAC8",
+      "#CABF53",
+      "#D1C8BC"
+    ],
+    "subjects": [
+      "narrative",
+      "figures"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "pratham-0411-08",
+    "styleIds": [
+      "gouache"
+    ],
+    "title": "Blue brushstrokes around a yellow moon",
+    "artist": "Kalyani Ganapathy",
+    "date": "",
+    "source": "pratham",
+    "sourceUrl": "https://storyweaver.org.in/stories/5206-nilofar",
+    "license": "CC BY",
+    "licenseVersion": "4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "credit": "Blue brushstrokes around a yellow moon，Kalyani Ganapathy，年代不详。StoryWeaver / Pratham Books，CC BY 4.0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/pratham-0411-08-480.webp",
+      "display": "img/art/pratham-0411-08-1600.webp",
+      "width": 639,
+      "height": 689
+    },
+    "sourceSize": {
+      "width": 639,
+      "height": 689
+    },
+    "palette": [
+      "#2B448B",
+      "#4C68A2",
+      "#6381B1",
+      "#E6E56D",
+      "#97B1AA"
+    ],
+    "subjects": [
+      "landscape"
+    ],
+    "blindEligible": true
   }
 ]

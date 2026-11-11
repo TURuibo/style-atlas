@@ -1,0 +1,17 @@
+{
+  "styleId": "anime-illustration",
+  "queries": [
+    {
+      "source": "commons",
+      "category": "Wikipe-tan",
+      "open": true,
+      "max": 20
+    },
+    {
+      "source": "commons",
+      "search": "anime style illustration",
+      "open": true,
+      "max": 25
+    }
+  ]
+}

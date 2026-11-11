@@ -17,6 +17,7 @@ const minGap: Record<string, number> = {
   'upload.wikimedia.org': 1000,
   'www.loc.gov': 3000,
   'tile.loc.gov': 1000,
+  'raw.githubusercontent.com': 150,
 }
 
 const lastCall = new Map<string, number>()
@@ -61,6 +62,11 @@ export async function fetchWithRetry(url: string, accept = '*/*', tries = 3): Pr
 export async function getJson<T>(url: string): Promise<T> {
   const res = await fetchWithRetry(url, 'application/json')
   return (await res.json()) as T
+}
+
+export async function getText(url: string): Promise<string> {
+  const res = await fetchWithRetry(url, 'text/plain,*/*')
+  return await res.text()
 }
 
 export async function getBuffer(url: string): Promise<Buffer> {

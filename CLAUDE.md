@@ -12,7 +12,7 @@
 - npm run deploy          构建并把 dist/ 推送到 gh-pages 分支
 
 ## 硬规则
-1. 图片只用来源方标为 CC0 或公共领域的（SPEC §8）；不热链，不嵌入有版权的图。
+1. 图片只用来源方标为 CC0、公共领域、CC BY 或 CC BY-SA 的（SPEC §8，2026-11-11 起放宽）；CC BY / BY-SA 的图必须署名作者、写明许可并链回原页；不收 NC、ND 许可；不热链，不嵌入有版权的图。你自己导入“剪贴簿”的图只存本机 IndexedDB，不进构建、不上传。
 2. 事实不确定就不写；每种风格至少 2 个来源链接；titleZh 没把握就留空。
 3. AI 关键词里的画家名只收 1955 年及以前去世的：`prompt.artistsPD` 里的名字必须对应 `keyArtists[].en`，且该画家 `deathYear` ≤ 1955。
 4. 用户数据只存本机 IndexedDB；不加统计、追踪、后端或 AI 接口。
@@ -25,6 +25,7 @@
 - 风格文件 content/styles/<id>.md：frontmatter + 五个二级标题（一句话 / 怎么看 / 为什么长这样 / 怎么画 / 15 分钟练习），格式见 SPEC §7。
 - `status: draft` 的风格可以缺图，界面上标“施工中”；`status: ready` 必须满足 validate 的全部规则。
 - 大类、地区、时代、标签只能用 content/vocab.yaml 里的 id。
+- 导览以现代为主线：content/route.yaml 定义“现代线路”的各段；新写的现代风格要放进线路的某一段，九大类章节作为“溯源”。
 
 ## 代码约定
 - TypeScript strict；src/lib 下是纯函数，都有单元测试（tests/）。

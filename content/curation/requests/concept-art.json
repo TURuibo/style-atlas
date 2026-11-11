@@ -1,0 +1,23 @@
+{
+  "styleId": "concept-art",
+  "queries": [
+    {
+      "source": "commons",
+      "category": "David Revoy",
+      "open": true,
+      "max": 30
+    },
+    {
+      "source": "commons",
+      "category": "Pepper&Carrot",
+      "open": true,
+      "max": 20
+    },
+    {
+      "source": "commons",
+      "search": "concept art digital painting",
+      "open": true,
+      "max": 20
+    }
+  ]
+}

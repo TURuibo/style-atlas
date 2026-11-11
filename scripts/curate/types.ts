@@ -1,6 +1,9 @@
 /** 挑图管线的数据格式（SPEC §10.4） */
 
-export type SourceId = 'met' | 'aic' | 'cma' | 'commons' | 'loc'
+export type SourceId = 'met' | 'aic' | 'cma' | 'commons' | 'loc' | 'pratham'
+
+/** CC BY / CC BY-SA 只用于开放许可风格（SPEC §8，2026-11-11 起） */
+export type CandidateLicense = 'CC0' | 'PD' | 'CC BY' | 'CC BY-SA'
 
 /** 一条候选作品。n 是联系表上的编号（从 1 开始）。 */
 export interface Candidate {
@@ -15,7 +18,10 @@ export interface Candidate {
   sourceUrl: string
   previewUrl: string
   fullUrl: string
-  license: 'CC0' | 'PD'
+  license: CandidateLicense
+  /** CC BY / CC BY-SA 的版本，如 4.0 */
+  licenseVersion?: string
+  licenseUrl?: string
   museum: string
   width?: number
   height?: number
@@ -49,7 +55,24 @@ export type Query =
       max?: number
     }
   | { source: 'cma'; q?: string; ids?: number[]; type?: string; department?: string; max?: number }
-  | { source: 'commons'; search?: string; titles?: string[]; max?: number }
+  | {
+      source: 'commons'
+      search?: string
+      titles?: string[]
+      /** 分类名（不带 Category: 前缀），列出其中的文件 */
+      category?: string
+      /** 也收 CC BY / CC BY-SA（只给开放许可风格用） */
+      open?: boolean
+      max?: number
+    }
+  | {
+      source: 'pratham'
+      /** pb-imagebank 里的故事编号，如 0001；每个故事一张元数据表 */
+      stories: string[]
+      /** 只要这些图（文件名不带扩展名，如 03）；不写就全要 */
+      images?: string[]
+      max?: number
+    }
   | { source: 'loc'; q?: string; ids?: string[]; max?: number }
 
 /** content/curation/requests/<styleId>.json：去哪里找候选 */

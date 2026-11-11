@@ -1,0 +1,58 @@
+{
+  "styleId": "gouache",
+  "picks": [
+    {
+      "id": "pratham-0146-08",
+      "cover": true,
+      "title": "Mother and daughter with a yellow sari",
+      "subjects": [
+        "figures",
+        "daily-life"
+      ],
+      "reason": "Gayathri Manikandan：哑光平涂的大色块，纸面有颜料的颗粒（图库描述与画面不符，标题按画面改写）"
+    },
+    {
+      "id": "pratham-0069-08",
+      "title": "Boy and a peacock in the rain",
+      "subjects": [
+        "figures",
+        "flora-fauna",
+        "landscape"
+      ],
+      "reason": "Zainab Tambawalla：不透明颜料一层层盖上去，笔触明显（标题按画面改写）"
+    },
+    {
+      "id": "pratham-0002-05",
+      "subjects": [
+        "figures",
+        "narrative"
+      ],
+      "reason": "Parismita：奶油色底上平涂人物和花纹，边缘干净"
+    },
+    {
+      "id": "pratham-0004-17",
+      "title": "House with a thatched roof under a pink sky",
+      "subjects": [
+        "landscape",
+        "daily-life"
+      ],
+      "reason": "Madhuvanti Anantharajan：粉色天空和土墙都是厚涂的哑光色（标题按画面改写）"
+    },
+    {
+      "id": "pratham-0411-08",
+      "title": "Blue brushstrokes around a yellow moon",
+      "subjects": [
+        "landscape"
+      ],
+      "reason": "Kalyani Ganapathy：干笔扫出的蓝色，能看到颜料的覆盖和纸纹（标题按画面改写）"
+    },
+    {
+      "id": "pratham-0314-04",
+      "subjects": [
+        "figures",
+        "daily-life"
+      ],
+      "reason": "Rupa Prakash：用不透明颜料一笔笔画出的母女，笔触清楚"
+    }
+  ]
+}

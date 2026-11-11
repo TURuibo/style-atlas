@@ -12,6 +12,7 @@ const sourceNames: Record<string, string> = {
 const modeNames: Record<string, string> = {
   'public-domain': '真迹',
   mixed: '混合',
+  'open-license': '开放许可',
   'external-only': '外链',
 }
 
@@ -86,7 +87,7 @@ export function coverageReport(bundle: ContentBundle, fileSize: (relative: strin
   lines.push('## 降级与缺口', '')
   lines.push(
     external.length
-      ? `- 外链风格（版权未过期，只给搜索链接）：${external.map((s) => s.nameZh).join('、')}`
+      ? `- 外链风格（找不到开放图，只给搜索链接）：${external.map((s) => s.nameZh).join('、')}`
       : '- 外链风格：无',
   )
   lines.push(thin.length ? `- 配图不足 4 幅：${thin.map((s) => s.nameZh).join('、')}` : '- 配图不足 4 幅：无')

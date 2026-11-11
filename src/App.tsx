@@ -9,6 +9,7 @@ import { EraPage, RegionPage } from './features/explore/FilteredList'
 import { AboutPage } from './features/me/AboutPage'
 import { InstallGuide } from './features/me/InstallGuide'
 import { MePage } from './features/me/MePage'
+import { ScrapbookPage } from './features/scrapbook/ScrapbookPage'
 import { NotFound } from './features/NotFound'
 import { StylePage } from './features/style/StylePage'
 import { ChapterPage } from './features/tour/ChapterPage'
@@ -42,8 +43,8 @@ export default function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<TourHome />} />
-          <Route path="tour/:familyId" element={<ChapterPage />} />
-          <Route path="tour/:familyId/:styleId" element={<StationPage />} />
+          <Route path="tour/:chapterId" element={<ChapterPage />} />
+          <Route path="tour/:chapterId/:styleId" element={<StationPage />} />
           <Route path="style/:styleId" element={<StylePage />} />
           <Route path="explore" element={<ExplorePage />} />
           <Route path="explore/region/:regionId" element={<RegionPage />} />
@@ -52,6 +53,7 @@ export default function App() {
           <Route path="blind/reveal" element={<RevealPage />} />
           <Route path="me" element={<MePage />} />
           <Route path="me/data" element={<DataPage />} />
+          <Route path="me/scrapbook" element={<ScrapbookPage />} />
           <Route path="me/install" element={<InstallGuide />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="*" element={<NotFound />} />

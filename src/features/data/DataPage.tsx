@@ -148,6 +148,9 @@ export function DataPage() {
           </Button>
           <Button onClick={copyBackup}>复制备份文本</Button>
         </div>
+        <p className="mt-3 text-xs leading-relaxed text-muted">
+          备份里有评分、收藏、笔记和进度；剪贴簿的图不在里面，它们只存在这台手机上，原图还在你的相册里。
+        </p>
       </Section>
 
       <Section title="导入">

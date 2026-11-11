@@ -5,13 +5,25 @@ import { AttributeBars } from '../../components/AttributeBars'
 import { Collapsible } from '../../components/Collapsible'
 import { RatingBar, scoreLabels } from '../../components/RatingBar'
 import { Badge, Button, Card, Chip, Page } from '../../components/ui'
-import { familyName, mediumName, moodName, regionName, styleNameZh, stylesById } from '../../content'
+import {
+  chapterLabel,
+  chaptersById,
+  familyName,
+  mediumName,
+  moodName,
+  regionName,
+  styleNameZh,
+  stylesById,
+  tourChapters,
+} from '../../content'
 import type { Style } from '../../content/schema'
 import { copyText } from '../../lib/clipboard'
 import { externalSearchLinks, stylePromptLine, type ExternalLink as ExternalLinkItem } from '../../lib/links'
 import { latestScore } from '../../lib/storage'
+import { homeChapterOf } from '../../lib/tour'
 import { useUserStore } from '../../store/userStore'
 import { NotFound } from '../NotFound'
+import { ScrapbookGrid } from '../scrapbook/ScrapbookSection'
 import { Gallery } from './Gallery'
 
 export function StylePage() {
@@ -23,7 +35,7 @@ export function StylePage() {
   useEffect(() => {
     if (!style) return
     visitStyle(style.id)
-    setTourPosition(style.family, style.id)
+    setTourPosition(homeChapterOf(tourChapters, style.id, style.family), style.id)
   }, [style, visitStyle, setTourPosition])
 
   if (!style) return <NotFound />
@@ -38,7 +50,8 @@ function StyleDetail({ style }: { style: Style }) {
   const exerciseDone = state.exercisesDone.includes(style.id)
   const museums = [...style.museums].sort((a, b) => Number(Boolean(b.local)) - Number(Boolean(a.local)))
   const external = style.imageMode === 'external-only'
-  const links = externalSearchLinks(style.externalSearch, { sources: style.sources, name: style.nameZh })
+  const links = externalSearchLinks(style.externalSearch, { sources: style.sources, name: style.nameZh }, style.externalExtra)
+  const routeChapter = chaptersById.get(homeChapterOf(tourChapters, style.id, style.family))
 
   return (
     <Page
@@ -54,6 +67,11 @@ function StyleDetail({ style }: { style: Style }) {
           </Chip>
         ))}
         <Chip>{style.era.label}</Chip>
+        {routeChapter?.group === 'modern' && (
+          <Chip to={`/tour/${routeChapter.id}`}>
+            {chapterLabel(routeChapter)} {routeChapter.nameZh}
+          </Chip>
+        )}
         <Chip to={`/tour/${style.family}`}>{familyName(style.family)}</Chip>
         {myScore !== undefined && <Chip>你的评分：{scoreLabels[myScore]}</Chip>}
       </div>
@@ -65,14 +83,20 @@ function StyleDetail({ style }: { style: Style }) {
       )}
 
       {external ? (
-        <Card className="mt-5">
-          <p className="text-sm text-muted">这种风格的作品大多还有版权，应用里不放图。去外面看看，回来再打分：</p>
-          <ExternalButtons links={links} />
-          <div className="mt-4">
-            <p className="mb-2 text-xs text-muted">看图时留意这几点</p>
-            <AttributeBars attributes={style.attributes} />
-          </div>
-        </Card>
+        <>
+          <Card className="mt-5">
+            <p className="mb-3 text-sm font-medium">我的剪贴簿</p>
+            <ScrapbookGrid style={style} />
+          </Card>
+          <Card className="mt-3">
+            <p className="text-sm text-muted">这种风格还找不到能放进应用的开放图。去外面看看，回来再打分：</p>
+            <ExternalButtons links={links} />
+            <div className="mt-4">
+              <p className="mb-2 text-xs text-muted">看图时留意这几点</p>
+              <AttributeBars attributes={style.attributes} />
+            </div>
+          </Card>
+        </>
       ) : (
         <Gallery style={style} />
       )}
@@ -177,6 +201,12 @@ function StyleDetail({ style }: { style: Style }) {
       {!external && (
         <Collapsible title="去外面看更多">
           <ExternalButtons links={links} />
+        </Collapsible>
+      )}
+
+      {!external && (
+        <Collapsible title="我的剪贴簿">
+          <ScrapbookGrid style={style} />
         </Collapsible>
       )}
 

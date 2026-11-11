@@ -25,6 +25,10 @@ const dirs = {
 const artworksPath = path.join(root, 'content', 'artworks.json')
 const publicDir = path.join(root, 'public')
 
+/** 命令行可以只处理几种风格：npx tsx scripts/curate/run.ts picture-books gouache（本地只连得上 GitHub 时用） */
+const only = new Set(process.argv.slice(2).filter((a) => !a.startsWith('-')))
+const wanted = (styleId: string) => only.size === 0 || only.has(styleId)
+
 const readJson = <T>(file: string): T => JSON.parse(fs.readFileSync(file, 'utf8')) as T
 const writeJson = (file: string, data: unknown) => fs.writeFileSync(file, `${JSON.stringify(data, null, 2)}\n`)
 const listJson = (dir: string) => (fs.existsSync(dir) ? fs.readdirSync(dir).filter((f) => f.endsWith('.json')).sort() : [])
@@ -34,6 +38,7 @@ async function refreshCandidates() {
   for (const dir of Object.values(dirs)) fs.mkdirSync(dir, { recursive: true })
   for (const file of listJson(dirs.requests)) {
     const request = readJson<RequestFile>(path.join(dirs.requests, file))
+    if (!wanted(request.styleId)) continue
     const outFile = path.join(dirs.candidates, `${request.styleId}.json`)
     const requestHash = hashOf(request)
     const previous = fs.existsSync(outFile) ? readJson<CandidatesFile>(outFile) : undefined
@@ -73,6 +78,7 @@ async function applyPicks() {
 
   for (const file of listJson(dirs.picks)) {
     const picks = readJson<PicksFile>(path.join(dirs.picks, file))
+    if (!wanted(picks.styleId)) continue
     const candFile = path.join(dirs.candidates, `${picks.styleId}.json`)
     if (!fs.existsSync(candFile)) {
       console.log(`[下载] ${picks.styleId}：还没有候选文件，跳过`)

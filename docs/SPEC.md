@@ -9,7 +9,7 @@ Nov 8, 2026 · @Ruibo Tu
 | 方面 | 决定 |
 | --- | --- |
 | 三个用途 | 看懂插画（怎么看、为什么长这样、去哪看真迹）；自己学画（工具、技法、临摹练习）；给 AI 出图定风格（英文关键词、专属提示词） |
-| 图片 | 只用博物馆开放的公共领域 / CC0 真迹，构建时下载进自己的仓库；有版权的当代画风只给文字讲解和外部搜索链接 |
+| 图片 | 博物馆开放的公共领域 / CC0 真迹，加上作者自己用 CC BY、CC BY-SA 开放的当代作品（署名），构建时下载进自己的仓库；找不到开放图的当代画风给文字讲解、外部搜索链接，以及只存在你手机里的“剪贴簿”（2026-11-11 起） |
 | 使用方式 | 手机为主、只你一人；纯前端 PWA，可装到主屏幕、离线可看；数据只存本机，可导出备份 |
 | 花费 | 不接任何付费 API；托管用 GitHub Pages 免费额度；只消耗你的 Claude 用量 |
 | 内容规模 | 9 大类、77 种风格：59 种配真迹图，18 种只给外链。先做 6 种的完整切片，再扩到 24 种 MVP，最后全量 |
@@ -107,6 +107,7 @@ Nov 8, 2026 · @Ruibo Tu
 - 首轮 24 张：每个有图的大类至少 2 张，其余用来平衡 5 个画面维度和题材；同一风格不连续出现。
 - 之后每轮 12 张，按 §9 的自适应规则抽样。
 - 显示进度（如 7/24），随时可退出，已评的都保存；预加载后 3 张。
+- 现代专场（2026-11-11 加）：只从现代线路上有图的风格里抽，每轮最多 12 张；有图的现代风格不足 3 种或图不足 8 幅时不开放，显示还差多少。
 - 验收：24 张可在 4 分钟内评完，4G 下翻页无空白等待。
 
 ### 4.3 揭晓
@@ -117,8 +118,8 @@ Nov 8, 2026 · @Ruibo Tu
 
 ### 4.4 导览（首页 · 章节 · 站）
 
-- 首页：继续卡片；为你推荐 3 种（评满 15 次后出现）；9 个章节卡片，带封面图和进度（已走 3/9）。
-- 章节开头：大类一句话、3 条标志特征、覆盖的地域与年代、3 张代表图。
+- 首页：继续卡片；为你推荐 3 种（评满 15 次后出现）；先是“现代线路”的各段（`content/route.yaml`，从今天往回走），再是“溯源”：9 个大类章节卡片，带封面图和进度（已走 3/9）。（2026-11-11 改：原来首页只有 9 个大类章节，按历史脉络排。）
+- 章节开头：大类（或线路的一段）一句话、3 条标志特征、覆盖的地域与年代、3 张代表图；线路里还没写的风格列为“待上线”。
 - 一站 = 一种风格：横滑看作品；中英文名、地域和年代标签、一句话、三条“怎么看”；评分；“深入了解”和“下一站”。
 - 验收：切站不超过 300 毫秒；进度关掉应用后仍在。
 
@@ -127,13 +128,14 @@ Nov 8, 2026 · @Ruibo Tu
 - 头部：中文名、英文名、原文名；大类、地域、年代标签；你的评分。
 - 作品墙：两列缩略图，点开进看图器。
 - 内容块（可折叠）：一句话；怎么看；为什么长这样；代表人物；去哪看真迹；怎么画（含 15 分钟练习和“开始练习”按钮）；AI 关键词（点一下复制，另有“复制全部”）；相关风格；我的笔记。
-- 只给外链的风格：不显示作品墙，改为“去外面看图”按钮组（Google 图片、Pinterest、Behance、ArtStation、维基百科），带预设关键词；显示该风格的 5 维特征条，告诉你看什么；看完回来仍可评分。
+- 只给外链的风格：不显示作品墙，改为“去外面看图”按钮组（Google 图片、Pinterest、Behance、ArtStation、维基百科），带预设关键词；风格文件可以再加 Pixiv、站酷、Dribbble、小红书的搜索（`externalExtra`）；显示该风格的 5 维特征条，告诉你看什么；看完回来仍可评分。
+- 剪贴簿（2026-11-11 加，原附录 C 的“自己的灵感图”）：每种风格下都能从相册添加图片，缩到长边 1600px 后只存本机 IndexedDB，不上传、不进备份文件；没有开放图的风格，站和风格页优先显示你存的图。看图器里标“我存的图”，可删除。
 - 验收：77 种风格的内容块一个不缺；复制在 iOS Safari 可用。
 
 ### 4.6 看图器
 
 - 全屏深色背景；双指缩放、双击放大、左右滑换图、下滑关闭（用 PhotoSwipe 5）。
-- 信息面板：作品名、画家（生卒）、年代、材质、馆藏与鸣谢、许可（CC0 或公共领域）、“去博物馆网站看高清”。
+- 信息面板：作品名、画家（生卒）、年代、材质、馆藏与鸣谢、许可（CC0、公共领域，或带链接的 CC BY / CC BY-SA）、“去博物馆网站看高清”（非博物馆来源写“去来源网站看原图”）。
 - 操作：收藏、单幅评分、临摹。
 - 验收：许可信息始终可见；iPhone 和安卓上缩放流畅。
 
@@ -192,7 +194,9 @@ Nov 8, 2026 · @Ruibo Tu
 | 6 | 讽刺画、漫画与连环叙事 | 夸张变形、幽默、分格与对白 | 10 |
 | 7 | 书籍与童话插画 | 讲故事、钢笔线加淡彩、梦幻氛围 | 7 |
 | 8 | 装饰艺术与海报 | 曲线与图案、平涂、字图一体 | 9 |
-| 9 | 现代与当代 | 多元；大多有版权，外链看图 | 12 |
+| 9 | 现代与当代 | 屏幕、动画、绘本与独立出版；开放许可图 + 外链 + 剪贴簿 | 15 |
+
+2026-11-11 起，导览的主线是“现代线路”（`content/route.yaml`）：把现代风格（含其他大类里的日本漫画等）按“在哪儿见到它”分段，从今天往回走；九大类保留为“溯源”章节，顺序不变。
 
 ### 5.2 地域（13 个地区）
 
@@ -398,18 +402,25 @@ subjects: { figures: 人物, landscape: 风景, flora-fauna: 花鸟动物, narra
 
 | 风格 | 地域 · 年代 | 代表 | 图源 | 阶段 |
 | --- | --- | --- | --- | --- |
+2026-11-11 起这一章是导览主线的主体，先做“现代第 1 批”12 种（新增日系角色插画、等距插画、水粉插画 3 种）。图源一栏的“开放许可”指作者自己用 CC0、CC BY 或 CC BY-SA 开放的作品（§8），凑不够 4 幅好图的照旧只给外链；所有外链风格都可以用剪贴簿补你自己存的图（§4.5）。
+
+| 风格 | 地域 · 年代 | 代表 | 图源 | 阶段 |
+| --- | --- | --- | --- | --- |
 | 苏联先锋派 Soviet avant-garde `soviet-avant-garde` | 东欧与俄罗斯 · 1917–1935 | 李西茨基《关于两个方块》、罗德琴科、斯滕伯格兄弟、列别杰夫的童书 | 混合：Commons、Met |  |
-| 中世纪现代插画 Mid-century modern `mid-century-modern` | 北美、全球 · 1945–1970 | 玛丽·布莱尔、普罗文森夫妇、吉姆·弗洛拉、查理·哈珀 | 外链 | MVP |
+| 中世纪现代插画 Mid-century modern `mid-century-modern` | 北美、全球 · 1945–1970 | 玛丽·布莱尔、查理·哈珀、普罗文森夫妇、吉姆·弗洛拉 | 外链 | 现代 1 |
 | 波兰海报学派 Polish School of Posters `polish-poster` | 东欧 · 1950–1980 | 亨里克·托马舍夫斯基、扬·莱尼查、斯塔罗维耶斯基 | 外链 |  |
-| 当代绘本 Contemporary picture books `picture-books` | 全球 · 1960 至今 | 莫里斯·桑达克、艾瑞·卡尔、陈志勇、几米、斯文·努德奎斯特、伊隆·维克兰 | 外链 |  |
+| 当代绘本 Contemporary picture books `picture-books` | 全球 · 1960 至今 | 莫里斯·桑达克、艾瑞·卡尔、斯文·努德奎斯特、几米、陈志勇 | 开放许可：StoryWeaver / Pratham Books 图库（CC BY 4.0） | 现代 1 |
 | 迷幻海报 Psychedelic posters `psychedelic` | 北美 · 1965–1972 | 韦斯·威尔逊、维克托·莫斯科索、里克·格里芬 | 外链 |  |
-| 观念插画 Conceptual editorial illustration `editorial` | 全球 · 1970 至今 | 让-米歇尔·弗隆、汤米·温格尔、克里斯托夫·尼曼 | 外链 |  |
-| 日本动画美术 Anime background art `anime-art` | 日本 · 1980 至今 | 男鹿和雄（吉卜力背景）、新海诚 | 外链 |  |
-| 像素艺术 Pixel art `pixel-art` | 全球 · 1980 至今 | eBoy | 外链 |  |
-| 数字厚涂与概念美术 Digital painting & concept art `concept-art` | 全球 · 2000 至今 | 克雷格·穆林斯、朱峰 | 外链 |  |
-| 孔版印刷风 Risograph aesthetic `risograph` | 全球 · 2005 至今 | 独立出版与 zine | 外链 |  |
-| 扁平矢量插画 Flat vector illustration `flat-vector` | 全球 · 2010 至今 | 科技公司的人物插画（“Corporate Memphis”） | 外链 | MVP |
-| 国潮插画 Guochao `guochao` | 中国 · 2015 至今 | 敦煌纹样、传统色、新中式 | 外链 |  |
+| 观念插画 Conceptual editorial illustration `editorial` | 全球 · 1970 至今 | 布拉德·霍兰、让-米歇尔·弗隆、克里斯托夫·尼曼 | 外链 | 现代 1 |
+| 日本动画美术 Anime background art `anime-art` | 日本 · 1980 至今 | 男鹿和雄（吉卜力背景）、新海诚 | 外链 | 现代 1 |
+| 日系角色插画 Anime-style character illustration `anime-illustration` | 日本、全球 · 1980 至今 | 美树本晴彦、贞本义行；pixiv | 外链 | 现代 1 |
+| 像素艺术 Pixel art `pixel-art` | 全球 · 1980 至今 | 苏珊·卡雷、eBoy | 开放许可：Commons、OpenGameArt（CC0 / CC BY） | 现代 1 |
+| 等距插画 Isometric illustration `isometric` | 全球 · 1982 至今 | 《Zaxxon》、eBoy、《纪念碑谷》 | 开放许可：Commons（CC0 / CC BY） | 现代 1 |
+| 数字厚涂与概念美术 Digital painting & concept art `concept-art` | 全球 · 1990 至今 | 拉尔夫·麦夸里、克雷格·穆林斯 | 开放许可：Blender 开源电影、大卫·勒瓦（David Revoy，CC BY） | 现代 1 |
+| 水粉插画 Gouache illustration `gouache` | 全球 · 1940 至今 | 玛丽·布莱尔；动画背景用的广告颜料 | 开放许可：按画面从 StoryWeaver 图库挑 | 现代 1 |
+| 孔版印刷风 Risograph aesthetic `risograph` | 全球 · 2005 至今 | 独立出版与 zine | 外链 | 现代 1 |
+| 扁平矢量插画 Flat vector illustration `flat-vector` | 全球 · 2010 至今 | 科技公司的人物插画（“Corporate Memphis”）、Buck 的 Alegria | 开放许可：Open Peeps 等 CC0 素材、Commons | 现代 1 |
+| 国潮插画 Guochao `guochao` | 中国 · 2016 至今 | 中国李宁、故宫文创；传统纹样与传统色 | 外链 | 现代 1 |
 
 MVP 暂缺非洲、拉丁美洲、喜马拉雅和东欧，全量阶段补齐。凯·尼尔森 1957 年去世，在欧盟 2028 年才进入公共领域，在此之前只给外链。
 
@@ -482,7 +493,9 @@ sources:
 
 ## 8. 图片来源与版权规则
 
-一张图能进应用，必须同时满足三条：来源方明确标为 CC0 或公共领域；记录了来源链接和许可；通过 `npm run validate` 的许可检查。否则一律只给外链。
+一张图能进应用，必须同时满足三条：来源方明确标为 CC0、公共领域、CC BY 或 CC BY-SA；记录了来源链接、作者和许可；通过 `npm run validate` 的许可检查。否则一律只给外链。不收“禁止商用”（NC）和“禁止演绎”（ND）的许可，应用和图片都可以照原许可再分享。
+
+（2026-11-11 改：原来只收 CC0 和公共领域，当代画风因此几乎都没有图。你选择放宽到作者自己用 CC BY / CC BY-SA 开放的作品，图上署名、链回原页。）
 
 ### 8.1 来源与判定字段
 
@@ -493,6 +506,8 @@ sources:
 | CMA | `openaccess-api.clevelandart.org`，免 key | `share_license_status` 为 CC0（查询加 `cc0` 和 `has_image=1`） | `images.web`（约 1000px），大图用 `images.print` | 文档未写限速，按每秒 1–2 次 |
 | Commons | `commons.wikimedia.org` API | 许可为 Public domain 或 CC0，且作者 1955 年及以前去世或为 1900 年前的无名作品 | `imageinfo` 的缩略图（`iiurlwidth=1600`） | User-Agent 写项目名和仓库地址 |
 | LoC | `www.loc.gov` JSON API | 权利声明为 No known restrictions，或美国联邦政府作品 | `tile.loc.gov` | 每秒不超过 1 次 |
+| Commons（开放许可） | 同上，请求里写 `"open": true` | 许可为 CC BY 或 CC BY-SA（任一版本），记下版本和许可链接；只用于现代风格 | 同上 | 同上 |
+| Pratham Books 图库 | GitHub 仓库 `global-asp/pb-imagebank`（`metadata/` 里每个故事一个表） | 表里许可为 CC BY 4.0（少数为公共领域）；鸣谢写插画师、故事名，链回 StoryWeaver 的故事页 | `large/`（原尺寸）；联系表用 `medium/` | 走 GitHub，无需限速 |
 
 三家博物馆的标注直接采信；各 API 都有数据全量包（GitHub 上的 JSON/CSV），大批量筛选时优先用全量包，少打接口。
 
@@ -500,9 +515,9 @@ sources:
 
 1. 构建时下载并存进仓库，运行时不热链博物馆服务器。缩略图 480px 宽（WebP，不超过 60KB），展示图长边 1600px（WebP，不超过 300KB），全部图片控制在 150MB 内。
 2. 每幅图在 `content/artworks.json` 记录：来源、原始页面链接、许可、鸣谢文字、下载日期、原图尺寸。
-3. 应用里每幅图都能看到鸣谢与许可；“关于”页说明本节规则。鸣谢格式：作品名，作者，年代。馆名，许可。
-4. 混合风格只收明确标为公共领域的图；凑不够 4 幅，该风格降为外链，并写进覆盖报告。
-5. 外链风格只放搜索链接，不嵌入、不截图、不缓存别人的图。
+3. 应用里每幅图都能看到鸣谢与许可；“关于”页说明本节规则。鸣谢格式：作品名，作者，年代。馆名，许可。CC BY / BY-SA 的图写成“作品名，作者，年代。来源，CC BY 4.0。”，看图器里许可名链到许可原文，另有原页链接；“关于”页注明所有图都经过缩放和格式转换。
+4. 混合风格只收明确标为公共领域的图；开放许可风格（`imageMode: open-license`）只收 CC0、公共领域、CC BY、CC BY-SA；凑不够 4 幅，该风格降为外链，并写进覆盖报告。
+5. 外链风格只放搜索链接，不嵌入、不截图、不缓存别人的图。你自己导入剪贴簿的图不属于应用内容：只存你手机的 IndexedDB，不进构建、不上传、不进备份文件。
 6. AI 关键词里的画家名只收 1955 年及以前去世的（校验脚本检查 `deathYear`）；当代风格只用描述词。
 7. 挑图标准：每种 4–8 幅；至少 3 位不同作者或作坊（若该风格有）；题材不重样；代表作优先；画面完整，避开大面积装裱、画框、色卡；源图长边至少 1200px。每种指定 1 幅封面。
 8. 请求头里的联系方式用仓库地址，不写个人邮箱。
@@ -650,8 +665,9 @@ interface Style {
   id: string; nameZh: string; nameEn: string; nameOriginal?: string;
   family: FamilyId; regions: RegionId[];
   era: { start: number; end: number | null; label: string };   // 公元前用负数
-  imageMode: 'public-domain' | 'mixed' | 'external-only';
+  imageMode: 'public-domain' | 'mixed' | 'open-license' | 'external-only';
   attributes: Attributes; moods: MoodId[]; mediums: MediumId[];
+  externalExtra?: { site: 'pixiv' | 'zcool' | 'dribbble' | 'xiaohongshu'; q: string }[];
   keyArtists: { zh: string; original?: string; life?: string; known?: string; deathYear?: number }[];
   related: { influencedBy: string[]; influenced: string[]; similar: string[] };
   museums: { name: string; city: string; note?: string; url?: string;
@@ -667,8 +683,9 @@ interface Artwork {
   id: string;                       // 如 met-45434、aic-24645
   styleIds: string[]; title: string; titleZh?: string;   // titleZh 只在有把握时填
   artist?: string; date: string; medium?: string;
-  source: 'met' | 'aic' | 'cma' | 'commons' | 'loc'; sourceUrl: string;
-  license: 'CC0' | 'PD'; credit: string; downloadedAt: string;
+  source: 'met' | 'aic' | 'cma' | 'commons' | 'loc' | 'pratham'; sourceUrl: string;
+  license: 'CC0' | 'PD' | 'CC BY' | 'CC BY-SA'; licenseVersion?: string; licenseUrl?: string;
+  credit: string; downloadedAt: string;
   img: { thumb: string; display: string; width: number; height: number };
   palette: string[];                // 5 个 HEX，构建时算
   subjects: SubjectId[]; attributes?: Partial<Attributes>;
@@ -793,6 +810,14 @@ playwright.download.prss.microsoft.com
 - 验收：端到端流程跑通（或截图记录）；一轮盲测 4 分钟内可评完；切站不超过 300 毫秒。
 - 你：在手机上实际用 10 分钟，把不顺手的地方写进 PR 评论。
 
+### Phase 3.5 · 现代转向（2026-11-11 加，1–2 次）
+
+你试用后说前面的历史章节都不喜欢、想看现代的，并同意按建议放宽图片许可。之后的顺序改为：先把现代做厚，再做口味画像，历史章节放到最后。
+
+- 做：放宽 §8 的许可（CC BY / CC BY-SA，署名）；`content/route.yaml` 的现代线路，首页先走现代、九大类改为“溯源”；现代第 1 批 12 种风格（§6.9 里标“现代 1”的）；能凑够 4 幅好图的配开放许可图；盲测“现代专场”；剪贴簿（§4.5）；外链加 Pixiv、站酷、Dribbble、小红书。
+- 验收：12 种风格 validate 零错误；首页第一屏是现代线路；现代专场能开一轮；剪贴簿添加、查看、删除都能用，关掉应用后还在。
+- 之后：Phase 4 的口味画像、推荐和提示词工坊以现代风格为主；现代第 2 批（约 18 种：美漫、法比漫画与墨比斯、波普、迷幻海报、波兰海报、复古未来、蒸汽波、赛博朋克、低多边形、3D 卡通、拼贴、线描、孟菲斯、港漫、条漫、连环画、苏联先锋派、北欧现代）排在 Phase 5 之前；Phase 5、7 的历史风格顺延。
+
 ### Phase 4 · 口味画像与工具（1 次）
 
 - 做：§9 的全部算法与单元测试；口味光谱条、推荐、提示词工坊、学画路线、看展清单、收藏、笔记；临摹模式；自适应盲测。
@@ -885,7 +910,7 @@ playwright.download.prss.microsoft.com
 | 名字 | 画风地图，英文 Style Atlas，仓库 `style-atlas` |
 | 视觉 | 克制，让画作做主角：浅色暖灰白底 #F7F5F0，深色 #121212，强调色墨蓝 #1F3A5F（深色模式 #8FB3D9）；看图器始终深色 |
 | 评分与盲测 | 5 档；首轮 24 张，之后每轮 12 张 |
-| 导览顺序 | 历史脉络；大类内按起始年份 |
+| 导览顺序 | 现代线路优先（按 `content/route.yaml` 的段和站序）；溯源章节按历史脉络，大类内按起始年份 |
 | 每种风格的图 | 目标 6 幅，4–8 幅都可接受 |
 | 中文作品名 | 有把握才填，否则显示原名 |
 | 去哪看真迹 | 核实不了就只列世界级馆藏，不写斯德哥尔摩 |
@@ -896,7 +921,8 @@ playwright.download.prss.microsoft.com
 
 ### C. 以后再做
 
-- 自己的灵感图：本地保存截图并打风格标签，补上当代画风的图。
+- ~~自己的灵感图：本地保存截图并打风格标签，补上当代画风的图。~~ 2026-11-11 提前做成“剪贴簿”（§4.5）。
+- 剪贴簿导出：把你存的图单独打包备份（现在只存在手机里，不进备份文件）。
 - 两图二选一的对比模式。
 - AI 对照图：同一题材画成多种风格（需要图像 API）。
 - AI 讲解员（需要 Claude API）。

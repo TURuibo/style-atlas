@@ -1,9 +1,10 @@
 /**
- * 各来源的候选抓取。只收来源方标为 CC0 / 公共领域、且有图的作品（SPEC §8.1）。
+ * 各来源的候选抓取。只收来源方标为 CC0 / 公共领域、且有图的作品（SPEC §8.1）；
+ * 开放许可风格另收 CC BY / CC BY-SA（维基共享资源的 open 请求、Pratham Books 图库）。
  * 每个函数都把来源的原始字段映射成统一的 RawCandidate；映射函数单独导出，便于测试。
  */
-import { getJson, stripHtml } from './http'
-import type { Query, RawCandidate } from './types'
+import { getJson, getText, stripHtml } from './http'
+import type { CandidateLicense, Query, RawCandidate } from './types'
 
 // ---------- 大都会艺术博物馆 ----------
 
@@ -232,13 +233,33 @@ export function isCommonsPublicDomain(licenseShortName: string): boolean {
   return /^(public domain|pd\b|pd-|cc0)/i.test(licenseShortName.trim())
 }
 
-export function mapCommons(p: CommonsPage): RawCandidate | null {
+/**
+ * CC BY / CC BY-SA（任一版本，含 3.0 de 这类移植版）；NC、ND 一律不收（SPEC §8）。
+ * 返回许可、版本和许可原文链接；不是这两种时返回 null。
+ */
+export function parseCommonsOpenLicense(
+  licenseShortName: string,
+  licenseUrl?: string,
+): { license: CandidateLicense; licenseVersion: string; licenseUrl: string } | null {
+  const m = /^cc[ -]by(-sa)?[ -](\d\.\d)(?:[ -]([a-z]{2}))?$/i.exec(licenseShortName.trim())
+  if (!m) return null
+  const sa = Boolean(m[1])
+  const version = m[3] ? `${m[2]} ${m[3].toLowerCase()}` : m[2]!
+  const url =
+    licenseUrl && /^https?:\/\/creativecommons\.org\/licenses\/by(-sa)?\//.test(licenseUrl)
+      ? licenseUrl.replace(/^http:/, 'https:')
+      : `https://creativecommons.org/licenses/${sa ? 'by-sa' : 'by'}/${m[2]}/${m[3] ? `${m[3].toLowerCase()}/` : ''}`
+  return { license: sa ? 'CC BY-SA' : 'CC BY', licenseVersion: version, licenseUrl: url }
+}
+
+export function mapCommons(p: CommonsPage, open = false): RawCandidate | null {
   const info = p.imageinfo?.[0]
   if (!info) return null
   if (info.mime && !/^image\/(jpeg|png|tiff|webp)$/.test(info.mime)) return null
   const meta = info.extmetadata ?? {}
   const license = stripHtml(meta.LicenseShortName?.value)
-  if (!isCommonsPublicDomain(license)) return null
+  const openLicense = open ? parseCommonsOpenLicense(license, stripHtml(meta.LicenseUrl?.value)) : null
+  if (!isCommonsPublicDomain(license) && !openLicense) return null
   // iiurlwidth=1600 的缩略图（原图更小时就是原图），预览和下载都用它，避免下载几十 MB 的原图或 TIFF
   const image = info.thumburl ?? info.url
   return {
@@ -250,7 +271,7 @@ export function mapCommons(p: CommonsPage): RawCandidate | null {
     sourceUrl: info.descriptionurl,
     previewUrl: image,
     fullUrl: image,
-    license: /cc0/i.test(license) ? 'CC0' : 'PD',
+    ...(openLicense ?? { license: /cc0/i.test(license) ? ('CC0' as const) : ('PD' as const) }),
     museum: '维基共享资源',
     width: info.width,
     height: info.height,
@@ -276,7 +297,65 @@ async function fromCommons(q: Extract<Query, { source: 'commons' }>): Promise<Ra
     const found = Object.values(res.query?.pages ?? {}).sort((a, b) => (a.index ?? 0) - (b.index ?? 0))
     pages.push(...found)
   }
-  return pages.map(mapCommons).filter((c): c is RawCandidate => c !== null).slice(0, max)
+  if (q.category) {
+    const res = await getJson<{ query?: { pages?: Record<string, CommonsPage> } }>(
+      `${base}&generator=categorymembers&gcmtype=file&gcmlimit=${Math.min(max * 3, 50)}` +
+        `&gcmtitle=${encodeURIComponent(`Category:${q.category}`)}`,
+    )
+    pages.push(...Object.values(res.query?.pages ?? {}).sort((a, b) => a.title.localeCompare(b.title)))
+  }
+  return pages
+    .map((p) => mapCommons(p, q.open === true))
+    .filter((c): c is RawCandidate => c !== null)
+    .slice(0, max)
+}
+
+// ---------- Pratham Books 图库（StoryWeaver，CC BY 4.0） ----------
+
+const PRATHAM_RAW = 'https://raw.githubusercontent.com/global-asp/pb-imagebank/master'
+
+/**
+ * metadata/<故事>.md 的格式：第一行是故事名和 StoryWeaver 链接，下面是一张表
+ * “Image | Description | Illustrator | License”。许可写 CC-BY（4.0）或 Public Domain，其他的跳过。
+ */
+export function parsePrathamMetadata(md: string, story: string): RawCandidate[] {
+  const head = /story \[([^\]]+)\]\((https:\/\/storyweaver\.org\.in\/[^)\s]+)\)/.exec(md)
+  const storyUrl = head?.[2] ?? `https://storyweaver.org.in/`
+  const out: RawCandidate[] = []
+  for (const line of md.split('\n')) {
+    const cells = line.split('|').map((c) => c.trim())
+    if (cells.length < 4 || !/^\d+\.(jpe?g|png)$/i.test(cells[0]!)) continue
+    const [file, description, illustrator, licenseCell] = cells as [string, string, string, string]
+    const image = file.replace(/\.[a-z]+$/i, '')
+    let license: Pick<RawCandidate, 'license' | 'licenseVersion' | 'licenseUrl'>
+    if (/cc[- ]by\b/i.test(licenseCell) && !/nc|nd/i.test(licenseCell.replace(/\(.*?\)/g, '')))
+      license = { license: 'CC BY', licenseVersion: '4.0', licenseUrl: 'https://creativecommons.org/licenses/by/4.0/' }
+    else if (/^public domain/i.test(licenseCell)) license = { license: 'PD' }
+    else continue
+    out.push({
+      source: 'pratham',
+      sourceId: `${story}-${image}`,
+      title: description || '无题',
+      ...(illustrator ? { artist: illustrator } : {}),
+      date: '',
+      sourceUrl: storyUrl,
+      previewUrl: `${PRATHAM_RAW}/medium/${story}/${file}`,
+      fullUrl: `${PRATHAM_RAW}/large/${story}/${file}`,
+      ...license,
+      museum: 'StoryWeaver / Pratham Books',
+    })
+  }
+  return out
+}
+
+async function fromPratham(q: Extract<Query, { source: 'pratham' }>): Promise<RawCandidate[]> {
+  const out: RawCandidate[] = []
+  for (const story of q.stories) {
+    const md = await getText(`${PRATHAM_RAW}/metadata/${story}.md`)
+    const found = parsePrathamMetadata(md, story)
+    out.push(...(q.images ? found.filter((c) => q.images!.includes(c.sourceId.split('-')[1]!)) : found))
+  }
+  return out.slice(0, q.max ?? 200)
 }
 
 // ---------- 美国国会图书馆 ----------
@@ -390,5 +469,7 @@ export async function fetchQuery(q: Query): Promise<RawCandidate[]> {
       return fromCommons(q)
     case 'loc':
       return fromLoc(q)
+    case 'pratham':
+      return fromPratham(q)
   }
 }

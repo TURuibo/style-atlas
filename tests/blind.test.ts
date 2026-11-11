@@ -4,7 +4,7 @@ import { blindCandidates, orderNoRepeat, pickFirstRound, pickNextRound, type Bli
 import { seededRandom } from '../src/lib/random'
 import { revealGroups, revealSummary, roundScores, subjectHint } from '../src/lib/reveal'
 import type { BlindRound, Rating } from '../src/lib/storage'
-import { chapterProgress, nextStation, previousStation } from '../src/lib/tour'
+import { chapterProgress, homeChapterOf, nextStation, previousStation } from '../src/lib/tour'
 
 const attrs = (v: number) => ({ lineMass: v, flatVolume: -v, sparseDense: v, naturalStylized: 0, mutedVivid: v })
 
@@ -89,8 +89,8 @@ describe('揭晓', () => {
   const family = (id: string, order: number, nameZh: string) => ({ id, order, nameZh }) as Family
   const families = [family('print', 1, '版画'), family('poster', 2, '装饰艺术与海报')]
   const stylesById = new Map([
-    ['ukiyo-e', { id: 'ukiyo-e', family: 'print' } as Style],
-    ['art-nouveau', { id: 'art-nouveau', family: 'poster' } as Style],
+    ['ukiyo-e', { id: 'ukiyo-e', family: 'print', nameZh: '浮世绘' } as Style],
+    ['art-nouveau', { id: 'art-nouveau', family: 'poster', nameZh: '新艺术运动' } as Style],
   ])
   const art = (id: string, styleId: string, subjects: string[]) => ({ id, styleIds: [styleId], subjects }) as unknown as Artwork
   const arts = [
@@ -115,6 +115,20 @@ describe('揭晓', () => {
     at,
   })
 
+  it('现代专场按风格分组，按给出的风格顺序排', () => {
+    const scores = new Map<string, Rating['score']>([
+      ['b1', 2],
+      ['b2', 1],
+      ['a1', -1],
+    ])
+    const groups = revealGroups(round, scores, artworksById, stylesById, families, ['art-nouveau'])
+    expect(groups.map((g) => [g.id, g.nameZh, g.items.map((i) => i.artworkId)])).toEqual([
+      ['art-nouveau', '新艺术运动', ['b1', 'b2']],
+      ['ukiyo-e', '浮世绘', ['a1', 'a2']],
+    ])
+    expect(revealSummary(groups)).toBe('你给高分最多的是新艺术运动。')
+  })
+
   it('只算本轮里的盲测评分', () => {
     const ratings = [
       r('a1', -2, '2026-11-10T09:00:00.000Z'),
@@ -130,7 +144,7 @@ describe('揭晓', () => {
       ['b2', 1],
     ])
     const groups = revealGroups(round, scores, artworksById, stylesById, families)
-    expect(groups.map((g) => [g.family.id, g.items.map((i) => i.artworkId)])).toEqual([
+    expect(groups.map((g) => [g.id, g.items.map((i) => i.artworkId)])).toEqual([
       ['print', ['a1', 'a2']],
       ['poster', ['b1', 'b2']],
     ])
@@ -149,16 +163,33 @@ describe('揭晓', () => {
 
 describe('导览站序', () => {
   const chapters = [
-    { family: 'a', styles: ['a1', 'a2'] },
-    { family: 'b', styles: [] },
-    { family: 'c', styles: ['c1'] },
+    { id: 'm1', group: 'modern' as const, styles: ['x', 'y'] },
+    { id: 'm2', group: 'modern' as const, styles: ['manga'] },
+    { id: 'a', group: 'history' as const, styles: ['a1', 'a2'] },
+    { id: 'b', group: 'history' as const, styles: [] },
+    { id: 'c', group: 'history' as const, styles: ['c1', 'manga'] },
   ]
   it('下一站跨章，最后一站之后为空', () => {
-    expect(nextStation(chapters, { family: 'a', style: 'a1' })).toEqual({ family: 'a', style: 'a2' })
-    expect(nextStation(chapters, { family: 'a', style: 'a2' })).toEqual({ family: 'c', style: 'c1' })
-    expect(nextStation(chapters, { family: 'c', style: 'c1' })).toBeNull()
-    expect(previousStation(chapters, { family: 'c', style: 'c1' })).toEqual({ family: 'a', style: 'a2' })
-    expect(previousStation(chapters, { family: 'a', style: 'a1' })).toBeNull()
+    expect(nextStation(chapters, { chapter: 'a', style: 'a1' })).toEqual({ chapter: 'a', style: 'a2' })
+    expect(nextStation(chapters, { chapter: 'a', style: 'a2' })).toEqual({ chapter: 'c', style: 'c1' })
+    expect(nextStation(chapters, { chapter: 'c', style: 'manga' })).toBeNull()
+    expect(previousStation(chapters, { chapter: 'c', style: 'c1' })).toEqual({ chapter: 'a', style: 'a2' })
+    expect(previousStation(chapters, { chapter: 'a', style: 'a1' })).toBeNull()
+  })
+  it('现代线路和溯源各走各的，不互相串', () => {
+    expect(nextStation(chapters, { chapter: 'm1', style: 'y' })).toEqual({ chapter: 'm2', style: 'manga' })
+    expect(nextStation(chapters, { chapter: 'm2', style: 'manga' })).toBeNull()
+    // 同一种风格在溯源里的位置不同
+    expect(previousStation(chapters, { chapter: 'c', style: 'manga' })).toEqual({ chapter: 'c', style: 'c1' })
+    expect(previousStation(chapters, { chapter: 'm1', style: 'x' })).toBeNull()
+  })
+  it('找不到当前站时回到本组第一站', () => {
+    expect(nextStation(chapters, { chapter: 'm1', style: 'gone' })).toEqual({ chapter: 'm1', style: 'x' })
+    expect(nextStation(chapters, { chapter: 'b', style: 'gone' })).toEqual({ chapter: 'a', style: 'a1' })
+  })
+  it('风格的“家”：线路上的段优先，否则是大类', () => {
+    expect(homeChapterOf(chapters, 'manga', 'satire-comics')).toBe('m2')
+    expect(homeChapterOf(chapters, 'a1', 'a')).toBe('a')
   })
   it('章节进度', () => {
     expect(chapterProgress(['a1', 'a2'], ['a2', 'x'])).toEqual({ seen: 1, total: 2 })

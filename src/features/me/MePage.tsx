@@ -1,8 +1,10 @@
+import { useEffect } from 'react'
+import { Link } from 'react-router'
 import { Card, ListLink, Page, Section } from '../../components/ui'
 import { needsBackupReminder } from '../../lib/backup'
 import { latestRatings } from '../../lib/storage'
+import { useScrapStore } from '../../store/scrapStore'
 import { useUserStore } from '../../store/userStore'
-import { Link } from 'react-router'
 
 /** 画像出现的最少评分次数（SPEC §9.2） */
 export const PROFILE_MIN_RATINGS = 15
@@ -11,6 +13,11 @@ export function MePage() {
   const state = useUserStore((s) => s.state)
   const ratingCount = latestRatings(state.ratings).size
   const remind = needsBackupReminder(state)
+  const scrapCount = useScrapStore((s) => s.items.length)
+  const initScraps = useScrapStore((s) => s.init)
+  useEffect(() => {
+    void initScraps()
+  }, [initScraps])
 
   return (
     <Page title="我的">
@@ -40,6 +47,14 @@ export function MePage() {
           <Stat label="收藏" value={state.favorites.length} />
           <Stat label="看过的风格" value={state.progress.visitedStyles.length} />
         </div>
+      </Section>
+
+      <Section title="我存的">
+        <ListLink
+          to="/me/scrapbook"
+          title="剪贴簿"
+          detail={scrapCount > 0 ? `${scrapCount} 张，只存在这台手机上` : '从相册加你在外面看到的好图，按风格归档'}
+        />
       </Section>
 
       <Section title="设置与帮助">

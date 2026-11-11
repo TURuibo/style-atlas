@@ -1,0 +1,61 @@
+{
+  "styleId": "gouache",
+  "queries": [
+    {
+      "source": "pratham",
+      "stories": [
+        "0146"
+      ],
+      "images": [
+        "08",
+        "11"
+      ]
+    },
+    {
+      "source": "pratham",
+      "stories": [
+        "0069"
+      ],
+      "images": [
+        "08"
+      ]
+    },
+    {
+      "source": "pratham",
+      "stories": [
+        "0002"
+      ],
+      "images": [
+        "05"
+      ]
+    },
+    {
+      "source": "pratham",
+      "stories": [
+        "0004"
+      ],
+      "images": [
+        "12",
+        "17"
+      ]
+    },
+    {
+      "source": "pratham",
+      "stories": [
+        "0411"
+      ],
+      "images": [
+        "08"
+      ]
+    },
+    {
+      "source": "pratham",
+      "stories": [
+        "0314"
+      ],
+      "images": [
+        "04"
+      ]
+    }
+  ]
+}

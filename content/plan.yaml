@@ -64,16 +64,19 @@ styles:
   - { id: secession, nameZh: "维也纳分离派与青年风格", nameEn: "Secession & Jugendstil", family: decorative-poster }
   - { id: yuefenpai, nameZh: "月份牌", nameEn: "Shanghai calendar posters", family: decorative-poster }
   - { id: art-deco, nameZh: "装饰艺术风插画", nameEn: "Art Deco illustration", family: decorative-poster }
-  - { id: wpa-poster, nameZh: "WPA 海报 WPA posters", nameEn: "", family: decorative-poster }
+  - { id: wpa-poster, nameZh: "WPA 海报", nameEn: "WPA posters", family: decorative-poster }
   - { id: soviet-avant-garde, nameZh: "苏联先锋派", nameEn: "Soviet avant-garde", family: modern }
-  - { id: mid-century-modern, nameZh: "中世纪现代插画", nameEn: "Mid-century modern", family: modern, phase: "MVP" }
+  - { id: mid-century-modern, nameZh: "中世纪现代插画", nameEn: "Mid-century modern", family: modern, phase: "现代 1" }
   - { id: polish-poster, nameZh: "波兰海报学派", nameEn: "Polish School of Posters", family: modern }
-  - { id: picture-books, nameZh: "当代绘本", nameEn: "Contemporary picture books", family: modern }
+  - { id: picture-books, nameZh: "当代绘本", nameEn: "Contemporary picture books", family: modern, phase: "现代 1" }
   - { id: psychedelic, nameZh: "迷幻海报", nameEn: "Psychedelic posters", family: modern }
-  - { id: editorial, nameZh: "观念插画", nameEn: "Conceptual editorial illustration", family: modern }
-  - { id: anime-art, nameZh: "日本动画美术", nameEn: "Anime background art", family: modern }
-  - { id: pixel-art, nameZh: "像素艺术", nameEn: "Pixel art", family: modern }
-  - { id: concept-art, nameZh: "数字厚涂与概念美术", nameEn: "Digital painting & concept art", family: modern }
-  - { id: risograph, nameZh: "孔版印刷风", nameEn: "Risograph aesthetic", family: modern }
-  - { id: flat-vector, nameZh: "扁平矢量插画", nameEn: "Flat vector illustration", family: modern, phase: "MVP" }
-  - { id: guochao, nameZh: "国潮插画", nameEn: "Guochao", family: modern }
+  - { id: editorial, nameZh: "观念插画", nameEn: "Conceptual editorial illustration", family: modern, phase: "现代 1" }
+  - { id: anime-art, nameZh: "日本动画美术", nameEn: "Anime background art", family: modern, phase: "现代 1" }
+  - { id: anime-illustration, nameZh: "日系角色插画", nameEn: "Anime-style character illustration", family: modern, phase: "现代 1" }
+  - { id: pixel-art, nameZh: "像素艺术", nameEn: "Pixel art", family: modern, phase: "现代 1" }
+  - { id: isometric, nameZh: "等距插画", nameEn: "Isometric illustration", family: modern, phase: "现代 1" }
+  - { id: concept-art, nameZh: "数字厚涂与概念美术", nameEn: "Digital painting & concept art", family: modern, phase: "现代 1" }
+  - { id: gouache, nameZh: "水粉插画", nameEn: "Gouache illustration", family: modern, phase: "现代 1" }
+  - { id: risograph, nameZh: "孔版印刷风", nameEn: "Risograph aesthetic", family: modern, phase: "现代 1" }
+  - { id: flat-vector, nameZh: "扁平矢量插画", nameEn: "Flat vector illustration", family: modern, phase: "现代 1" }
+  - { id: guochao, nameZh: "国潮插画", nameEn: "Guochao", family: modern, phase: "现代 1" }

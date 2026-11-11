@@ -1,0 +1,78 @@
+{
+  "styleId": "picture-books",
+  "queries": [
+    {
+      "source": "pratham",
+      "stories": [
+        "0133"
+      ],
+      "images": [
+        "01"
+      ]
+    },
+    {
+      "source": "pratham",
+      "stories": [
+        "0154"
+      ],
+      "images": [
+        "06"
+      ]
+    },
+    {
+      "source": "pratham",
+      "stories": [
+        "0276"
+      ],
+      "images": [
+        "07",
+        "12"
+      ]
+    },
+    {
+      "source": "pratham",
+      "stories": [
+        "0240"
+      ],
+      "images": [
+        "02"
+      ]
+    },
+    {
+      "source": "pratham",
+      "stories": [
+        "0332"
+      ],
+      "images": [
+        "05"
+      ]
+    },
+    {
+      "source": "pratham",
+      "stories": [
+        "0134"
+      ],
+      "images": [
+        "04"
+      ]
+    },
+    {
+      "source": "pratham",
+      "stories": [
+        "0008"
+      ],
+      "images": [
+        "08"
+      ]
+    },
+    {
+      "source": "pratham",
+      "stories": [
+        "0027"
+      ],
+      "images": [
+        "02"
+      ]
+    }
+  ]
+}

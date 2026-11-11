@@ -8,8 +8,10 @@ export interface RevealItem {
   score?: Score
 }
 
+/** 一组：普通盲测按大类分，现代专场按风格分 */
 export interface RevealGroup {
-  family: Family
+  id: string
+  nameZh: string
   items: RevealItem[]
 }
 
@@ -30,6 +32,8 @@ export function revealGroups(
   artworksById: ReadonlyMap<string, Artwork>,
   stylesById: ReadonlyMap<string, Style>,
   families: readonly Family[],
+  /** 给出风格顺序时按风格分组（现代专场），没列到的风格按出现顺序排在后面 */
+  byStyle?: readonly string[],
 ): RevealGroup[] {
   const items = round.artworkIds.flatMap((id): (RevealItem & { family: string })[] => {
     const art = artworksById.get(id)
@@ -37,18 +41,30 @@ export function revealGroups(
     if (!art || !style) return []
     return [{ artworkId: id, styleId: style.id, family: style.family, score: scores.get(id) }]
   })
+  const strip = ({ family: _f, ...rest }: RevealItem & { family: string }): RevealItem => rest
+  if (byStyle) {
+    const order = [...new Set([...byStyle, ...items.map((i) => i.styleId)])]
+    return order
+      .map((styleId) => ({
+        id: styleId,
+        nameZh: stylesById.get(styleId)?.nameZh ?? styleId,
+        items: items.filter((i) => i.styleId === styleId).map(strip),
+      }))
+      .filter((g) => g.items.length > 0)
+  }
   return families
     .map((family) => ({
-      family,
-      items: items.filter((i) => i.family === family.id).map(({ family: _f, ...rest }) => rest),
+      id: family.id,
+      nameZh: family.nameZh,
+      items: items.filter((i) => i.family === family.id).map(strip),
     }))
     .filter((g) => g.items.length > 0)
 }
 
-/** 顶部一句总结：高分（喜欢、超爱）最多的大类，并列时最多说两个 */
+/** 顶部一句总结：高分（喜欢、超爱）最多的组（大类或风格），并列时最多说两个 */
 export function revealSummary(groups: readonly RevealGroup[]): string {
   const counts = groups
-    .map((g) => ({ name: g.family.nameZh, high: g.items.filter((i) => (i.score ?? 0) >= 1).length }))
+    .map((g) => ({ name: g.nameZh, high: g.items.filter((i) => (i.score ?? 0) >= 1).length }))
     .filter((c) => c.high > 0)
     .sort((a, b) => b.high - a.high)
   if (counts.length === 0) return '这一轮没有给出“喜欢”以上的分。换一轮，或者去导览慢慢看。'

@@ -59,7 +59,12 @@ const MuseumSchema = z.object({
   local: z.enum(['stockholm', 'sweden', 'nordic']).optional(),
 })
 
-export const imageModes = ['public-domain', 'mixed', 'external-only'] as const
+/** open-license：当代作者自己用 CC0 / CC BY / CC BY-SA 开放的作品（SPEC §8，2026-11-11 起） */
+export const imageModes = ['public-domain', 'mixed', 'open-license', 'external-only'] as const
+
+/** 外链按钮组里按风格追加的站内搜索（SPEC §4.5） */
+export const externalSites = ['pixiv', 'zcool', 'dribbble', 'xiaohongshu'] as const
+export type ExternalSite = (typeof externalSites)[number]
 
 export const StyleFrontmatterSchema = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/),
@@ -92,6 +97,7 @@ export const StyleFrontmatterSchema = z.object({
     negative: z.array(z.string()).default([]),
   }),
   externalSearch: z.string().min(1),
+  externalExtra: z.array(z.object({ site: z.enum(externalSites), q: z.string().min(1) })).default([]),
   sources: z.array(z.url()).default([]),
   coverArtworkId: z.string().optional(),
 })
@@ -108,7 +114,14 @@ export type StyleBody = z.infer<typeof StyleBodySchema>
 export const StyleSchema = StyleFrontmatterSchema.extend({ body: StyleBodySchema })
 export type Style = z.infer<typeof StyleSchema>
 
-export const sources = ['met', 'aic', 'cma', 'commons', 'loc'] as const
+/** pratham：Pratham Books / StoryWeaver 的开放图库（GitHub 上的 pb-imagebank） */
+export const sources = ['met', 'aic', 'cma', 'commons', 'loc', 'pratham'] as const
+export const museumSources: readonly string[] = ['met', 'aic', 'cma']
+
+/** CC BY / CC BY-SA 要署名、写版本并链到许可原文（SPEC §8） */
+export const licenses = ['CC0', 'PD', 'CC BY', 'CC BY-SA'] as const
+export type License = (typeof licenses)[number]
+export const attributionLicenses: readonly License[] = ['CC BY', 'CC BY-SA']
 
 export const ArtworkSchema = z.object({
   id: z.string().regex(/^[a-z]+-[A-Za-z0-9_-]+$/),
@@ -120,7 +133,10 @@ export const ArtworkSchema = z.object({
   medium: z.string().optional(),
   source: z.enum(sources),
   sourceUrl: z.url(),
-  license: z.enum(['CC0', 'PD']),
+  license: z.enum(licenses),
+  /** 如 4.0、3.0；只用于 CC BY / CC BY-SA */
+  licenseVersion: z.string().optional(),
+  licenseUrl: z.url().optional(),
   credit: z.string(),
   downloadedAt: z.string(),
   img: z.object({
@@ -148,11 +164,33 @@ export const PlanEntrySchema = z.object({
 })
 export type PlanEntry = z.infer<typeof PlanEntrySchema>
 
+/** content/route.yaml：现代线路（导览主线，2026-11-11 起）。每段一章，站序按 styles 的顺序。 */
+export const RouteChapterSchema = z.object({
+  id: z.string().regex(/^[a-z0-9-]+$/),
+  nameZh: z.string().min(1),
+  nameEn: z.string().min(1),
+  glance: z.string().min(1),
+  summary: z.string().min(1),
+  traits: z.array(z.string()).length(3),
+  /** 写好的和计划中的风格 id；没写的在章节页里列为“待上线” */
+  styles: z.array(z.string()).min(1),
+  coverArtworkIds: z.array(z.string()).default([]),
+})
+export type RouteChapter = z.infer<typeof RouteChapterSchema>
+
+export const RouteSchema = z.object({
+  nameZh: z.string().min(1),
+  summary: z.string().min(1),
+  chapters: z.array(RouteChapterSchema).min(1),
+})
+export type Route = z.infer<typeof RouteSchema>
+
 export interface ContentBundle {
   builtAt: string
   vocab: Vocab
   families: Family[]
   plan: PlanEntry[]
+  route: Route
   styles: Style[]
   artworks: Artwork[]
 }

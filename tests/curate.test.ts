@@ -8,16 +8,7 @@ import { ArtworkSchema } from '../src/content/schema'
 import { processCandidate } from '../scripts/curate/images'
 import { kmeansPalette, toHex, type RGB } from '../scripts/curate/palette'
 import { makeContactSheet } from '../scripts/curate/sheet'
-import {
-  isCommonsPublicDomain,
-  isLocUnrestricted,
-  mapAic,
-  mapCma,
-  mapCommons,
-  mapLoc,
-  mapMet,
-  type MetObject,
-} from '../scripts/curate/sources'
+import { isCommonsPublicDomain, isLocUnrestricted, mapAic, mapCma, mapCommons, mapLoc, mapMet, parseCommonsOpenLicense, parsePrathamMetadata, type MetObject } from '../scripts/curate/sources'
 import type { Candidate } from '../scripts/curate/types'
 import { artworkIdOf, buildArtwork, chunk, creditOf, dedupe } from '../scripts/curate/util'
 
@@ -318,5 +309,74 @@ describe('候选合并与按 id 挑图', () => {
     expect(findCandidate(second, { id: 'met-999', n: 1, subjects: [] })).toBeUndefined()
     const refreshed = mergeCandidates(second, [{ ...base, sourceId: '2', artist: 'After X' }])
     expect(refreshed.find((c) => c.sourceId === '2')).toMatchObject({ n: 2, artist: 'After X' })
+  })
+})
+
+describe('开放许可来源（2026-11-11）', () => {
+  it('维基共享资源：只认 CC BY 和 CC BY-SA，NC、ND 不收', () => {
+    expect(parseCommonsOpenLicense('CC BY-SA 4.0', 'https://creativecommons.org/licenses/by-sa/4.0')).toEqual({
+      license: 'CC BY-SA',
+      licenseVersion: '4.0',
+      licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    })
+    expect(parseCommonsOpenLicense('CC BY 2.0')).toEqual({
+      license: 'CC BY',
+      licenseVersion: '2.0',
+      licenseUrl: 'https://creativecommons.org/licenses/by/2.0/',
+    })
+    expect(parseCommonsOpenLicense('CC BY-SA 3.0 de')?.licenseVersion).toBe('3.0 de')
+    expect(parseCommonsOpenLicense('CC BY-NC-SA 2.0')).toBeNull()
+    expect(parseCommonsOpenLicense('CC BY-ND 4.0')).toBeNull()
+    expect(parseCommonsOpenLicense('Attribution')).toBeNull()
+  })
+
+  it('维基共享资源：普通请求仍只收公共领域，open 请求才收 CC BY-SA', () => {
+    const page = {
+      pageid: 9,
+      title: 'File:Pixel town.png',
+      imageinfo: [
+        {
+          url: 'https://upload.wikimedia.org/x.png',
+          thumburl: 'https://upload.wikimedia.org/x-1600.png',
+          width: 2000,
+          height: 1000,
+          mime: 'image/png',
+          descriptionurl: 'https://commons.wikimedia.org/wiki/File:Pixel_town.png',
+          extmetadata: {
+            LicenseShortName: { value: 'CC BY-SA 4.0' },
+            LicenseUrl: { value: 'https://creativecommons.org/licenses/by-sa/4.0' },
+            Artist: { value: '<a href="x">Someone</a>' },
+          },
+        },
+      ],
+    }
+    expect(mapCommons(page)).toBeNull()
+    expect(mapCommons(page, true)).toMatchObject({ license: 'CC BY-SA', licenseVersion: '4.0', artist: 'Someone' })
+  })
+
+  it('Pratham 图库：读出插画师、故事链接和许可，跳过看不懂的许可', () => {
+    const md = [
+      'Image metadata for illustrations from the Pratham Books story [Not Now, Not Now!](https://storyweaver.org.in/stories/33-not-now-not-now) by Rohini Nilekani.',
+      '',
+      'Image | Description | Illustrator | License',
+      '----- | ----------- | ----------- | -------',
+      '01.jpg | Girl and grandmother | Some Artist | [CC-BY](https://creativecommons.org/licenses/by/4.0/)',
+      '02.jpg | Cat on a wall | Some Artist | Public Domain',
+      '03.jpg | Odd row | Some Artist | Vartika Sharma',
+    ].join('\n')
+    const found = parsePrathamMetadata(md, '0033')
+    expect(found.map((c) => [c.sourceId, c.license])).toEqual([
+      ['0033-01', 'CC BY'],
+      ['0033-02', 'PD'],
+    ])
+    expect(found[0]).toMatchObject({
+      artist: 'Some Artist',
+      sourceUrl: 'https://storyweaver.org.in/stories/33-not-now-not-now',
+      licenseVersion: '4.0',
+      fullUrl: 'https://raw.githubusercontent.com/global-asp/pb-imagebank/master/large/0033/01.jpg',
+    })
+    expect(creditOf({ ...found[0]!, title: 'Girl and grandmother' })).toBe(
+      'Girl and grandmother，Some Artist，年代不详。StoryWeaver / Pratham Books，CC BY 4.0。',
+    )
   })
 })

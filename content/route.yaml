@@ -1,0 +1,61 @@
+# 现代线路：导览首页的主线（2026-11-11 起，SPEC §4.4、§12 Phase 3.5）。
+# 按“在哪儿见到它”分段，从今天往回走；每段一章，站序就是 styles 的顺序。
+# styles 里可以写还没写的风格（plan.yaml 里的 id），章节页把它们列为“待上线”。
+nameZh: 现代线路
+summary: 从你在手机、游戏、书店里天天见到的画开始，一路往回走到战后。
+
+chapters:
+  - id: screens
+    nameZh: 屏幕上的插画
+    nameEn: On screens
+    glance: App、网页和品牌里天天见到的画
+    summary: 这些画为屏幕而生：矢量能无限放大、随手换色，像素和等距视角来自电子游戏。画面干净、好改、好批量生产，也因此容易千篇一律。
+    traits:
+      - 色块干净，少用线条和明暗
+      - 为缩放、换色和批量使用而设计
+      - 很多画法直接来自游戏和界面设计
+    styles: [flat-vector, isometric, pixel-art]
+
+  - id: anime-games
+    nameZh: 动画、漫画与游戏
+    nameEn: Anime, manga & games
+    glance: 二次元角色、动画背景和游戏原画
+    summary: 日本动画和漫画定下了角色插画的基本画法，游戏和电影的概念美术则把数字厚涂推到极致。这一段从角色看到背景，再看到整个世界的设计。
+    traits:
+      - 角色靠线稿和分层阴影，背景靠笔触和光
+      - 先为动画、漫画、游戏服务，再成为独立的欣赏对象
+      - 2000 年后几乎都在电脑和数位板上完成
+    styles: [anime-illustration, anime-art, manga, concept-art]
+
+  - id: paper
+    nameZh: 书和杂志里的插画
+    nameEn: Books & magazines
+    glance: 绘本、报刊和独立出版
+    summary: 纸上的插画仍然最讲“手感”：颜料的颗粒、拼贴的边缘、印刷套不准的错位。绘本用翻页讲故事，报刊插画用一个点子打动人。
+    traits:
+      - 看得见材料：颜料、纸、油墨的质感
+      - 图和文字分工合作，而不是重复文字
+      - 很多画法在数字时代被软件和笔刷模仿
+    styles: [picture-books, gouache, editorial, risograph]
+
+  - id: chinese
+    nameZh: 中文世界的新插画
+    nameEn: Chinese contemporary
+    glance: 国潮，以及它的前辈们
+    summary: 国潮把传统纹样、传统色和潮牌、包装放在一起。往回走，还有民国的月份牌、连环画和漫画，它们会陆续补上。
+    traits:
+      - 传统图样重新画成干净的现代图形
+      - 红、金、青绿这类喜庆浓艳的配色
+      - 常常服务于品牌、包装和节日海报
+    styles: [guochao, chinese-manhua, lianhuanhua, yuefenpai]
+
+  - id: roots
+    nameZh: 往回走：现代的源头
+    nameEn: Back to the roots
+    glance: 今天很多画风的祖宗
+    summary: 扁平插画、绘本、海报里的很多手法，在二十世纪中叶就已成形。走到这里，可以再进“溯源”的九大类，看更早的源头。
+    traits:
+      - 把现代艺术的简化和平面化用到大众图像里
+      - 颜色少、造型几何化，带一点印刷的手作感
+      - 至今还在被反复复刻和致敬
+    styles: [mid-century-modern, psychedelic, polish-poster, soviet-avant-garde]

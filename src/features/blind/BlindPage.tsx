@@ -1,13 +1,17 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router'
 import { Button, Card, Page, Section } from '../../components/ui'
-import { content, stylesById } from '../../content'
+import { content, modernStyleIds, stylesById } from '../../content'
 import { blindCandidates, FIRST_ROUND_SIZE, NEXT_ROUND_SIZE, pickFirstRound, pickNextRound } from '../../lib/blind'
 import { activeBlindRound, lastCompletedBlindRound, requestPersistentStorage } from '../../lib/storage'
 import { useUserStore } from '../../store/userStore'
 import { BlindSession } from './BlindSession'
 
-/** 盲测入口（SPEC §4.2）：开始、继续、再来一轮；进行中是全屏的 BlindSession */
+/** 现代专场至少要有的图数和风格数（SPEC §4.2） */
+const MODERN_MIN_ARTWORKS = 8
+const MODERN_MIN_STYLES = 3
+
+/** 盲测入口（SPEC §4.2）：开始、继续、再来一轮、现代专场；进行中是全屏的 BlindSession */
 export function BlindPage() {
   const ready = useUserStore((s) => s.ready)
   const state = useUserStore((s) => s.state)
@@ -19,6 +23,10 @@ export function BlindPage() {
   const [running, setRunning] = useState(false)
 
   const candidates = useMemo(() => blindCandidates(content.artworks, stylesById), [])
+  // 现代专场（SPEC §4.2）：只从现代线路上有图的风格里抽
+  const modernCandidates = useMemo(() => candidates.filter((c) => modernStyleIds.has(c.styleId)), [candidates])
+  const modernStyleCount = new Set(modernCandidates.map((c) => c.styleId)).size
+  const modernOpen = modernCandidates.length >= MODERN_MIN_ARTWORKS && modernStyleCount >= MODERN_MIN_STYLES
   const active = activeBlindRound(state)
   const done = state.progress.blindRounds.filter((r) => r.completedAt)
   const lastDone = lastCompletedBlindRound(state)
@@ -33,6 +41,15 @@ export function BlindPage() {
         ? pickFirstRound(candidates, Math.random)
         : pickNextRound(candidates, shown, Math.random)
       startBlindRound(ids)
+    }
+    setRunning(true)
+  }
+
+  const beginModern = () => {
+    markIntroSeen()
+    if (!activeBlindRound(useUserStore.getState().state)) {
+      const shown = state.progress.blindRounds.filter((r) => r.kind === 'modern').flatMap((r) => r.artworkIds)
+      startBlindRound(pickNextRound(modernCandidates, shown, Math.random, NEXT_ROUND_SIZE), 'modern')
     }
     setRunning(true)
   }
@@ -77,7 +94,7 @@ export function BlindPage() {
           </p>
           <p className="mt-1 text-sm leading-relaxed text-muted">
             {firstRound
-              ? '图都来自博物馆的公共领域藏品，覆盖已上线的各个大类。看完会揭晓每张是什么风格。'
+              ? '图来自博物馆的公共领域藏品和作者公开授权的当代作品，覆盖已上线的各个大类。看完会揭晓每张是什么风格。'
               : '优先出现你在盲测里还没见过的作品。'}
           </p>
           <div className="mt-4">
@@ -95,6 +112,29 @@ export function BlindPage() {
             先去导览
           </Link>
         </Card>
+      )}
+
+      {!active && (
+        <Section title="现代专场">
+          <Card>
+            {modernOpen ? (
+              <>
+                <p className="leading-relaxed">
+                  只看现代线路上的风格，最多 {NEXT_ROUND_SIZE} 张。现在有图的是 {modernStyleCount} 种、共 {modernCandidates.length} 幅；
+                  没有开放图的风格不在里面，可以在导览里看外链、存进剪贴簿。
+                </p>
+                <div className="mt-4">
+                  <Button onClick={beginModern}>开始现代专场</Button>
+                </div>
+              </>
+            ) : (
+              <p className="leading-relaxed text-muted">
+                现代风格里有图的还不够开一轮：现在 {modernStyleCount} 种、{modernCandidates.length} 幅（至少要 {MODERN_MIN_STYLES} 种、
+                {MODERN_MIN_ARTWORKS} 幅）。
+              </p>
+            )}
+          </Card>
+        </Section>
       )}
 
       <Section title="怎么评">

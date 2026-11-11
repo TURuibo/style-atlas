@@ -27,7 +27,7 @@ interface UserStore {
   setTourPosition: (family: string, style?: string) => void
   markIntroSeen: () => void
   /** 开始新一轮盲测；已有没看完的一轮时不重开 */
-  startBlindRound: (artworkIds: string[]) => void
+  startBlindRound: (artworkIds: string[], kind?: 'modern') => void
   /** 给当前这张打分并前进一张 */
   rateBlind: (score: Score) => void
   skipBlind: () => void
@@ -116,11 +116,12 @@ export const useUserStore = create<UserStore>((setStore, getStore) => {
     markIntroSeen: () =>
       update((s) => (s.progress.introSeenAt ? s : { ...s, progress: { ...s.progress, introSeenAt: now() } })),
 
-    startBlindRound: (artworkIds) =>
+    startBlindRound: (artworkIds, kind) =>
       update((s) => {
         if (activeBlindRound(s) || artworkIds.length === 0) return s
         const round: BlindRound = {
           number: s.progress.blindRounds.length + 1,
+          ...(kind ? { kind } : {}),
           artworkIds,
           position: 0,
           startedAt: now(),

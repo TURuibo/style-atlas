@@ -1,4 +1,4 @@
-import type { ContentBundle, Style } from '../../src/content/schema'
+import { attributionLicenses, type ContentBundle, type Style } from '../../src/content/schema'
 import { textLimits, textWidth } from '../../src/content/text'
 
 export interface RuleContext {
@@ -52,11 +52,35 @@ export function checkContent(bundle: ContentBundle, ctx: RuleContext): RuleRepor
     }
   }
 
+  // 现代线路（route.yaml）：段 id 不重复、不和大类撞名；站必须在计划清单或已写的风格里；同一风格只出现一次
+  const routeIds = new Set<string>()
+  const onRoute = new Set<string>()
+  for (const chapter of bundle.route.chapters) {
+    if (routeIds.has(chapter.id)) errors.push(`route.yaml 里段 ${chapter.id} 重复`)
+    if (familyIds.has(chapter.id)) errors.push(`route.yaml 里段 ${chapter.id} 和大类同名`)
+    routeIds.add(chapter.id)
+    for (const id of chapter.styles) {
+      if (!planIds.has(id) && !bundle.styles.some((s) => s.id === id)) errors.push(`route.yaml 的 ${chapter.id} 里风格 ${id} 不存在`)
+      if (onRoute.has(id)) errors.push(`route.yaml 里风格 ${id} 出现了不止一次`)
+      onRoute.add(id)
+    }
+  }
+  for (const style of bundle.styles) {
+    if (style.family === 'modern' && !onRoute.has(style.id)) warnings.push(`现代风格 ${style.id} 还没放进 route.yaml 的现代线路`)
+  }
+
   // 作品
   const artworkIds = new Set<string>()
   for (const art of bundle.artworks) {
     if (artworkIds.has(art.id)) errors.push(`作品 id 重复：${art.id}`)
     artworkIds.add(art.id)
+    // 署名许可（SPEC §8）：要有作者、许可版本和许可链接，鸣谢里写明许可
+    if (attributionLicenses.includes(art.license)) {
+      if (!art.artist?.trim()) errors.push(`作品 ${art.id} 是 ${art.license}，缺作者`)
+      if (!art.licenseVersion) errors.push(`作品 ${art.id} 是 ${art.license}，缺许可版本`)
+      if (!art.licenseUrl) errors.push(`作品 ${art.id} 是 ${art.license}，缺许可链接`)
+      if (!art.credit.includes(art.license)) errors.push(`作品 ${art.id} 的鸣谢里没写 ${art.license}`)
+    }
     for (const subject of art.subjects) {
       if (!(subject in vocab.subjects)) errors.push(`作品 ${art.id} 的题材 ${subject} 不在 vocab.yaml 中`)
     }
@@ -110,6 +134,13 @@ export function checkContent(bundle: ContentBundle, ctx: RuleContext): RuleRepor
     }
     if (style.imageMode === 'external-only' && own.length > 0) {
       errors.push(`${where}：外链风格不能配图（${own.length} 幅）`)
+    }
+    // 署名许可的图只用于开放许可风格；公共领域和混合风格只收 CC0 和公共领域（SPEC §8.2 第 4 条）
+    if (style.imageMode !== 'open-license') {
+      for (const art of own) {
+        if (attributionLicenses.includes(art.license))
+          errors.push(`${where}：${art.id} 是 ${art.license}，只有 open-license 风格可以用`)
+      }
     }
     if (style.coverArtworkId && !own.some((a) => a.id === style.coverArtworkId)) {
       errors.push(`${where}：封面 ${style.coverArtworkId} 不是这个风格的作品`)

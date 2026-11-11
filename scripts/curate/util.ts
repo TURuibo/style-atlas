@@ -40,12 +40,17 @@ export function mergeCandidates(previous: Candidate[], raw: RawCandidate[]): Can
   return out
 }
 
-export const licenseZh = (license: 'CC0' | 'PD') => (license === 'CC0' ? 'CC0' : '公共领域')
+/** 鸣谢里的许可写法：CC0、公共领域、CC BY 4.0、CC BY-SA 3.0 */
+export function licenseZh(c: Pick<Candidate, 'license' | 'licenseVersion'>): string {
+  if (c.license === 'CC0') return 'CC0'
+  if (c.license === 'PD') return '公共领域'
+  return c.licenseVersion ? `${c.license} ${c.licenseVersion}` : c.license
+}
 
 /** 鸣谢格式（SPEC §8.2 第 3 条）：作品名，作者，年代。馆名，许可。 */
-export function creditOf(c: Pick<Candidate, 'title' | 'artist' | 'date' | 'museum' | 'license'>): string {
+export function creditOf(c: Pick<Candidate, 'title' | 'artist' | 'date' | 'museum' | 'license' | 'licenseVersion'>): string {
   const work = [c.title.trim() || '无题', c.artist?.trim() || '佚名', c.date.trim() || '年代不详'].join('，')
-  return `${work}。${c.museum}，${licenseZh(c.license)}。`
+  return `${work}。${c.museum}，${licenseZh(c)}。`
 }
 
 export function chunk<T>(items: T[], size: number): T[][] {
@@ -90,6 +95,8 @@ export function buildArtwork(args: {
     source: c.source,
     sourceUrl: c.sourceUrl,
     license: c.license,
+    ...(c.licenseVersion ? { licenseVersion: c.licenseVersion } : {}),
+    ...(c.licenseUrl ? { licenseUrl: c.licenseUrl } : {}),
     credit: creditOf(c),
     downloadedAt: existing?.downloadedAt ?? today,
     img: {

@@ -7,6 +7,7 @@ import {
   ArtworkSchema,
   FamilySchema,
   PlanEntrySchema,
+  RouteSchema,
   StyleFrontmatterSchema,
   VocabSchema,
   type ContentBundle,
@@ -48,6 +49,9 @@ export function loadContent(): LoadResult {
     .safeParse(YAML.parse(fs.readFileSync(path.join(contentDir, 'plan.yaml'), 'utf8')))
   if (!planResult.success) errors.push(`plan.yaml 格式错误：\n${describe(planResult.error)}`)
 
+  const routeResult = RouteSchema.safeParse(YAML.parse(fs.readFileSync(path.join(contentDir, 'route.yaml'), 'utf8')))
+  if (!routeResult.success) errors.push(`route.yaml 格式错误：\n${describe(routeResult.error)}`)
+
   const artworksResult = z
     .array(ArtworkSchema)
     .safeParse(JSON.parse(fs.readFileSync(path.join(contentDir, 'artworks.json'), 'utf8')))
@@ -75,7 +79,13 @@ export function loadContent(): LoadResult {
     styleFiles.set(front.data.id, file)
   }
 
-  if (!vocabResult.success || !familiesResult.success || !artworksResult.success || !planResult.success) {
+  if (
+    !vocabResult.success ||
+    !familiesResult.success ||
+    !artworksResult.success ||
+    !planResult.success ||
+    !routeResult.success
+  ) {
     return { bundle: null, errors, warnings, styleFiles }
   }
 
@@ -84,6 +94,7 @@ export function loadContent(): LoadResult {
     vocab: vocabResult.data,
     families: [...familiesResult.data].sort((a, b) => a.order - b.order),
     plan: planResult.data.styles,
+    route: routeResult.data,
     styles,
     artworks: artworksResult.data,
   }

@@ -25,6 +25,8 @@ export type RatingContext = Rating['context']
 /** 一轮盲测（SPEC §4.2）。position 是下一张要看的序号；看完一轮写 completedAt。 */
 export const BlindRoundSchema = z.object({
   number: z.number().int().positive(),
+  /** modern：现代专场（2026-11-11 加）；没有这个字段的是普通盲测 */
+  kind: z.enum(['modern']).optional(),
   artworkIds: z.array(z.string()),
   position: z.number().int().nonnegative(),
   startedAt: z.string(),

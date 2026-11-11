@@ -1,0 +1,23 @@
+{
+  "styleId": "isometric",
+  "queries": [
+    {
+      "source": "commons",
+      "search": "isometric illustration",
+      "open": true,
+      "max": 20
+    },
+    {
+      "source": "commons",
+      "search": "isometric pixel art",
+      "open": true,
+      "max": 20
+    },
+    {
+      "source": "commons",
+      "search": "isometric city",
+      "open": true,
+      "max": 20
+    }
+  ]
+}
