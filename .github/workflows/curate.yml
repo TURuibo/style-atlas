@@ -1,0 +1,74 @@
+name: curate
+
+# 博物馆图片的下载通道：Claude 的云端会话连不上博物馆服务器，
+# 由这个工作流在 GitHub 的机器上抓取候选、下载选中的图，再提交回仓库。
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/curation/requests/**'
+      - 'content/curation/picks/**'
+      - 'scripts/curate/**'
+      - '.github/workflows/curate.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: curate
+  cancel-in-progress: false
+
+jobs:
+  curate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+
+      - name: Probe museum access
+        run: |
+          mkdir -p content/curation/logs
+          {
+            echo "{"
+            first=1
+            for u in \
+              "https://collectionapi.metmuseum.org/public/collection/v1/objects/45434" \
+              "https://images.metmuseum.org/CRDImages/as/web-large/DP130155.jpg" \
+              "https://api.artic.edu/api/v1/artworks/24645?fields=id,title,image_id" \
+              "https://www.artic.edu/iiif/2/b3974542-b9b4-7568-fc4b-966738f61d78/full/843,/0/default.jpg" \
+              "https://openaccess-api.clevelandart.org/api/artworks/?q=hokusai&cc0&has_image=1&limit=1" \
+              "https://commons.wikimedia.org/w/api.php?action=query&titles=File:Tsunami_by_hokusai_19th_century.jpg&prop=imageinfo&format=json" \
+              "https://www.loc.gov/pictures/search/?q=wpa%20poster&fo=json"; do
+              code=$(curl -sS -m 20 -o /dev/null -w "%{http_code}" -A "StyleAtlas/0.1 (+https://github.com/TURuibo/style-atlas)" "$u" || echo 000)
+              [ $first -eq 1 ] || echo ","
+              first=0
+              printf '  "%s": %s' "$u" "$code"
+            done
+            echo ""
+            echo "}"
+          } > content/curation/logs/probe.json
+          cat content/curation/logs/probe.json
+
+      - name: Run curation scripts
+        if: hashFiles('scripts/curate/run.ts') != ''
+        run: npx tsx scripts/curate/run.ts 2>&1 | tee content/curation/logs/last-run.log
+
+      - name: Commit results
+        if: always()
+        run: |
+          git config user.name "style-atlas-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A content public/img/art docs 2>/dev/null || true
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "curate: results from workflow run ${GITHUB_RUN_NUMBER}"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1
