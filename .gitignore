@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.cache/
+.deploy-tmp/
+coverage/
+*.log
+.DS_Store
+
+# 构建生成，不手改
+src/content/generated/
+
+# 挑图用的联系表只在本地看
+content/curation/sheets/
