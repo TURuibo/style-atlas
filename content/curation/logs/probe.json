@@ -1,0 +1,9 @@
+{
+  "https://collectionapi.metmuseum.org/public/collection/v1/objects/45434": 200,
+  "https://images.metmuseum.org/CRDImages/as/web-large/DP130155.jpg": 200,
+  "https://api.artic.edu/api/v1/artworks/24645?fields=id,title,image_id": 200,
+  "https://www.artic.edu/iiif/2/b3974542-b9b4-7568-fc4b-966738f61d78/full/843,/0/default.jpg": 403,
+  "https://openaccess-api.clevelandart.org/api/artworks/?q=hokusai&cc0&has_image=1&limit=1": 200,
+  "https://commons.wikimedia.org/w/api.php?action=query&titles=File:Tsunami_by_hokusai_19th_century.jpg&prop=imageinfo&format=json": 200,
+  "https://www.loc.gov/pictures/search/?q=wpa%20poster&fo=json": 200
+}
