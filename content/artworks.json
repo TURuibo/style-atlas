@@ -42,13 +42,12 @@
       "persian-miniature"
     ],
     "title": "Zal Climbing to Rudaba, page from a copy of the Shahnama of Firdausi",
-    "artist": "Iran",
     "date": "Safavid dynasty (1501–1722), dated 1580/90",
     "medium": "Opaque watercolor and gold on paper",
     "source": "aic",
     "sourceUrl": "https://www.artic.edu/artworks/120662",
     "license": "CC0",
-    "credit": "Zal Climbing to Rudaba, page from a copy of the Shahnama of Firdausi，Iran，Safavid dynasty (1501–1722), dated 1580/90。芝加哥艺术博物馆，CC0。",
+    "credit": "Zal Climbing to Rudaba, page from a copy of the Shahnama of Firdausi，佚名，Safavid dynasty (1501–1722), dated 1580/90。芝加哥艺术博物馆，CC0。",
     "downloadedAt": "2026-11-11",
     "img": {
       "thumb": "img/art/aic-120662-480.webp",
@@ -111,6 +110,43 @@
     "blindEligible": true
   },
   {
+    "id": "aic-16876",
+    "styleIds": [
+      "art-nouveau"
+    ],
+    "title": "J.C. Boldoot Eau de Cologne: Parfumerie Amsterdam",
+    "artist": "Privat-Livemont",
+    "date": "c. 1899",
+    "medium": "Color lithograph on cream wove paper",
+    "source": "aic",
+    "sourceUrl": "https://www.artic.edu/artworks/16876",
+    "license": "CC0",
+    "credit": "J.C. Boldoot Eau de Cologne: Parfumerie Amsterdam，Privat-Livemont，c. 1899。芝加哥艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/aic-16876-480.webp",
+      "display": "img/art/aic-16876-1600.webp",
+      "width": 843,
+      "height": 1516
+    },
+    "sourceSize": {
+      "width": 1668,
+      "height": 3000
+    },
+    "palette": [
+      "#D5C1A2",
+      "#E4D6BA",
+      "#C5AA84",
+      "#C28467",
+      "#9E5643"
+    ],
+    "subjects": [
+      "figures",
+      "flora-fauna"
+    ],
+    "blindEligible": true
+  },
+  {
     "id": "aic-19236",
     "styleIds": [
       "ukiyo-e"
@@ -140,6 +176,42 @@
       "#A6885E",
       "#2C2B25",
       "#685F47"
+    ],
+    "subjects": [
+      "figures"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "aic-20992",
+    "styleIds": [
+      "ukiyo-e"
+    ],
+    "title": "Ise, from an untitled series of Thirty-six Immortal Poets",
+    "artist": "Suzuki Harunobu 鈴木 春信 ",
+    "date": "c. 1767/68",
+    "medium": "Color woodblock print; chuban",
+    "source": "aic",
+    "sourceUrl": "https://www.artic.edu/artworks/20992",
+    "license": "CC0",
+    "credit": "Ise, from an untitled series of Thirty-six Immortal Poets，Suzuki Harunobu 鈴木 春信，c. 1767/68。芝加哥艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/aic-20992-480.webp",
+      "display": "img/art/aic-20992-1600.webp",
+      "width": 843,
+      "height": 1107
+    },
+    "sourceSize": {
+      "width": 1713,
+      "height": 2250
+    },
+    "palette": [
+      "#E1D0A2",
+      "#D2BD8B",
+      "#E4DBC3",
+      "#BEA272",
+      "#5D533C"
     ],
     "subjects": [
       "figures"
@@ -189,13 +261,12 @@
       "persian-miniature"
     ],
     "title": "Alexander Comforts the Dying Darius, page from a copy of the Shahnama of Firdausi",
-    "artist": "Iran",
     "date": "Timurid dynasty (ca. 1370–1507), c.1480/90",
     "medium": "Opaque watercolor and ink on paper",
     "source": "aic",
     "sourceUrl": "https://www.artic.edu/artworks/51815",
     "license": "CC0",
-    "credit": "Alexander Comforts the Dying Darius, page from a copy of the Shahnama of Firdausi，Iran，Timurid dynasty (ca. 1370–1507), c.1480/90。芝加哥艺术博物馆，CC0。",
+    "credit": "Alexander Comforts the Dying Darius, page from a copy of the Shahnama of Firdausi，佚名，Timurid dynasty (ca. 1370–1507), c.1480/90。芝加哥艺术博物馆，CC0。",
     "downloadedAt": "2026-11-11",
     "img": {
       "thumb": "img/art/aic-51815-480.webp",
@@ -226,13 +297,12 @@
       "persian-miniature"
     ],
     "title": "Kay Khosrow Crosses the Sea of Zareh on His Way to China, a scene from the Shahnama of Firdausi",
-    "artist": "Iran",
     "date": "Safavid dynasty (1501–1722), about 1550",
     "medium": "Watercolor and ink on paper",
     "source": "aic",
     "sourceUrl": "https://www.artic.edu/artworks/93923",
     "license": "CC0",
-    "credit": "Kay Khosrow Crosses the Sea of Zareh on His Way to China, a scene from the Shahnama of Firdausi，Iran，Safavid dynasty (1501–1722), about 1550。芝加哥艺术博物馆，CC0。",
+    "credit": "Kay Khosrow Crosses the Sea of Zareh on His Way to China, a scene from the Shahnama of Firdausi，佚名，Safavid dynasty (1501–1722), about 1550。芝加哥艺术博物馆，CC0。",
     "downloadedAt": "2026-11-11",
     "img": {
       "thumb": "img/art/aic-93923-480.webp",
@@ -405,38 +475,38 @@
     "blindEligible": true
   },
   {
-    "id": "cma-123990",
+    "id": "cma-125567",
     "styleIds": [
       "persian-miniature"
     ],
-    "title": "Nushirwan Listens to the Owls (recto): Illustration and Text, Persian Verses, from a Manuscript of the Khamsa of Nizami, Makhzan al-Asrar [Treasure of Secrets]",
-    "date": "1555–65",
-    "medium": "opaque watercolor, ink, and gold on paper",
+    "title": "Youth Holding a Pomegranate; Illustration from a Single Page Manuscript",
+    "artist": "Riza-yi Abbasi (Iranian)",
+    "date": "c.1600–1650",
+    "medium": "opaque watercolor and gold on paper",
     "source": "cma",
-    "sourceUrl": "https://clevelandart.org/art/1944.487.a",
+    "sourceUrl": "https://clevelandart.org/art/1947.497",
     "license": "CC0",
-    "credit": "Nushirwan Listens to the Owls (recto): Illustration and Text, Persian Verses, from a Manuscript of the Khamsa of Nizami, Makhzan al-Asrar [Treasure of Secrets]，佚名，1555–65。克利夫兰艺术博物馆，CC0。",
+    "credit": "Youth Holding a Pomegranate; Illustration from a Single Page Manuscript，Riza-yi Abbasi (Iranian)，c.1600–1650。克利夫兰艺术博物馆，CC0。",
     "downloadedAt": "2026-11-11",
     "img": {
-      "thumb": "img/art/cma-123990-480.webp",
-      "display": "img/art/cma-123990-1600.webp",
-      "width": 1066,
+      "thumb": "img/art/cma-125567-480.webp",
+      "display": "img/art/cma-125567-1600.webp",
+      "width": 964,
       "height": 1600
     },
     "sourceSize": {
-      "width": 2265,
+      "width": 2048,
       "height": 3400
     },
     "palette": [
-      "#CCAD84",
-      "#D4BC9B",
-      "#B0906F",
-      "#DFD2BF",
-      "#5B5C5B"
+      "#7A7B6A",
+      "#686D64",
+      "#938B6B",
+      "#D9B47C",
+      "#B89C6A"
     ],
     "subjects": [
-      "narrative",
-      "ornament"
+      "figures"
     ],
     "blindEligible": true
   },
@@ -690,6 +760,43 @@
       "#605545"
     ],
     "subjects": [
+      "flora-fauna"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "cma-79015",
+    "styleIds": [
+      "art-nouveau"
+    ],
+    "title": "Her Most Gracious Majesty Queen Wilhelmina (Sa Très Gracieuse Majesté La Reine Wilhelmine)",
+    "artist": "Paul Berthon (French, 1872–1909)",
+    "date": "1901",
+    "medium": "color lithograph",
+    "source": "cma",
+    "sourceUrl": "https://clevelandart.org/art/2016.105",
+    "license": "CC0",
+    "credit": "Her Most Gracious Majesty Queen Wilhelmina (Sa Très Gracieuse Majesté La Reine Wilhelmine)，Paul Berthon (French, 1872–1909)，1901。克利夫兰艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/cma-79015-480.webp",
+      "display": "img/art/cma-79015-1600.webp",
+      "width": 1513,
+      "height": 1600
+    },
+    "sourceSize": {
+      "width": 3216,
+      "height": 3400
+    },
+    "palette": [
+      "#F4D6AE",
+      "#E7B179",
+      "#D89765",
+      "#C28156",
+      "#A96841"
+    ],
+    "subjects": [
+      "figures",
       "flora-fauna"
     ],
     "blindEligible": true
@@ -987,13 +1094,14 @@
       "gongbi"
     ],
     "title": "Lady in a bamboo grove",
-    "artist": "Qiu Ying",
+    "titleZh": "文玉图",
+    "artist": "Attributed to Qiu Ying",
     "date": "",
     "medium": "Hanging scroll; ink and color on silk",
     "source": "met",
     "sourceUrl": "https://www.metmuseum.org/art/collection/search/36013",
     "license": "CC0",
-    "credit": "Lady in a bamboo grove，Qiu Ying，年代不详。大都会艺术博物馆，CC0。",
+    "credit": "Lady in a bamboo grove，Attributed to Qiu Ying，年代不详。大都会艺术博物馆，CC0。",
     "downloadedAt": "2026-11-11",
     "img": {
       "thumb": "img/art/met-36013-480.webp",
@@ -1023,13 +1131,14 @@
       "gongbi"
     ],
     "title": "Cranes, peach tree, and China rose",
-    "artist": "Shen Quan (Shen Pin)",
+    "titleZh": "月季桃鹤图",
+    "artist": "After Shen Quan (Shen Pin)",
     "date": "18th century",
     "medium": "Hanging scroll; ink and color on silk",
     "source": "met",
     "sourceUrl": "https://www.metmuseum.org/art/collection/search/36105",
     "license": "CC0",
-    "credit": "Cranes, peach tree, and China rose，Shen Quan (Shen Pin)，18th century。大都会艺术博物馆，CC0。",
+    "credit": "Cranes, peach tree, and China rose，After Shen Quan (Shen Pin)，18th century。大都会艺术博物馆，CC0。",
     "downloadedAt": "2026-11-11",
     "img": {
       "thumb": "img/art/met-36105-480.webp",
@@ -1059,6 +1168,7 @@
       "gongbi"
     ],
     "title": "Mandarin ducks and cotton rose hibiscus",
+    "titleZh": "鸳鸯芙蓉图",
     "artist": "Lü Ji",
     "date": "late 15th century",
     "medium": "Hanging scroll; ink and color on silk",
@@ -1095,6 +1205,7 @@
       "gongbi"
     ],
     "title": "Palace ladies bathing children",
+    "titleZh": "戏婴图",
     "artist": "Unidentified artist",
     "date": "11th century",
     "medium": "Handscroll; ink and color on silk",
@@ -1164,38 +1275,39 @@
     "blindEligible": true
   },
   {
-    "id": "met-51409",
+    "id": "met-452111",
     "styleIds": [
-      "gongbi"
+      "persian-miniature"
     ],
-    "title": "Camellia Flowers",
-    "artist": "Unidentified artist",
-    "date": "",
-    "medium": "Fan mounted as an album leaf; ink and color on silk",
+    "title": "\"The Feast of Sada\", Folio 22v from the Shahnama (Book of Kings) of Shah Tahmasp",
+    "artist": "Attributed to Sultan Muhammad",
+    "date": "ca. 1525",
+    "medium": "Opaque watercolor, ink, silver, and gold on paper",
     "source": "met",
-    "sourceUrl": "https://www.metmuseum.org/art/collection/search/51409",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/452111",
     "license": "CC0",
-    "credit": "Camellia Flowers，Unidentified artist，年代不详。大都会艺术博物馆，CC0。",
+    "credit": "\"The Feast of Sada\", Folio 22v from the Shahnama (Book of Kings) of Shah Tahmasp，Attributed to Sultan Muhammad，ca. 1525。大都会艺术博物馆，CC0。",
     "downloadedAt": "2026-11-11",
     "img": {
-      "thumb": "img/art/met-51409-480.webp",
-      "display": "img/art/met-51409-1600.webp",
-      "width": 1463,
+      "thumb": "img/art/met-452111-480.webp",
+      "display": "img/art/met-452111-1600.webp",
+      "width": 1121,
       "height": 1600
     },
     "sourceSize": {
-      "width": 3230,
-      "height": 3532
+      "width": 2802,
+      "height": 4000
     },
     "palette": [
-      "#A98562",
-      "#E0CDBA",
-      "#5E6954",
-      "#86765A",
-      "#9B514C"
+      "#CEBD97",
+      "#DAC8A5",
+      "#867372",
+      "#A39684",
+      "#EDE6D9"
     ],
     "subjects": [
-      "flora-fauna"
+      "narrative",
+      "landscape"
     ],
     "blindEligible": true
   },

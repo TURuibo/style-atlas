@@ -1,60 +1,19 @@
-[候选] art-nouveau：23 条（新增 5）
-  {"source":"aic","q":"Alphonse Mucha","max":3} → 3 条
-  {"source":"cma","q":"Mucha","max":3} → 3 条
-  {"source":"cma","q":"Grasset","max":3} → 3 条
-  {"source":"commons","search":"Alphonse Mucha lithograph poster","max":4} → 4 条
-  {"source":"cma","q":"Privat-Livemont","max":3} → 0 条
-  {"source":"cma","q":"Paul Berthon","max":3} → 3 条
-  {"source":"aic","artist":"Paul Berthon","max":3} → 1 条
-  {"source":"aic","artist":"Henri Privat-Livemont","max":3} → 1 条
+[候选] art-nouveau：请求没变，跳过
 [候选] gongbi：请求没变，跳过
 [候选] nordic-fairy：请求没变，跳过
-[候选] persian-miniature：25 条（新增 15）
-  {"source":"met","q":"Shahnama of Shah Tahmasp","departmentId":14,"title":true,"max":6} → 6 条
-  {"source":"met","q":"Riza-yi 'Abbasi","departmentId":14,"artistOrCulture":true,"max":3} → 3 条
-  {"source":"cma","q":"Shahnama","max":4} → 4 条
-  {"source":"cma","q":"Khamsa Nizami","max":3} → 3 条
-  {"source":"cma","q":"Riza Abbasi","max":3} → 3 条
-  {"source":"aic","q":"Shahnama","max":3} → 3 条
-  {"source":"aic","q":"Riza Abbasi","max":3} → 3 条
-[候选] ukiyo-e：15 条（新增 6）
-  {"source":"aic","ids":[24645],"max":1} → 1 条
-  {"source":"aic","artist":"Katsushika Hokusai","q":"Thirty-six Views of Mount Fuji","max":3} → 3 条
-  {"source":"aic","artist":"Suzuki Harunobu","q":"woodblock print","max":3} → 3 条
-  {"source":"aic","artist":"Utagawa Kuniyoshi","q":"woodblock print","max":3} → 3 条
-  {"source":"aic","artist":"Kitagawa Utamaro","q":"woodblock print","max":3} → 3 条
-  {"source":"cma","q":"Hiroshige","type":"Print","max":3} → 3 条
+[候选] persian-miniature：请求没变，跳过
+[候选] ukiyo-e：请求没变，跳过
 [候选] wpa-poster：请求没变，跳过
-[下载] art-nouveau #6 → aic-111986（源图 2235×3000）
 [封面] art-nouveau → aic-111986
-[下载] art-nouveau #7 → aic-97439（源图 3000×1622）
-[下载] art-nouveau #18 → commons-92202401（源图 1600×4244）
-[下载] art-nouveau #10 → cma-144595（源图 2400×3400）
-[下载] art-nouveau #3 → met-633554（源图 2753×3652）
-[下载] art-nouveau #14 → cma-148500（源图 2394×3400）
-[下载] gongbi #22 → cma-152556（源图 3400×3352）
+[下载] art-nouveau #23 → aic-16876（源图 1668×3000）
+[下载] art-nouveau #21 → cma-79015（源图 3216×3400）
 [封面] gongbi → cma-152556
-[下载] gongbi #1 → met-39936（源图 3824×2064）
-[下载] gongbi #24 → cma-152551（源图 3400×2823）
-[下载] gongbi #8 → met-51409（源图 3230×3532）
-[下载] gongbi #15 → met-39551（源图 2181×4000）
-[下载] gongbi #19 → met-36105（源图 1247×2000）
-[下载] gongbi #12 → met-36013（源图 3000×4000）
-[下载] gongbi #21 → met-39935（源图 1866×1062）
+[下载] gongbi：移除 met-51409
 [封面] nordic-fairy → commons-23614544
-[下载] persian-miniature #4 → cma-133447（源图 2351×3400）
-[封面] persian-miniature → cma-133447
-[下载] persian-miniature #1 → cma-123434（源图 2586×3400）
-[下载] persian-miniature #10 → aic-51815（源图 1455×2250）
-[下载] persian-miniature #8 → aic-93923（源图 2064×3000）
-[下载] persian-miniature #9 → aic-120662（源图 1894×3000）
-[下载] persian-miniature #5 → cma-125575（源图 2231×3400）
-[下载] persian-miniature #6 → cma-123990（源图 2265×3400）
-[下载] ukiyo-e #10 → aic-24645（源图 6679×4577）
+[下载] persian-miniature #16 → met-452111（源图 2802×4000）
+[封面] persian-miniature → met-452111
+[下载] persian-miniature #22 → cma-125567（源图 2048×3400）
+[下载] persian-miniature：移除 cma-123990
 [封面] ukiyo-e → aic-24645
-[下载] ukiyo-e #9 → cma-103244（源图 2285×3400）
-[下载] ukiyo-e #7 → cma-126086（源图 3400×2270）
-[下载] ukiyo-e #6 → aic-19236（源图 2012×3000）
-[下载] ukiyo-e #5 → aic-13405（源图 2400×3456）
-[下载] ukiyo-e #3 → aic-9861（源图 3000×2053）
-[作品] 共 34 幅，图片合计 9.1 MB
+[下载] ukiyo-e #15 → aic-20992（源图 1713×2250）
+[作品] 共 37 幅，图片合计 9.8 MB
