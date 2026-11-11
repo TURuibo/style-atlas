@@ -1,6 +1,7 @@
 {
   "styleId": "wpa-poster",
   "queries": [
-    { "source": "loc", "q": "WPA poster", "max": 8 }
+    { "source": "loc", "q": "WPA poster", "max": 6 },
+    { "source": "loc", "q": "Federal Art Project poster silkscreen", "max": 6 }
   ]
 }

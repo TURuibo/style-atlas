@@ -2,11 +2,12 @@
   "styleId": "gongbi",
   "queries": [
     { "source": "met", "q": "Huizong", "departmentId": 6, "artistOrCulture": true, "max": 3 },
-    { "source": "met", "q": "birds", "departmentId": 6, "medium": "Paintings", "culture": "China", "max": 8 },
+    { "source": "met", "q": "birds", "departmentId": 6, "medium": "Paintings", "culture": "China", "max": 6 },
     { "source": "met", "q": "flowers", "departmentId": 6, "medium": "Paintings", "culture": "China", "max": 6 },
     { "source": "met", "q": "Qiu Ying", "departmentId": 6, "artistOrCulture": true, "max": 3 },
     { "source": "met", "q": "Lü Ji", "departmentId": 6, "artistOrCulture": true, "max": 3 },
     { "source": "met", "q": "Shen Quan", "departmentId": 6, "artistOrCulture": true, "max": 3 },
+    { "source": "met", "q": "court ladies", "departmentId": 6, "medium": "Paintings", "culture": "China", "max": 3 },
     { "source": "cma", "q": "bird", "department": "Chinese Art", "type": "Painting", "max": 5 },
     { "source": "cma", "q": "court lady", "department": "Chinese Art", "type": "Painting", "max": 3 }
   ]

@@ -64,11 +64,14 @@ export async function getBuffer(url: string): Promise<Buffer> {
 /** 去掉维基共享资源元数据里的 HTML 标签 */
 export function stripHtml(html: string | undefined): string {
   return (html ?? '')
+    // 维基共享资源模板里隐藏的 QuickStatements 片段，如 <span style="display: none;">date QS:P571,...</span>
+    .replace(/<(span|div)[^>]*display:\s*none[^>]*>[\s\S]*?<\/\1>/gi, ' ')
     .replace(/<[^>]*>/g, ' ')
     .replace(/&nbsp;/g, ' ')
     .replace(/&amp;/g, '&')
     .replace(/&quot;/g, '"')
     .replace(/&#0?39;/g, "'")
     .replace(/\s+/g, ' ')
+    .replace(/\s*\b(date|label|title) QS:.*$/, '')
     .trim()
 }

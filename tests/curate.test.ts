@@ -264,3 +264,33 @@ describe('联系表与下载（本地服务器）', () => {
     expect((await sharp(path.join(tmp, 'img', 'art', 'met-3-480.webp')).metadata()).width).toBe(480)
   }, 30_000)
 })
+
+describe('查询拼装', () => {
+  it('Met 用 v1.1 分页搜索，q 放最后', async () => {
+    const { metSearchUrl } = await import('../scripts/curate/sources')
+    const url = metSearchUrl({ source: 'met', q: "Riza-yi 'Abbasi", departmentId: 14, artistOrCulture: true }, 1000)
+    expect(url.startsWith('https://collectionapi.metmuseum.org/public/collection/v1.1/search?')).toBe(true)
+    expect(url).toContain('limit=500')
+    expect(url.endsWith(`q=${encodeURIComponent("Riza-yi 'Abbasi")}`)).toBe(true)
+  })
+
+  it('AIC 的 params 里带公共领域筛选', async () => {
+    const { aicSearchBody } = await import('../scripts/curate/sources')
+    const body = aicSearchBody({ source: 'aic', q: 'print', max: 3 }, [{ term: { is_public_domain: true } }], 3)
+    expect(body).toMatchObject({ q: 'print', limit: 9, query: { bool: { must: [{ term: { is_public_domain: true } }] } } })
+  })
+
+  it('清掉维基共享资源的隐藏片段', async () => {
+    const { stripHtml } = await import('../scripts/curate/http')
+    expect(stripHtml('1913<span style="display: none;">date QS:P571,+1913-00-00T00:00:00Z/9</span>')).toBe('1913')
+    expect(stripHtml('Troll label QS:Lsv,"x"')).toBe('Troll')
+  })
+
+  it('挑图时可以改标题和年代', () => {
+    const c = dedupe([mapMet(metObject)!])[0]!
+    const image = { width: 10, height: 10, sourceWidth: 10, sourceHeight: 10, palette: [] }
+    const a = buildArtwork({ candidate: c, pick: { n: 1, subjects: [], title: 'Clean', date: '1913' }, styleId: 's', image, today: 't' })
+    expect(a.title).toBe('Clean')
+    expect(a.credit).toBe('Clean，Katsushika Hokusai，1913。大都会艺术博物馆，CC0。')
+  })
+})

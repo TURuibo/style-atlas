@@ -38,20 +38,29 @@ export function mapMet(o: MetObject): RawCandidate | null {
   }
 }
 
+/** Met 搜索地址。v1 搜索已于 2026-10-01 停用，改用分页的 v1.1；q 放在最后，筛选参数才可靠生效 */
+export function metSearchUrl(q: Extract<Query, { source: 'met' }>, limit: number): string {
+  const params: string[] = ['hasImages=true']
+  if (q.departmentId) params.push(`departmentId=${q.departmentId}`)
+  if (q.medium) params.push(`medium=${encodeURIComponent(q.medium)}`)
+  if (q.geoLocation) params.push(`geoLocation=${encodeURIComponent(q.geoLocation)}`)
+  if (q.artistOrCulture) params.push('artistOrCulture=true')
+  if (q.title) params.push('title=true')
+  params.push('offset=0', `limit=${Math.min(limit, 500)}`)
+  params.push(`q=${encodeURIComponent(q.q ?? '')}`)
+  return `https://collectionapi.metmuseum.org/public/collection/v1.1/search?${params.join('&')}`
+}
+
+async function metSearch(q: Extract<Query, { source: 'met' }>, limit: number): Promise<number[]> {
+  const res = await getJson<{ total: number; objectIDs: number[] | null }>(metSearchUrl(q, limit))
+  return res.objectIDs ?? []
+}
+
 async function fromMet(q: Extract<Query, { source: 'met' }>): Promise<RawCandidate[]> {
   const max = q.max ?? 8
   let ids = [...(q.ids ?? [])]
   if (q.q) {
-    // q 放在最后，筛选参数才会生效
-    const params: string[] = ['hasImages=true']
-    if (q.departmentId) params.push(`departmentId=${q.departmentId}`)
-    if (q.medium) params.push(`medium=${encodeURIComponent(q.medium)}`)
-    if (q.artistOrCulture) params.push('artistOrCulture=true')
-    params.push(`q=${encodeURIComponent(q.q)}`)
-    const res = await getJson<{ total: number; objectIDs: number[] | null }>(
-      `https://collectionapi.metmuseum.org/public/collection/v1/search?${params.join('&')}`,
-    )
-    ids = [...ids, ...(res.objectIDs ?? [])]
+    ids = [...ids, ...(await metSearch(q, max * 8))]
   }
   const out: RawCandidate[] = []
   for (const id of ids.slice(0, max * 8)) {
@@ -114,14 +123,30 @@ async function fromAic(q: Extract<Query, { source: 'aic' }>): Promise<RawCandida
     )
     found.push(...res.data)
   }
-  if (q.q) {
-    const res = await getJson<{ data: AicArtwork[] }>(
-      `https://api.artic.edu/api/v1/artworks/search?q=${encodeURIComponent(q.q)}` +
-        `&query[term][is_public_domain]=true&fields=${AIC_FIELDS}&limit=${Math.min(max * 2, 40)}`,
-    )
+  if (q.q || q.artist) {
+    const must: unknown[] = [{ term: { is_public_domain: true } }]
+    if (q.artist) {
+      // 先按名字查到画家 id，再按 artist_ids 精确筛选，比全文搜索准
+      const agents = await getJson<{ data: { id: number; title: string }[] }>(
+        `https://api.artic.edu/api/v1/agents/search?q=${encodeURIComponent(q.artist)}&fields=id,title&limit=1`,
+      )
+      const agent = agents.data[0]
+      if (!agent) throw new Error(`AIC 找不到画家：${q.artist}`)
+      must.push({ term: { artist_ids: agent.id } })
+    }
+    const res = await getJson<{ data: AicArtwork[] }>(`https://api.artic.edu/api/v1/artworks/search?params=${encodeURIComponent(JSON.stringify(aicSearchBody(q, must, max)))}`)
     found.push(...res.data)
   }
   return found.map(mapAic).filter((c): c is RawCandidate => c !== null).slice(0, max)
+}
+
+export function aicSearchBody(q: Extract<Query, { source: 'aic' }>, must: unknown[], max: number) {
+  return {
+    ...(q.q ? { q: q.q } : {}),
+    query: { bool: { must } },
+    fields: AIC_FIELDS,
+    limit: Math.min(max * 3, 60),
+  }
 }
 
 // ---------- 克利夫兰艺术博物馆 ----------
@@ -330,15 +355,24 @@ async function fromLoc(q: Extract<Query, { source: 'loc' }>): Promise<RawCandida
     }
   }
   const out: RawCandidate[] = []
-  for (const id of ids) {
+  const skipped: string[] = []
+  for (const id of ids.slice(0, max * 4)) {
     if (out.length >= max) break
     try {
-      const c = mapLoc(await getJson<LocItemResponse>(`https://www.loc.gov/item/${id}/?fo=json`))
+      const res = await getJson<LocItemResponse>(`https://www.loc.gov/item/${id}/?fo=json`)
+      const c = mapLoc(res)
       if (c) out.push(c)
-    } catch {
-      // 单个条目失败不影响其他
+      else
+        skipped.push(
+          `${id}: rights=${JSON.stringify(res.item?.rights_advisory ?? res.item?.rights ?? null).slice(0, 80)} ` +
+            `files=${(res.resources ?? []).flatMap((r) => (r.files ?? []).flat()).length}`,
+        )
+    } catch (error) {
+      skipped.push(`${id}: ${String(error).slice(0, 80)}`)
     }
   }
+  // 一条都没收到时把原因带回日志，方便排查接口格式
+  if (out.length === 0) throw new Error(`LoC 无可用条目：找到 ${ids.length} 个 id；${skipped.slice(0, 3).join(' | ')}`)
   return out
 }
 

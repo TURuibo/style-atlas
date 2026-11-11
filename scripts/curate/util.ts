@@ -52,7 +52,8 @@ export function buildArtwork(args: {
   image: ImageInfo
   today: string
 }): Artwork {
-  const { candidate: c, pick, styleId, existing, image, today } = args
+  const { pick, styleId, existing, image, today } = args
+  const c = { ...args.candidate, title: pick.title ?? args.candidate.title, date: pick.date ?? args.candidate.date }
   const id = artworkIdOf(c)
   return {
     id,
