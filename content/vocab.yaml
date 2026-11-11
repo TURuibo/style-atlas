@@ -1,0 +1,39 @@
+# 风格文件里的大类、地区、时代和标签只能用这里的 id（SPEC §5.7）
+families:
+  manuscripts: 抄本、细密画与圣像
+  east-asian: 东亚绘画
+  printmaking: 版画
+  folk: 民间艺术
+  natural-history: 博物与科学图谱
+  satire-comics: 讽刺画、漫画与连环叙事
+  book-fairy: 书籍与童话插画
+  decorative-poster: 装饰艺术与海报
+  modern: 现代与当代
+regions:
+  china: 中国
+  japan: 日本
+  korea: 朝鲜半岛
+  himalaya: 喜马拉雅
+  south-asia: 南亚
+  west-central-asia: 西亚与中亚
+  africa: 非洲
+  western-europe: 西欧
+  nordic: 北欧
+  eastern-europe: 东欧与俄罗斯
+  north-america: 北美
+  latin-america: 拉丁美洲
+  global: 全球
+eras: # weight = 时间线上的宽度份数（SPEC §5.3）
+  ancient: { zh: 古代, end: 500, weight: 1 }
+  medieval: { zh: 中世纪, start: 500, end: 1400, weight: 1 }
+  early-modern: { zh: 近世早期, start: 1400, end: 1750, weight: 1.5 }
+  enlightenment-industrial: { zh: 启蒙与工业时代, start: 1750, end: 1880, weight: 1.5 }
+  fin-de-siecle: { zh: 世纪之交, start: 1880, end: 1918, weight: 1.5 }
+  interwar: { zh: 两次大战之间, start: 1918, end: 1945, weight: 1 }
+  postwar: { zh: 战后, start: 1945, end: 1980, weight: 1 }
+  contemporary: { zh: 当代, start: 1980, weight: 1 }
+moods: { whimsical: 童趣, serene: 宁静, romantic: 浪漫, dark: 神秘暗黑, humorous: 幽默, sacred: 庄严神圣, opulent: 华丽, naive: 朴拙 }
+mediums:
+  { ink: 墨, watercolor: 水彩, opaque: 不透明颜料, gold-leaf: 金箔, woodcut: 木刻, intaglio: 铜版与蚀刻, lithograph: 石版, screenprint: 丝网与孔版, pen: 钢笔, oil: 油画, digital: 数字 }
+subjects:
+  { figures: 人物, landscape: 风景, flora-fauna: 花鸟动物, narrative: 叙事场景, ornament: 装饰图案, religious: 宗教, daily-life: 日常生活 }

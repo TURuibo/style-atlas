@@ -1,0 +1,108 @@
+# 九大类，顺序就是导览的历史脉络（SPEC §5.1）
+- id: manuscripts
+  order: 1
+  planned: 9
+  nameZh: 抄本、细密画与圣像
+  nameEn: Manuscripts, Miniatures & Icons
+  glance: 宝石般的颜色、金箔、平面空间、繁复边饰
+  summary: 印刷普及以前，图像多半画在书页和圣物上。一页要画很久，所以用最贵的颜料和金箔，把空间压平、把边框画满。
+  traits:
+    - 颜色纯而亮，像宝石，常配金箔
+    - 空间是平的：远近靠上下排列，而不是透视
+    - 边框、花纹和文字与画面融为一体
+
+- id: east-asian
+  order: 2
+  planned: 7
+  nameZh: 东亚绘画
+  nameEn: East Asian Painting
+  glance: 毛笔线、墨分浓淡、留白、诗书画印一体
+  summary: 用同一支毛笔写字和画画，线条本身就是表现力。画面常留大片空白，题诗和印章也是构图的一部分。
+  traits:
+    - 线条有提按和速度，像书法
+    - 墨分浓淡干湿，一种墨也能画出层次
+    - 大片留白，题诗和印章参与构图
+
+- id: printmaking
+  order: 3
+  planned: 9
+  nameZh: 版画
+  nameEn: Printmaking
+  glance: 刻出来的线、平涂色块、强黑白对比
+  summary: 先刻版再印刷，一块版能印出成百上千张，图像第一次成了大众买得起的东西。刻刀和印刷决定了它干脆利落的样子。
+  traits:
+    - 线是刻出来的，硬朗、干脆
+    - 颜色一块一版，多为平涂
+    - 黑白对比强，用排线或块面表现明暗
+
+- id: folk
+  order: 4
+  planned: 7
+  nameZh: 民间艺术
+  nameEn: Folk & Vernacular Art
+  glance: 朴拙、浓艳、吉祥符号、程式化造型
+  summary: 由作坊和乡村画匠为普通人家制作，用来过节、祈福、装饰家里。不追求写实，用固定的符号和鲜艳的颜色把意思说清楚。
+  traits:
+    - 造型简化、程式化，同一题材反复出现
+    - 颜色鲜艳饱满，对比强烈
+    - 处处有寓意：鱼、桃、虎、花各有讲究
+
+- id: natural-history
+  order: 5
+  planned: 7
+  nameZh: 博物与科学图谱
+  nameEn: Natural History & Scientific Illustration
+  glance: 精确观察、白底、分类排布、标注
+  summary: 为认识和分类世界而画，每片叶子、每根羽毛都要能被辨认。所以画得精确、背景留白，却常常美得像装饰画。
+  traits:
+    - 观察精确，细节可以用来辨认物种
+    - 白底或极简背景，主体完整展示
+    - 常把同一物种的不同部位、不同阶段排在一张图上
+
+- id: satire-comics
+  order: 6
+  planned: 10
+  nameZh: 讽刺画、漫画与连环叙事
+  nameEn: Caricature, Cartoons & Sequential Art
+  glance: 夸张变形、幽默、分格与对白
+  summary: 用夸张和幽默评论时事、讲故事。从讽刺版画到报纸连载，再到今天的漫画，画面越来越会“说话”。
+  traits:
+    - 人物夸张变形，一眼抓住特征
+    - 用分格、对白和动作线推动故事
+    - 常常带着评论和笑点
+
+- id: book-fairy
+  order: 7
+  planned: 7
+  nameZh: 书籍与童话插画
+  nameEn: Book & Fairy-tale Illustration
+  glance: 讲故事、钢笔线加淡彩、梦幻氛围
+  summary: 彩色印刷进步之后，书籍插画迎来黄金时代。画家为童话和名著配图，用细腻的线条和柔和的色彩营造另一个世界。
+  traits:
+    - 替文字讲故事，画面停在最戏剧化的一刻
+    - 钢笔线稿加透明淡彩最常见
+    - 气氛重于写实：雾、光、森林和夜色
+
+- id: decorative-poster
+  order: 8
+  planned: 9
+  nameZh: 装饰艺术与海报
+  nameEn: Decorative Arts & Posters
+  glance: 曲线与图案、平涂、字图一体
+  summary: 工业时代的城市需要海报和包装。艺术家把图案、字体和人物一起设计，画面既要好看，又要让人一眼记住。
+  traits:
+    - 曲线、花纹和几何图案构成画面骨架
+    - 平涂色块和清晰轮廓，远看也醒目
+    - 文字与图像一起设计
+
+- id: modern
+  order: 9
+  planned: 12
+  nameZh: 现代与当代
+  nameEn: Modern & Contemporary
+  glance: 多元；大多有版权，外链看图
+  summary: 二十世纪以来，插画随电影、广告、漫画和数字工具爆发出无数流派。这些作品大多仍有版权，这里讲清特点，并给出看图链接。
+  traits:
+    - 风格多元，常从前面八类里借元素
+    - 工具从丝网印刷一路变到数字软件
+    - 大多有版权：应用里只给外部看图链接

@@ -9,11 +9,12 @@
     "build": "npm run content:build && tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "npm run content:build && tsc --noEmit",
     "content:build": "tsx scripts/build-content.ts",
     "validate": "tsx scripts/validate.ts",
     "coverage": "tsx scripts/coverage.ts",
-    "deploy": "tsx scripts/deploy.ts"
+    "deploy": "tsx scripts/deploy.ts",
+    "pretest": "npm run content:build"
   },
   "engines": {
     "node": ">=20"

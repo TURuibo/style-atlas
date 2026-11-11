@@ -1,0 +1,58 @@
+name: deploy
+
+# 每次推送到 main：校验、测试、构建，然后把 dist/ 发布到 gh-pages 分支（GitHub Pages 从这个分支发布）
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+
+      - name: Validate, test and build
+        run: |
+          set -o pipefail
+          { npm run validate && npm test && npm run build; } 2>&1 | tee /tmp/build.txt
+
+      - name: Publish to gh-pages
+        run: |
+          touch dist/.nojekyll
+          cd dist
+          git init -q -b gh-pages
+          git config user.name "style-atlas-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "deploy ${GITHUB_SHA::7}"
+          git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      # 失败时把日志推到 ci-logs 分支，方便没有 Actions 界面的会话排查
+      - name: Save failure log
+        if: failure()
+        run: |
+          mkdir -p /tmp/logs && cd /tmp/logs
+          cp /tmp/build.txt "deploy-${GITHUB_RUN_NUMBER}.txt" 2>/dev/null || echo "no build log" > "deploy-${GITHUB_RUN_NUMBER}.txt"
+          git init -q -b ci-logs
+          git config user.name "style-atlas-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -q -m "deploy log ${GITHUB_RUN_NUMBER}"
+          git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" ci-logs
+        env:
+          GH_TOKEN: ${{ github.token }}

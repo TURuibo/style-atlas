@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+/* 设计令牌：克制，让画作做主角（SPEC 附录 B） */
+@theme {
+  --color-paper: #f7f5f0;
+  --color-surface: #ffffff;
+  --color-ink: #1c1b19;
+  --color-muted: #6b6760;
+  --color-line: #e3dfd6;
+  --color-accent: #1f3a5f;
+  --color-accent-soft: #e3eaf2;
+  --color-gallery: #111111;
+
+  --font-serif: "Songti SC", "STSong", "Noto Serif CJK SC", "Source Han Serif SC", "SimSun", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC",
+    "Source Han Sans SC", "Microsoft YaHei", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-paper: #121212;
+    --color-surface: #1c1c1c;
+    --color-ink: #ece9e2;
+    --color-muted: #a29d93;
+    --color-line: #2e2c29;
+    --color-accent: #8fb3d9;
+    --color-accent-soft: #1e2a38;
+  }
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  line-height: 1.7;
+  overscroll-behavior-y: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
