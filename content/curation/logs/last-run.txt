@@ -1,19 +1,38 @@
+[候选] anime-illustration：45 条（新增 45）
+  {"source":"commons","category":"Wikipe-tan","open":true,"max":20} → 20 条
+  {"source":"commons","search":"anime style illustration","open":true,"max":25} → 25 条
 [候选] art-nouveau：请求没变，跳过
+[候选] concept-art：50 条（新增 50）
+  {"source":"commons","category":"David Revoy","open":true,"max":30} → 10 条
+  {"source":"commons","category":"Pepper&Carrot","open":true,"max":20} → 20 条
+  {"source":"commons","search":"concept art digital painting","open":true,"max":20} → 20 条
+[候选] flat-vector：39 条（新增 39）
+  {"source":"commons","search":"flat design illustration","open":true,"max":20} → 18 条
+  {"source":"commons","search":"flat vector illustration people","open":true,"max":20} → 1 条
+  {"source":"commons","search":"Open Peeps","open":true,"max":10} → 10 条
+  {"source":"commons","search":"Corporate Memphis","open":true,"max":10} → 10 条
 [候选] gongbi：请求没变，跳过
+[候选] gouache：请求没变，跳过
+[候选] isometric：59 条（新增 59）
+  {"source":"commons","search":"isometric illustration","open":true,"max":20} → 20 条
+  {"source":"commons","search":"isometric pixel art","open":true,"max":20} → 20 条
+  {"source":"commons","search":"isometric city","open":true,"max":20} → 20 条
 [候选] nordic-fairy：请求没变，跳过
 [候选] persian-miniature：请求没变，跳过
+[候选] picture-books：请求没变，跳过
+[候选] pixel-art：20 条（新增 20）
+  {"source":"commons","category":"Pixel art","open":true,"max":40} → 0 条
+  {"source":"commons","search":"pixel art scene","open":true,"max":20} → 20 条
+[候选] risograph：19 条（新增 19）
+  {"source":"commons","search":"risograph print","open":true,"max":30} → 18 条
+  {"source":"commons","search":"riso print illustration","open":true,"max":15} → 1 条
 [候选] ukiyo-e：请求没变，跳过
 [候选] wpa-poster：请求没变，跳过
 [封面] art-nouveau → aic-111986
-[下载] art-nouveau #23 → aic-16876（源图 1668×3000）
-[下载] art-nouveau #21 → cma-79015（源图 3216×3400）
 [封面] gongbi → cma-152556
-[下载] gongbi：移除 met-51409
+[封面] gouache → pratham-0146-08
 [封面] nordic-fairy → commons-23614544
-[下载] persian-miniature #16 → met-452111（源图 2802×4000）
 [封面] persian-miniature → met-452111
-[下载] persian-miniature #22 → cma-125567（源图 2048×3400）
-[下载] persian-miniature：移除 cma-123990
+[封面] picture-books → pratham-0133-01
 [封面] ukiyo-e → aic-24645
-[下载] ukiyo-e #15 → aic-20992（源图 1713×2250）
-[作品] 共 37 幅，图片合计 9.8 MB
+[作品] 共 51 幅，图片合计 11.6 MB
