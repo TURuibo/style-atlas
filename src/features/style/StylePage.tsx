@@ -3,13 +3,14 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 import { RatingBar } from '../../components/RatingBar'
 import { Badge, Button, Card, Chip, Page, Section } from '../../components/ui'
-import { artworksOfStyle, familyName, mediumName, moodName, publicUrl, regionName, stylesById } from '../../content'
+import { artworksOfStyle, familyName, mediumName, moodName, regionName, stylesById } from '../../content'
 import type { Style } from '../../content/schema'
 import { copyText } from '../../lib/clipboard'
 import { externalSearchLinks, stylePromptLine } from '../../lib/links'
 import { latestRatings } from '../../lib/storage'
 import { useUserStore } from '../../store/userStore'
 import { NotFound } from '../NotFound'
+import { Gallery } from './Gallery'
 
 export function StylePage() {
   const { styleId = '' } = useParams()
@@ -203,38 +204,6 @@ function StyleDetail({ style }: { style: Style }) {
         </Section>
       )}
     </Page>
-  )
-}
-
-function Gallery({ style }: { style: Style }) {
-  const artworks = artworksOfStyle(style.id)
-  if (style.imageMode === 'external-only') return null
-  if (artworks.length === 0) {
-    return (
-      <div className="mt-5 grid grid-cols-2 gap-2" aria-label="图片准备中">
-        {[0, 1].map((i) => (
-          <div key={i} className="flex aspect-[3/4] items-center justify-center rounded-xl bg-line/60 text-xs text-muted">
-            图片准备中
-          </div>
-        ))}
-      </div>
-    )
-  }
-  return (
-    <div className="mt-5 grid grid-cols-2 gap-2">
-      {artworks.map((art) => (
-        <a key={art.id} href={publicUrl(art.img.display)} className="block">
-          <img
-            src={publicUrl(art.img.thumb)}
-            alt={[art.titleZh ?? art.title, art.artist, art.date].filter(Boolean).join('，')}
-            loading="lazy"
-            width={art.img.width}
-            height={art.img.height}
-            className="aspect-[3/4] w-full rounded-xl bg-line/60 object-cover"
-          />
-        </a>
-      ))}
-    </div>
   )
 }
 

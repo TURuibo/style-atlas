@@ -7,6 +7,7 @@
 - npm run content:build   Markdown + YAML 编译为 src/content/generated/content.json
 - npm run validate        内容与许可校验，必须零错误
 - npm run coverage        生成 docs/COVERAGE.md（Phase 2 起）
+- npm run curate          挑图管线：抓候选、拼联系表、下载选中的图（平时由 .github/workflows/curate.yml 在 GitHub 上跑）
 - npm run deploy          构建并把 dist/ 推送到 gh-pages 分支
 
 ## 硬规则

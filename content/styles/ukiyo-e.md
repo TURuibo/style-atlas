@@ -1,6 +1,6 @@
 ---
 id: ukiyo-e
-status: draft
+status: ready
 nameZh: 浮世绘
 nameEn: Ukiyo-e
 nameOriginal: 浮世絵
@@ -25,7 +25,8 @@ museums:
   - { name: 东京国立博物馆, city: 东京 }
   - { name: 太田纪念美术馆, city: 东京, note: 浮世绘专门馆 }
   - { name: 波士顿美术馆, city: 波士顿, note: 日本以外藏量最大的之一 }
-  # 斯德哥尔摩：先在 Östasiatiska museet 官网核实有藏或有展，再加
+  - { name: 东亚博物馆 Östasiatiska museet, city: 斯德哥尔摩, note: "藏有北斋等人的锦绘；2026 年 9 月整修后重开，版画怕光，是否在展去前先查", url: "https://collections.smvk.se/carlotta-om/web/object/115288", local: stockholm }
+  - { name: 丹麦设计博物馆 Designmuseum Danmark, city: 哥本哈根, note: 藏有 40 张北斋版画, url: "https://designmuseum.dk/en/exhibition/japaneese-woodblock-prints-hukosai/", local: nordic }
 prompt:
   style: "ukiyo-e woodblock print"
   medium: ["Edo-period woodblock print", "flat color areas", "bold black outlines", "bokashi gradient sky", "visible paper texture"]
@@ -34,6 +35,7 @@ prompt:
   artistsPD: ["Katsushika Hokusai", "Utagawa Hiroshige", "Kitagawa Utamaro"]
   negative: ["photorealistic", "3D render", "glossy lighting", "lens blur"]
 externalSearch: "ukiyo-e woodblock print"
+coverArtworkId: aic-24645
 sources:
   - https://en.wikipedia.org/wiki/Ukiyo-e
   - https://zh.wikipedia.org/wiki/浮世繪

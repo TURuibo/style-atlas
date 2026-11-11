@@ -18,8 +18,11 @@ export function stylesOfRegion(regionId: string): Style[] {
   return content.styles.filter((s) => s.regions.includes(regionId)).sort(byEra)
 }
 
+/** 某风格的作品，封面排第一 */
 export function artworksOfStyle(styleId: string): Artwork[] {
-  return content.artworks.filter((a) => a.styleIds.includes(styleId))
+  const cover = stylesById.get(styleId)?.coverArtworkId
+  const own = content.artworks.filter((a) => a.styleIds.includes(styleId))
+  return [...own.filter((a) => a.id === cover), ...own.filter((a) => a.id !== cover)]
 }
 
 export function coverOfStyle(style: Style): Artwork | undefined {

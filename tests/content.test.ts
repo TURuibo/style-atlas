@@ -61,7 +61,9 @@ describe('checkContent 规则', () => {
     // 其他风格原样保留；去掉浮世绘自己的作品，让“图不够”的规则总能被测到
     return {
       ...bundle,
-      styles: bundle.styles.map((s) => (s.id === 'ukiyo-e' ? ({ ...base, ...style } as Style) : s)),
+      styles: bundle.styles.map((s) =>
+        s.id === 'ukiyo-e' ? ({ ...base, coverArtworkId: undefined, ...style } as Style) : s,
+      ),
       artworks: bundle.artworks.filter((a) => !a.styleIds.includes('ukiyo-e')),
     }
   }
@@ -85,5 +87,21 @@ describe('checkContent 规则', () => {
   it('不认识的地区 id 是错误', () => {
     const b = bundleWith({ regions: ['atlantis'] })
     expect(checkContent(b, { imageExists: () => true }).errors.join()).toMatch(/atlantis/)
+  })
+})
+
+describe('覆盖报告', () => {
+  it('统计图数、来源和外链风格', async () => {
+    const { coverageReport, artistKey } = await import('../scripts/lib/coverage')
+    const { bundle } = loadContent()
+    if (!bundle) throw new Error('no bundle')
+    const report = coverageReport(bundle, () => 1024, '2026-11-11')
+    expect(report).toContain('# 图片覆盖报告')
+    expect(report).toMatch(/浮世绘 `ukiyo-e` \| ready \| 真迹 \| \d+ \|/)
+    expect(report).toContain('外链风格（版权未过期，只给搜索链接）：日本漫画')
+    expect(artistKey('Attributed to Qiu Ying')).toBe('ying')
+    expect(artistKey('Alphonse Mucha (Czech, 1860–1939)')).toBe(artistKey('Alphonse Marie Mucha'))
+    expect(artistKey('Kitagawa Utamaro 喜多川 歌麿')).toBe('utamaro')
+    expect(artistKey('Unidentified artist')).toBeNull()
   })
 })
