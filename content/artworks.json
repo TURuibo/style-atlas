@@ -1,5 +1,700 @@
 [
   {
+    "id": "aic-111986",
+    "styleIds": [
+      "art-nouveau"
+    ],
+    "title": "Zodiaque (\"La Plume\")",
+    "artist": "Alphonse Marie Mucha",
+    "date": "1896–97",
+    "medium": "Color lithograph from multiple stones on tan wove paper",
+    "source": "aic",
+    "sourceUrl": "https://www.artic.edu/artworks/111986",
+    "license": "CC0",
+    "credit": "Zodiaque (\"La Plume\")，Alphonse Marie Mucha，1896–97。芝加哥艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/aic-111986-480.webp",
+      "display": "img/art/aic-111986-1600.webp",
+      "width": 1192,
+      "height": 1600
+    },
+    "sourceSize": {
+      "width": 2235,
+      "height": 3000
+    },
+    "palette": [
+      "#A28253",
+      "#825C33",
+      "#C7A879",
+      "#C28B37",
+      "#E9E1CA"
+    ],
+    "subjects": [
+      "figures",
+      "ornament"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "aic-120662",
+    "styleIds": [
+      "persian-miniature"
+    ],
+    "title": "Zal Climbing to Rudaba, page from a copy of the Shahnama of Firdausi",
+    "artist": "Iran",
+    "date": "Safavid dynasty (1501–1722), dated 1580/90",
+    "medium": "Opaque watercolor and gold on paper",
+    "source": "aic",
+    "sourceUrl": "https://www.artic.edu/artworks/120662",
+    "license": "CC0",
+    "credit": "Zal Climbing to Rudaba, page from a copy of the Shahnama of Firdausi，Iran，Safavid dynasty (1501–1722), dated 1580/90。芝加哥艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/aic-120662-480.webp",
+      "display": "img/art/aic-120662-1600.webp",
+      "width": 1010,
+      "height": 1600
+    },
+    "sourceSize": {
+      "width": 1894,
+      "height": 3000
+    },
+    "palette": [
+      "#D1C09B",
+      "#C6B083",
+      "#AF946E",
+      "#917859",
+      "#5F6053"
+    ],
+    "subjects": [
+      "narrative",
+      "figures"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "aic-13405",
+    "styleIds": [
+      "ukiyo-e"
+    ],
+    "title": "Goldfish, from the series \"Elegant Comparison of Little Treasures (Furyu kodakara awase)\"",
+    "artist": "Kitagawa Utamaro 喜多川 歌麿",
+    "date": "c. 1802",
+    "medium": "Color woodblock print; oban",
+    "source": "aic",
+    "sourceUrl": "https://www.artic.edu/artworks/13405",
+    "license": "CC0",
+    "credit": "Goldfish, from the series \"Elegant Comparison of Little Treasures (Furyu kodakara awase)\"，Kitagawa Utamaro 喜多川 歌麿，c. 1802。芝加哥艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/aic-13405-480.webp",
+      "display": "img/art/aic-13405-1600.webp",
+      "width": 1111,
+      "height": 1600
+    },
+    "sourceSize": {
+      "width": 2400,
+      "height": 3456
+    },
+    "palette": [
+      "#DECEA9",
+      "#CEBB94",
+      "#BAA774",
+      "#868764",
+      "#423F35"
+    ],
+    "subjects": [
+      "figures",
+      "daily-life"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "aic-19236",
+    "styleIds": [
+      "ukiyo-e"
+    ],
+    "title": "The Courtesan Arihara of the Tsuruya, and Child Attendants Aoe and Sekiya (Tsuruya uchi Arihara, Aoe, Sekiya), from an untitled series of courtesans",
+    "artist": "Kitagawa Utamaro 喜多川 歌麿",
+    "date": "c. 1797",
+    "medium": "Color woodblcok print; aiban",
+    "source": "aic",
+    "sourceUrl": "https://www.artic.edu/artworks/19236",
+    "license": "CC0",
+    "credit": "The Courtesan Arihara of the Tsuruya, and Child Attendants Aoe and Sekiya (Tsuruya uchi Arihara, Aoe, Sekiya), from an untitled series of courtesans，Kitagawa Utamaro 喜多川 歌麿，c. 1797。芝加哥艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/aic-19236-480.webp",
+      "display": "img/art/aic-19236-1600.webp",
+      "width": 843,
+      "height": 1257
+    },
+    "sourceSize": {
+      "width": 2012,
+      "height": 3000
+    },
+    "palette": [
+      "#CABE9A",
+      "#BDA97B",
+      "#A6885E",
+      "#2C2B25",
+      "#685F47"
+    ],
+    "subjects": [
+      "figures"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "aic-24645",
+    "styleIds": [
+      "ukiyo-e"
+    ],
+    "title": "Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series \"Thirty-Six Views of Mount Fuji (Fugaku sanjūrokkei)\"",
+    "titleZh": "神奈川冲浪里",
+    "artist": "Katsushika Hokusai 葛飾 北斎 ",
+    "date": "1830/33",
+    "medium": "Color woodblock print; oban",
+    "source": "aic",
+    "sourceUrl": "https://www.artic.edu/artworks/24645",
+    "license": "CC0",
+    "credit": "Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series \"Thirty-Six Views of Mount Fuji (Fugaku sanjūrokkei)\"，Katsushika Hokusai 葛飾 北斎，1830/33。芝加哥艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/aic-24645-480.webp",
+      "display": "img/art/aic-24645-1600.webp",
+      "width": 1600,
+      "height": 1096
+    },
+    "sourceSize": {
+      "width": 6679,
+      "height": 4577
+    },
+    "palette": [
+      "#B9B09C",
+      "#D5C4A7",
+      "#35465A",
+      "#798385",
+      "#EEE0C4"
+    ],
+    "subjects": [
+      "landscape"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "aic-51815",
+    "styleIds": [
+      "persian-miniature"
+    ],
+    "title": "Alexander Comforts the Dying Darius, page from a copy of the Shahnama of Firdausi",
+    "artist": "Iran",
+    "date": "Timurid dynasty (ca. 1370–1507), c.1480/90",
+    "medium": "Opaque watercolor and ink on paper",
+    "source": "aic",
+    "sourceUrl": "https://www.artic.edu/artworks/51815",
+    "license": "CC0",
+    "credit": "Alexander Comforts the Dying Darius, page from a copy of the Shahnama of Firdausi，Iran，Timurid dynasty (ca. 1370–1507), c.1480/90。芝加哥艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/aic-51815-480.webp",
+      "display": "img/art/aic-51815-1600.webp",
+      "width": 843,
+      "height": 1304
+    },
+    "sourceSize": {
+      "width": 1455,
+      "height": 2250
+    },
+    "palette": [
+      "#E5D8BD",
+      "#877F5F",
+      "#AAA789",
+      "#F3EAD5",
+      "#4B6262"
+    ],
+    "subjects": [
+      "narrative",
+      "figures"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "aic-93923",
+    "styleIds": [
+      "persian-miniature"
+    ],
+    "title": "Kay Khosrow Crosses the Sea of Zareh on His Way to China, a scene from the Shahnama of Firdausi",
+    "artist": "Iran",
+    "date": "Safavid dynasty (1501–1722), about 1550",
+    "medium": "Watercolor and ink on paper",
+    "source": "aic",
+    "sourceUrl": "https://www.artic.edu/artworks/93923",
+    "license": "CC0",
+    "credit": "Kay Khosrow Crosses the Sea of Zareh on His Way to China, a scene from the Shahnama of Firdausi，Iran，Safavid dynasty (1501–1722), about 1550。芝加哥艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/aic-93923-480.webp",
+      "display": "img/art/aic-93923-1600.webp",
+      "width": 1101,
+      "height": 1600
+    },
+    "sourceSize": {
+      "width": 2064,
+      "height": 3000
+    },
+    "palette": [
+      "#C5B591",
+      "#B5A279",
+      "#554D3B",
+      "#8E7955",
+      "#D5CCB5"
+    ],
+    "subjects": [
+      "narrative",
+      "landscape"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "aic-97439",
+    "styleIds": [
+      "art-nouveau"
+    ],
+    "title": "The Seasons",
+    "artist": "Alphonse Marie Mucha",
+    "date": "1897",
+    "medium": "Color lithograph on paper",
+    "source": "aic",
+    "sourceUrl": "https://www.artic.edu/artworks/97439",
+    "license": "CC0",
+    "credit": "The Seasons，Alphonse Marie Mucha，1897。芝加哥艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/aic-97439-480.webp",
+      "display": "img/art/aic-97439-1600.webp",
+      "width": 1600,
+      "height": 865
+    },
+    "sourceSize": {
+      "width": 3000,
+      "height": 1622
+    },
+    "palette": [
+      "#C2A985",
+      "#A98961",
+      "#8A6945",
+      "#5F4834",
+      "#E8E4D8"
+    ],
+    "subjects": [
+      "figures",
+      "flora-fauna"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "aic-9861",
+    "styleIds": [
+      "ukiyo-e"
+    ],
+    "title": "Kasumigaseki, from the series \"Famous Places in the Eastern Capital (Toto meisho)\"",
+    "artist": "Utagawa Kuniyoshi",
+    "date": "c. 1832/33",
+    "medium": "Color woodblock print; oban",
+    "source": "aic",
+    "sourceUrl": "https://www.artic.edu/artworks/9861",
+    "license": "CC0",
+    "credit": "Kasumigaseki, from the series \"Famous Places in the Eastern Capital (Toto meisho)\"，Utagawa Kuniyoshi，c. 1832/33。芝加哥艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/aic-9861-480.webp",
+      "display": "img/art/aic-9861-1600.webp",
+      "width": 843,
+      "height": 577
+    },
+    "sourceSize": {
+      "width": 3000,
+      "height": 2053
+    },
+    "palette": [
+      "#D5D1B2",
+      "#706351",
+      "#959379",
+      "#B0B49B",
+      "#173558"
+    ],
+    "subjects": [
+      "landscape",
+      "daily-life"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "cma-103244",
+    "styleIds": [
+      "ukiyo-e"
+    ],
+    "title": "Sudden Shower over Shin-Ōhashi Bridge and Atake, from One Hundred Famous Views of Edo",
+    "titleZh": "大桥安宅骤雨",
+    "artist": "Utagawa Hiroshige (Japanese, 1797–1858)",
+    "date": "1857",
+    "medium": "color woodblock print",
+    "source": "cma",
+    "sourceUrl": "https://clevelandart.org/art/1921.318",
+    "license": "CC0",
+    "credit": "Sudden Shower over Shin-Ōhashi Bridge and Atake, from One Hundred Famous Views of Edo，Utagawa Hiroshige (Japanese, 1797–1858)，1857。克利夫兰艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/cma-103244-480.webp",
+      "display": "img/art/cma-103244-1600.webp",
+      "width": 1075,
+      "height": 1600
+    },
+    "sourceSize": {
+      "width": 2285,
+      "height": 3400
+    },
+    "palette": [
+      "#8A8A83",
+      "#A6A192",
+      "#6A645F",
+      "#D7CDC0",
+      "#31333C"
+    ],
+    "subjects": [
+      "landscape",
+      "daily-life"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "cma-123434",
+    "styleIds": [
+      "persian-miniature"
+    ],
+    "title": "Bahram Gur Slays a Dragon (verso), from a Shahnama (Book of Kings) of Firdausi (940–1019 or 1025), known as the Great Mongol Shahnama",
+    "date": "1330–35",
+    "medium": "opaque watercolor, ink, and gold on paper",
+    "source": "cma",
+    "sourceUrl": "https://clevelandart.org/art/1943.658.b",
+    "license": "CC0",
+    "credit": "Bahram Gur Slays a Dragon (verso), from a Shahnama (Book of Kings) of Firdausi (940–1019 or 1025), known as the Great Mongol Shahnama，佚名，1330–35。克利夫兰艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/cma-123434-480.webp",
+      "display": "img/art/cma-123434-1600.webp",
+      "width": 1217,
+      "height": 1600
+    },
+    "sourceSize": {
+      "width": 2586,
+      "height": 3400
+    },
+    "palette": [
+      "#D2C0AA",
+      "#C6B199",
+      "#6D605D",
+      "#B59F85",
+      "#917B6C"
+    ],
+    "subjects": [
+      "narrative"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "cma-123990",
+    "styleIds": [
+      "persian-miniature"
+    ],
+    "title": "Nushirwan Listens to the Owls (recto): Illustration and Text, Persian Verses, from a Manuscript of the Khamsa of Nizami, Makhzan al-Asrar [Treasure of Secrets]",
+    "date": "1555–65",
+    "medium": "opaque watercolor, ink, and gold on paper",
+    "source": "cma",
+    "sourceUrl": "https://clevelandart.org/art/1944.487.a",
+    "license": "CC0",
+    "credit": "Nushirwan Listens to the Owls (recto): Illustration and Text, Persian Verses, from a Manuscript of the Khamsa of Nizami, Makhzan al-Asrar [Treasure of Secrets]，佚名，1555–65。克利夫兰艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/cma-123990-480.webp",
+      "display": "img/art/cma-123990-1600.webp",
+      "width": 1066,
+      "height": 1600
+    },
+    "sourceSize": {
+      "width": 2265,
+      "height": 3400
+    },
+    "palette": [
+      "#CCAD84",
+      "#D4BC9B",
+      "#B0906F",
+      "#DFD2BF",
+      "#5B5C5B"
+    ],
+    "subjects": [
+      "narrative",
+      "ornament"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "cma-125575",
+    "styleIds": [
+      "persian-miniature"
+    ],
+    "title": "An Episode from the Story of the Sasanian King Khusrau and His Beloved Shirin, from a Khamsa (Quintet) of Nizami (1141–1209) (verso)",
+    "date": "1540–70",
+    "medium": "opaque watercolor, ink, gold, and silver on paper",
+    "source": "cma",
+    "sourceUrl": "https://clevelandart.org/art/1947.500.b",
+    "license": "CC0",
+    "credit": "An Episode from the Story of the Sasanian King Khusrau and His Beloved Shirin, from a Khamsa (Quintet) of Nizami (1141–1209) (verso)，佚名，1540–70。克利夫兰艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/cma-125575-480.webp",
+      "display": "img/art/cma-125575-1600.webp",
+      "width": 1050,
+      "height": 1600
+    },
+    "sourceSize": {
+      "width": 2231,
+      "height": 3400
+    },
+    "palette": [
+      "#AA9580",
+      "#8C745F",
+      "#CDBBA5",
+      "#5A564A",
+      "#425D88"
+    ],
+    "subjects": [
+      "narrative",
+      "figures"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "cma-126086",
+    "styleIds": [
+      "ukiyo-e"
+    ],
+    "title": "Driving Rain at Shōno, from Fifty-Three Stations of the Tokaidō",
+    "titleZh": "庄野·白雨",
+    "artist": "Utagawa Hiroshige (Japanese, 1797–1858)",
+    "date": "1833",
+    "medium": "color woodblock print",
+    "source": "cma",
+    "sourceUrl": "https://clevelandart.org/art/1948.306",
+    "license": "CC0",
+    "credit": "Driving Rain at Shōno, from Fifty-Three Stations of the Tokaidō，Utagawa Hiroshige (Japanese, 1797–1858)，1833。克利夫兰艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/cma-126086-480.webp",
+      "display": "img/art/cma-126086-1600.webp",
+      "width": 1600,
+      "height": 1068
+    },
+    "sourceSize": {
+      "width": 3400,
+      "height": 2270
+    },
+    "palette": [
+      "#817669",
+      "#AE9E87",
+      "#55534F",
+      "#CFBC9E",
+      "#E7D7BF"
+    ],
+    "subjects": [
+      "landscape",
+      "daily-life"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "cma-133447",
+    "styleIds": [
+      "persian-miniature"
+    ],
+    "title": "Royal Reception in a Landscape, left folio from the double frontispiece of a Shahnama (Book of Kings) of Firdausi (Persian, about 940–1019 or 1025)",
+    "date": "1444",
+    "medium": "opaque watercolor, ink, gold and silver on paper",
+    "source": "cma",
+    "sourceUrl": "https://clevelandart.org/art/1956.10",
+    "license": "CC0",
+    "credit": "Royal Reception in a Landscape, left folio from the double frontispiece of a Shahnama (Book of Kings) of Firdausi (Persian, about 940–1019 or 1025)，佚名，1444。克利夫兰艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/cma-133447-480.webp",
+      "display": "img/art/cma-133447-1600.webp",
+      "width": 1106,
+      "height": 1600
+    },
+    "sourceSize": {
+      "width": 2351,
+      "height": 3400
+    },
+    "palette": [
+      "#8C7D65",
+      "#AD9373",
+      "#6B6057",
+      "#E3D0B4",
+      "#CAB191"
+    ],
+    "subjects": [
+      "figures",
+      "landscape"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "cma-144595",
+    "styleIds": [
+      "art-nouveau"
+    ],
+    "title": "Documents Decoratifs:  Oriental Poppies",
+    "artist": "Alphonse Mucha (Czech, 1860–1939)",
+    "date": "1901–2",
+    "medium": "lithograph",
+    "source": "cma",
+    "sourceUrl": "https://clevelandart.org/art/1969.236",
+    "license": "CC0",
+    "credit": "Documents Decoratifs:  Oriental Poppies，Alphonse Mucha (Czech, 1860–1939)，1901–2。克利夫兰艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/cma-144595-480.webp",
+      "display": "img/art/cma-144595-1600.webp",
+      "width": 1129,
+      "height": 1600
+    },
+    "sourceSize": {
+      "width": 2400,
+      "height": 3400
+    },
+    "palette": [
+      "#DCB786",
+      "#E1CBAF",
+      "#BE9269",
+      "#878263",
+      "#B07547"
+    ],
+    "subjects": [
+      "ornament",
+      "flora-fauna"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "cma-148500",
+    "styleIds": [
+      "art-nouveau"
+    ],
+    "title": "Andalusia at the Time of the Moors (left side)",
+    "artist": "Eugène Grasset (French, 1841–1917)",
+    "date": "c. 1900",
+    "medium": "color lithograph",
+    "source": "cma",
+    "sourceUrl": "https://clevelandart.org/art/1976.1071.a",
+    "license": "CC0",
+    "credit": "Andalusia at the Time of the Moors (left side)，Eugène Grasset (French, 1841–1917)，c. 1900。克利夫兰艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/cma-148500-480.webp",
+      "display": "img/art/cma-148500-1600.webp",
+      "width": 1127,
+      "height": 1600
+    },
+    "sourceSize": {
+      "width": 2394,
+      "height": 3400
+    },
+    "palette": [
+      "#B9A897",
+      "#9C8E83",
+      "#CEBFAA",
+      "#73706C",
+      "#3B4752"
+    ],
+    "subjects": [
+      "figures",
+      "narrative"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "cma-152551",
+    "styleIds": [
+      "gongbi"
+    ],
+    "title": "Birds on a Peach Branch",
+    "date": "1100s",
+    "medium": "Album leaf; ink and light color on silk",
+    "source": "cma",
+    "sourceUrl": "https://clevelandart.org/art/1985.367",
+    "license": "CC0",
+    "credit": "Birds on a Peach Branch，佚名，1100s。克利夫兰艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/cma-152551-480.webp",
+      "display": "img/art/cma-152551-1600.webp",
+      "width": 1600,
+      "height": 1328
+    },
+    "sourceSize": {
+      "width": 3400,
+      "height": 2823
+    },
+    "palette": [
+      "#D4C7B7",
+      "#664C36",
+      "#77593E",
+      "#BEAD9C",
+      "#AA9681"
+    ],
+    "subjects": [
+      "flora-fauna"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "cma-152556",
+    "styleIds": [
+      "gongbi"
+    ],
+    "title": "Bird on a Flowering Branch",
+    "date": "1100s",
+    "medium": "album leaf mounted as a hanging scroll; ink and color on silk",
+    "source": "cma",
+    "sourceUrl": "https://clevelandart.org/art/1985.371",
+    "license": "CC0",
+    "credit": "Bird on a Flowering Branch，佚名，1100s。克利夫兰艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/cma-152556-480.webp",
+      "display": "img/art/cma-152556-1600.webp",
+      "width": 1600,
+      "height": 1577
+    },
+    "sourceSize": {
+      "width": 3400,
+      "height": 3352
+    },
+    "palette": [
+      "#9A7F5C",
+      "#917655",
+      "#7A674F",
+      "#A79071",
+      "#605545"
+    ],
+    "subjects": [
+      "flora-fauna"
+    ],
+    "blindEligible": true
+  },
+  {
     "id": "commons-10196466",
     "styleIds": [
       "nordic-fairy"
@@ -216,6 +911,41 @@
     "blindEligible": true
   },
   {
+    "id": "commons-92202401",
+    "styleIds": [
+      "art-nouveau"
+    ],
+    "title": "Gismonda",
+    "artist": "Alphonse Mucha",
+    "date": "1894",
+    "source": "commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alphonse_Mucha_-_Poster_for_Victorien_Sardou%27s_Gismonda_starring_Sarah_Bernhardt.png",
+    "license": "PD",
+    "credit": "Gismonda，Alphonse Mucha，1894。维基共享资源，公共领域。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/commons-92202401-480.webp",
+      "display": "img/art/commons-92202401-1600.webp",
+      "width": 603,
+      "height": 1600
+    },
+    "sourceSize": {
+      "width": 1600,
+      "height": 4244
+    },
+    "palette": [
+      "#EADCC2",
+      "#A3A391",
+      "#978F70",
+      "#BDBAA5",
+      "#6C7368"
+    ],
+    "subjects": [
+      "figures"
+    ],
+    "blindEligible": true
+  },
+  {
     "id": "commons-99859248",
     "styleIds": [
       "nordic-fairy"
@@ -248,6 +978,260 @@
     "subjects": [
       "landscape",
       "narrative"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "met-36013",
+    "styleIds": [
+      "gongbi"
+    ],
+    "title": "Lady in a bamboo grove",
+    "artist": "Qiu Ying",
+    "date": "",
+    "medium": "Hanging scroll; ink and color on silk",
+    "source": "met",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/36013",
+    "license": "CC0",
+    "credit": "Lady in a bamboo grove，Qiu Ying，年代不详。大都会艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/met-36013-480.webp",
+      "display": "img/art/met-36013-1600.webp",
+      "width": 1200,
+      "height": 1600
+    },
+    "sourceSize": {
+      "width": 3000,
+      "height": 4000
+    },
+    "palette": [
+      "#131011",
+      "#A87B4C",
+      "#D6C5A9",
+      "#916C46",
+      "#3D3733"
+    ],
+    "subjects": [
+      "figures"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "met-36105",
+    "styleIds": [
+      "gongbi"
+    ],
+    "title": "Cranes, peach tree, and China rose",
+    "artist": "Shen Quan (Shen Pin)",
+    "date": "18th century",
+    "medium": "Hanging scroll; ink and color on silk",
+    "source": "met",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/36105",
+    "license": "CC0",
+    "credit": "Cranes, peach tree, and China rose，Shen Quan (Shen Pin)，18th century。大都会艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/met-36105-480.webp",
+      "display": "img/art/met-36105-1600.webp",
+      "width": 998,
+      "height": 1600
+    },
+    "sourceSize": {
+      "width": 1247,
+      "height": 2000
+    },
+    "palette": [
+      "#967D5C",
+      "#C9AD87",
+      "#78684B",
+      "#B29873",
+      "#130F0F"
+    ],
+    "subjects": [
+      "flora-fauna"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "met-39551",
+    "styleIds": [
+      "gongbi"
+    ],
+    "title": "Mandarin ducks and cotton rose hibiscus",
+    "artist": "Lü Ji",
+    "date": "late 15th century",
+    "medium": "Hanging scroll; ink and color on silk",
+    "source": "met",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/39551",
+    "license": "CC0",
+    "credit": "Mandarin ducks and cotton rose hibiscus，Lü Ji，late 15th century。大都会艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/met-39551-480.webp",
+      "display": "img/art/met-39551-1600.webp",
+      "width": 872,
+      "height": 1600
+    },
+    "sourceSize": {
+      "width": 2181,
+      "height": 4000
+    },
+    "palette": [
+      "#9C7D51",
+      "#7D6949",
+      "#AD997E",
+      "#5A4D3B",
+      "#000000"
+    ],
+    "subjects": [
+      "flora-fauna"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "met-39935",
+    "styleIds": [
+      "gongbi"
+    ],
+    "title": "Palace ladies bathing children",
+    "artist": "Unidentified artist",
+    "date": "11th century",
+    "medium": "Handscroll; ink and color on silk",
+    "source": "met",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/39935",
+    "license": "CC0",
+    "credit": "Palace ladies bathing children，Unidentified artist，11th century。大都会艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/met-39935-480.webp",
+      "display": "img/art/met-39935-1600.webp",
+      "width": 1600,
+      "height": 911
+    },
+    "sourceSize": {
+      "width": 1866,
+      "height": 1062
+    },
+    "palette": [
+      "#7A5A3E",
+      "#846648",
+      "#6A5038",
+      "#947A60",
+      "#D6BEA1"
+    ],
+    "subjects": [
+      "figures",
+      "daily-life"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "met-39936",
+    "styleIds": [
+      "gongbi"
+    ],
+    "title": "Finches and bamboo",
+    "titleZh": "竹禽图",
+    "artist": "Emperor Huizong",
+    "date": "early 12th century",
+    "medium": "Handscroll; ink and color on silk",
+    "source": "met",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/39936",
+    "license": "CC0",
+    "credit": "Finches and bamboo，Emperor Huizong，early 12th century。大都会艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/met-39936-480.webp",
+      "display": "img/art/met-39936-1600.webp",
+      "width": 1600,
+      "height": 864
+    },
+    "sourceSize": {
+      "width": 3824,
+      "height": 2064
+    },
+    "palette": [
+      "#A87A4D",
+      "#987044",
+      "#806543",
+      "#D7B17A",
+      "#E4CEB9"
+    ],
+    "subjects": [
+      "flora-fauna"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "met-51409",
+    "styleIds": [
+      "gongbi"
+    ],
+    "title": "Camellia Flowers",
+    "artist": "Unidentified artist",
+    "date": "",
+    "medium": "Fan mounted as an album leaf; ink and color on silk",
+    "source": "met",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/51409",
+    "license": "CC0",
+    "credit": "Camellia Flowers，Unidentified artist，年代不详。大都会艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/met-51409-480.webp",
+      "display": "img/art/met-51409-1600.webp",
+      "width": 1463,
+      "height": 1600
+    },
+    "sourceSize": {
+      "width": 3230,
+      "height": 3532
+    },
+    "palette": [
+      "#A98562",
+      "#E0CDBA",
+      "#5E6954",
+      "#86765A",
+      "#9B514C"
+    ],
+    "subjects": [
+      "flora-fauna"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "met-633554",
+    "styleIds": [
+      "art-nouveau"
+    ],
+    "title": "Vitrioleuse, from \"L'Estampe Originale\"",
+    "artist": "Eugène-Samuel Grasset",
+    "date": "1894",
+    "medium": "Lithograph, hand-stenciled in five colors",
+    "source": "met",
+    "sourceUrl": "https://www.metmuseum.org/art/collection/search/633554",
+    "license": "CC0",
+    "credit": "Vitrioleuse, from \"L'Estampe Originale\"，Eugène-Samuel Grasset，1894。大都会艺术博物馆，CC0。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/met-633554-480.webp",
+      "display": "img/art/met-633554-1600.webp",
+      "width": 1206,
+      "height": 1600
+    },
+    "sourceSize": {
+      "width": 2753,
+      "height": 3652
+    },
+    "palette": [
+      "#DCCCB5",
+      "#C8A58E",
+      "#935B54",
+      "#E26D55",
+      "#503C3B"
+    ],
+    "subjects": [
+      "figures"
     ],
     "blindEligible": true
   }
