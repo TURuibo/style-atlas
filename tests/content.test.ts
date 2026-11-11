@@ -58,7 +58,12 @@ describe('checkContent 规则', () => {
     const { bundle } = loadContent()
     if (!bundle) throw new Error('no bundle')
     const base = bundle.styles.find((s) => s.id === 'ukiyo-e')!
-    return { ...bundle, styles: [{ ...base, ...style } as Style] }
+    // 其他风格原样保留；去掉浮世绘自己的作品，让“图不够”的规则总能被测到
+    return {
+      ...bundle,
+      styles: bundle.styles.map((s) => (s.id === 'ukiyo-e' ? ({ ...base, ...style } as Style) : s)),
+      artworks: bundle.artworks.filter((a) => !a.styleIds.includes('ukiyo-e')),
+    }
   }
 
   it('提示词里不能出现 1955 年以后去世的画家', () => {
