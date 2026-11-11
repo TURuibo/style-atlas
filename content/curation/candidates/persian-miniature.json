@@ -1,7 +1,7 @@
 {
   "styleId": "persian-miniature",
-  "requestHash": "45e17cf5d63f",
-  "fetchedAt": "2026-11-11T12:56:39.729Z",
+  "requestHash": "733e4525d840",
+  "fetchedAt": "2026-11-11T13:05:53.996Z",
   "candidates": [
     {
       "source": "cma",
@@ -114,15 +114,67 @@
       "width": 3400,
       "height": 2678,
       "n": 7
+    },
+    {
+      "source": "aic",
+      "sourceId": "93923",
+      "title": "Kay Khosrow Crosses the Sea of Zareh on His Way to China, a scene from the Shahnama of Firdausi",
+      "artist": "Iran",
+      "date": "Safavid dynasty (1501–1722), about 1550",
+      "medium": "Watercolor and ink on paper",
+      "culture": "Iran",
+      "sourceUrl": "https://www.artic.edu/artworks/93923",
+      "previewUrl": "https://www.artic.edu/iiif/2/d445a00c-33f4-f652-f775-25cf9eed8957/full/400,/0/default.jpg",
+      "fullUrl": "https://www.artic.edu/iiif/2/d445a00c-33f4-f652-f775-25cf9eed8957/full/1686,/0/default.jpg",
+      "license": "CC0",
+      "museum": "芝加哥艺术博物馆",
+      "width": 2064,
+      "height": 3000,
+      "n": 8
+    },
+    {
+      "source": "aic",
+      "sourceId": "120662",
+      "title": "Zal Climbing to Rudaba, page from a copy of the Shahnama of Firdausi",
+      "artist": "Iran",
+      "date": "Safavid dynasty (1501–1722), dated 1580/90",
+      "medium": "Opaque watercolor and gold on paper",
+      "culture": "Shiraz",
+      "sourceUrl": "https://www.artic.edu/artworks/120662",
+      "previewUrl": "https://www.artic.edu/iiif/2/975ff738-5334-e791-1efc-bd41109dab3a/full/400,/0/default.jpg",
+      "fullUrl": "https://www.artic.edu/iiif/2/975ff738-5334-e791-1efc-bd41109dab3a/full/1686,/0/default.jpg",
+      "license": "CC0",
+      "museum": "芝加哥艺术博物馆",
+      "width": 1894,
+      "height": 3000,
+      "n": 9
+    },
+    {
+      "source": "aic",
+      "sourceId": "51815",
+      "title": "Alexander Comforts the Dying Darius, page from a copy of the Shahnama of Firdausi",
+      "artist": "Iran",
+      "date": "Timurid dynasty (ca. 1370–1507), c.1480/90",
+      "medium": "Opaque watercolor and ink on paper",
+      "culture": "Iran",
+      "sourceUrl": "https://www.artic.edu/artworks/51815",
+      "previewUrl": "https://www.artic.edu/iiif/2/81af09c1-d329-1134-2bf0-66e01d78b0fe/full/400,/0/default.jpg",
+      "fullUrl": "https://www.artic.edu/iiif/2/81af09c1-d329-1134-2bf0-66e01d78b0fe/full/1686,/0/default.jpg",
+      "license": "CC0",
+      "museum": "芝加哥艺术博物馆",
+      "width": 1455,
+      "height": 2250,
+      "n": 10
     }
   ],
   "notes": [
-    "{\"source\":\"met\",\"q\":\"Shahnama of Shah Tahmasp\",\"departmentId\":14,\"max\":8} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=14&q=Shahnama%20of%20Shah%20Tahmasp",
-    "{\"source\":\"met\",\"q\":\"Khamsa of Nizami\",\"departmentId\":14,\"max\":5} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=14&q=Khamsa%20of%20Nizami",
-    "{\"source\":\"met\",\"q\":\"Mantiq al-Tair\",\"departmentId\":14,\"max\":3} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=14&q=Mantiq%20al-Tair",
-    "{\"source\":\"met\",\"q\":\"Abbasi\",\"departmentId\":14,\"artistOrCulture\":true,\"max\":5} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=14&artistOrCulture=true&q=Abbasi",
-    "{\"source\":\"met\",\"q\":\"Bihzad\",\"departmentId\":14,\"artistOrCulture\":true,\"max\":3} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=14&artistOrCulture=true&q=Bihzad",
+    "{\"source\":\"met\",\"q\":\"Shahnama of Shah Tahmasp\",\"departmentId\":14,\"title\":true,\"max\":8} → 失败：Error: HTTP 403 https://collectionapi.metmuseum.org/public/collection/v1.1/search?hasImages=true&departmentId=14&title=true&offset=0&limit=64&q=Shahnama%20of%20Shah%20Tahmasp",
+    "{\"source\":\"met\",\"q\":\"Khamsa of Nizami\",\"departmentId\":14,\"title\":true,\"max\":4} → 失败：Error: HTTP 403 https://collectionapi.metmuseum.org/public/collection/v1.1/search?hasImages=true&departmentId=14&title=true&offset=0&limit=32&q=Khamsa%20of%20Nizami",
+    "{\"source\":\"met\",\"q\":\"Mantiq al-Tair\",\"departmentId\":14,\"title\":true,\"max\":3} → 失败：Error: HTTP 403 https://collectionapi.metmuseum.org/public/collection/v1.1/search?hasImages=true&departmentId=14&title=true&offset=0&limit=24&q=Mantiq%20al-Tair",
+    "{\"source\":\"met\",\"q\":\"Riza-yi 'Abbasi\",\"departmentId\":14,\"artistOrCulture\":true,\"max\":4} → 失败：Error: HTTP 403 https://collectionapi.metmuseum.org/public/collection/v1.1/search?hasImages=true&departmentId=14&artistOrCulture=true&offset=0&limit=32&q=Riza-yi%20'Abbasi",
+    "{\"source\":\"met\",\"q\":\"Bihzad\",\"departmentId\":14,\"artistOrCulture\":true,\"max\":2} → 失败：Error: HTTP 403 https://collectionapi.metmuseum.org/public/collection/v1.1/search?hasImages=true&departmentId=14&artistOrCulture=true&offset=0&limit=16&q=Bihzad",
     "{\"source\":\"cma\",\"q\":\"Shahnama\",\"max\":4} → 4 条",
-    "{\"source\":\"cma\",\"q\":\"Khamsa Nizami\",\"max\":3} → 3 条"
+    "{\"source\":\"cma\",\"q\":\"Khamsa Nizami\",\"max\":3} → 3 条",
+    "{\"source\":\"aic\",\"q\":\"Shahnama\",\"max\":3} → 3 条"
   ]
 }

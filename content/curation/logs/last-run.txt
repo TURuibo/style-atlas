@@ -1,46 +1,53 @@
-[候选] art-nouveau：10 条
-  {"source":"met","q":"Mucha","departmentId":9,"artistOrCulture":true,"max":8} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=9&artistOrCulture=true&q=Mucha
-  {"source":"met","q":"Grasset","departmentId":9,"artistOrCulture":true,"max":4} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=9&artistOrCulture=true&q=Grasset
-  {"source":"met","q":"Privat-Livemont","artistOrCulture":true,"max":3} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&artistOrCulture=true&q=Privat-Livemont
-  {"source":"met","q":"Berthon","departmentId":9,"artistOrCulture":true,"max":3} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=9&artistOrCulture=true&q=Berthon
-  {"source":"met","q":"de Feure","departmentId":9,"artistOrCulture":true,"max":3} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=9&artistOrCulture=true&q=de%20Feure
+[候选] art-nouveau：18 条
+  {"source":"met","q":"Mucha","departmentId":9,"artistOrCulture":true,"max":6} → 0 条
+  {"source":"met","q":"Grasset","departmentId":9,"artistOrCulture":true,"max":4} → 4 条
+  {"source":"met","q":"Privat-Livemont","artistOrCulture":true,"max":3} → 0 条
+  {"source":"met","q":"Berthon","departmentId":9,"artistOrCulture":true,"max":3} → 1 条
+  {"source":"met","q":"de Feure","departmentId":9,"artistOrCulture":true,"max":2} → 0 条
   {"source":"aic","q":"Alphonse Mucha","max":3} → 3 条
   {"source":"cma","q":"Mucha","max":3} → 3 条
+  {"source":"cma","q":"Grasset","max":3} → 3 条
   {"source":"commons","search":"Alphonse Mucha lithograph poster","max":4} → 4 条
-[候选] gongbi：8 条
-  {"source":"met","q":"Huizong","departmentId":6,"artistOrCulture":true,"max":3} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=6&artistOrCulture=true&q=Huizong
-  {"source":"met","q":"birds","departmentId":6,"medium":"Paintings","culture":"China","max":8} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=6&medium=Paintings&q=birds
-  {"source":"met","q":"flowers","departmentId":6,"medium":"Paintings","culture":"China","max":6} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=6&medium=Paintings&q=flowers
-  {"source":"met","q":"Qiu Ying","departmentId":6,"artistOrCulture":true,"max":3} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=6&artistOrCulture=true&q=Qiu%20Ying
-  {"source":"met","q":"Lü Ji","departmentId":6,"artistOrCulture":true,"max":3} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=6&artistOrCulture=true&q=L%C3%BC%20Ji
-  {"source":"met","q":"Shen Quan","departmentId":6,"artistOrCulture":true,"max":3} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=6&artistOrCulture=true&q=Shen%20Quan
+[候选] gongbi：29 条
+  {"source":"met","q":"Huizong","departmentId":6,"artistOrCulture":true,"max":3} → 1 条
+  {"source":"met","q":"birds","departmentId":6,"medium":"Paintings","culture":"China","max":6} → 6 条
+  {"source":"met","q":"flowers","departmentId":6,"medium":"Paintings","culture":"China","max":6} → 6 条
+  {"source":"met","q":"Qiu Ying","departmentId":6,"artistOrCulture":true,"max":3} → 3 条
+  {"source":"met","q":"Lü Ji","departmentId":6,"artistOrCulture":true,"max":3} → 3 条
+  {"source":"met","q":"Shen Quan","departmentId":6,"artistOrCulture":true,"max":3} → 3 条
+  {"source":"met","q":"court ladies","departmentId":6,"medium":"Paintings","culture":"China","max":3} → 1 条
   {"source":"cma","q":"bird","department":"Chinese Art","type":"Painting","max":5} → 5 条
   {"source":"cma","q":"court lady","department":"Chinese Art","type":"Painting","max":3} → 3 条
-[候选] nordic-fairy：32 条
-  {"source":"commons","search":"\"John Bauer\" troll","max":10} → 10 条
-  {"source":"commons","search":"\"Bland tomtar och troll\" Bauer","max":6} → 6 条
-  {"source":"commons","search":"Kittelsen troll","max":8} → 8 条
-  {"source":"commons","search":"Kittelsen Soria Moria","max":3} → 3 条
-  {"source":"commons","search":"Kittelsen Nøkken","max":3} → 3 条
-  {"source":"commons","search":"Werenskiold eventyr","max":4} → 4 条
-[候选] persian-miniature：7 条
-  {"source":"met","q":"Shahnama of Shah Tahmasp","departmentId":14,"max":8} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=14&q=Shahnama%20of%20Shah%20Tahmasp
-  {"source":"met","q":"Khamsa of Nizami","departmentId":14,"max":5} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=14&q=Khamsa%20of%20Nizami
-  {"source":"met","q":"Mantiq al-Tair","departmentId":14,"max":3} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=14&q=Mantiq%20al-Tair
-  {"source":"met","q":"Abbasi","departmentId":14,"artistOrCulture":true,"max":5} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=14&artistOrCulture=true&q=Abbasi
-  {"source":"met","q":"Bihzad","departmentId":14,"artistOrCulture":true,"max":3} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=14&artistOrCulture=true&q=Bihzad
+[候选] nordic-fairy：请求没变，跳过
+[候选] persian-miniature：10 条
+  {"source":"met","q":"Shahnama of Shah Tahmasp","departmentId":14,"title":true,"max":8} → 失败：Error: HTTP 403 https://collectionapi.metmuseum.org/public/collection/v1.1/search?hasImages=true&departmentId=14&title=true&offset=0&limit=64&q=Shahnama%20of%20Shah%20Tahmasp
+  {"source":"met","q":"Khamsa of Nizami","departmentId":14,"title":true,"max":4} → 失败：Error: HTTP 403 https://collectionapi.metmuseum.org/public/collection/v1.1/search?hasImages=true&departmentId=14&title=true&offset=0&limit=32&q=Khamsa%20of%20Nizami
+  {"source":"met","q":"Mantiq al-Tair","departmentId":14,"title":true,"max":3} → 失败：Error: HTTP 403 https://collectionapi.metmuseum.org/public/collection/v1.1/search?hasImages=true&departmentId=14&title=true&offset=0&limit=24&q=Mantiq%20al-Tair
+  {"source":"met","q":"Riza-yi 'Abbasi","departmentId":14,"artistOrCulture":true,"max":4} → 失败：Error: HTTP 403 https://collectionapi.metmuseum.org/public/collection/v1.1/search?hasImages=true&departmentId=14&artistOrCulture=true&offset=0&limit=32&q=Riza-yi%20'Abbasi
+  {"source":"met","q":"Bihzad","departmentId":14,"artistOrCulture":true,"max":2} → 失败：Error: HTTP 403 https://collectionapi.metmuseum.org/public/collection/v1.1/search?hasImages=true&departmentId=14&artistOrCulture=true&offset=0&limit=16&q=Bihzad
   {"source":"cma","q":"Shahnama","max":4} → 4 条
   {"source":"cma","q":"Khamsa Nizami","max":3} → 3 条
-[候选] ukiyo-e：7 条
-  {"source":"met","ids":[45434],"max":1} → 1 条
-  {"source":"met","q":"Thirty-six Views of Mount Fuji","departmentId":6,"max":4} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=6&q=Thirty-six%20Views%20of%20Mount%20Fuji
-  {"source":"met","q":"One Hundred Famous Views of Edo","departmentId":6,"max":4} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=6&q=One%20Hundred%20Famous%20Views%20of%20Edo
-  {"source":"met","q":"Utamaro","departmentId":6,"artistOrCulture":true,"max":4} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=6&artistOrCulture=true&q=Utamaro
-  {"source":"met","q":"Harunobu","departmentId":6,"artistOrCulture":true,"max":4} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=6&artistOrCulture=true&q=Harunobu
-  {"source":"met","q":"Kuniyoshi","departmentId":6,"artistOrCulture":true,"max":4} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=6&artistOrCulture=true&q=Kuniyoshi
-  {"source":"met","q":"Sharaku","departmentId":6,"artistOrCulture":true,"max":3} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=6&artistOrCulture=true&q=Sharaku
-  {"source":"aic","q":"Kuniyoshi woodblock print","max":3} → 3 条
+  {"source":"aic","q":"Shahnama","max":3} → 3 条
+[候选] ukiyo-e：9 条
+  {"source":"met","ids":[45434],"max":1} → 0 条
+  {"source":"met","q":"Hokusai","departmentId":6,"artistOrCulture":true,"max":4} → 失败：Error: HTTP 403 https://collectionapi.metmuseum.org/public/collection/v1.1/search?hasImages=true&departmentId=6&artistOrCulture=true&offset=0&limit=32&q=Hokusai
+  {"source":"met","q":"Hiroshige","departmentId":6,"artistOrCulture":true,"max":4} → 失败：Error: HTTP 403 https://collectionapi.metmuseum.org/public/collection/v1.1/search?hasImages=true&departmentId=6&artistOrCulture=true&offset=0&limit=32&q=Hiroshige
+  {"source":"met","q":"Utamaro","departmentId":6,"artistOrCulture":true,"max":4} → 失败：Error: HTTP 403 https://collectionapi.metmuseum.org/public/collection/v1.1/search?hasImages=true&departmentId=6&artistOrCulture=true&offset=0&limit=32&q=Utamaro
+  {"source":"met","q":"Harunobu","departmentId":6,"artistOrCulture":true,"max":3} → 失败：Error: HTTP 403 https://collectionapi.metmuseum.org/public/collection/v1.1/search?hasImages=true&departmentId=6&artistOrCulture=true&offset=0&limit=24&q=Harunobu
+  {"source":"met","q":"Kuniyoshi","departmentId":6,"artistOrCulture":true,"max":3} → 失败：Error: HTTP 403 https://collectionapi.metmuseum.org/public/collection/v1.1/search?hasImages=true&departmentId=6&artistOrCulture=true&offset=0&limit=24&q=Kuniyoshi
+  {"source":"met","q":"Sharaku","departmentId":6,"artistOrCulture":true,"max":2} → 失败：Error: HTTP 403 https://collectionapi.metmuseum.org/public/collection/v1.1/search?hasImages=true&departmentId=6&artistOrCulture=true&offset=0&limit=16&q=Sharaku
+  {"source":"aic","artist":"Utagawa Kuniyoshi","q":"woodblock print","max":3} → 3 条
+  {"source":"aic","artist":"Kitagawa Utamaro","q":"woodblock print","max":3} → 3 条
   {"source":"cma","q":"Hiroshige","type":"Print","max":3} → 3 条
 [候选] wpa-poster：0 条
-  {"source":"loc","q":"WPA poster","max":8} → 0 条
-[作品] 共 0 幅，图片合计 0.0 MB
+  {"source":"loc","q":"WPA poster","max":6} → 失败：Error: LoC 无可用条目：找到 17 个 id；93511160: Error: HTTP 429 https://www.loc.gov/item/93511160/?fo=json | 2005682800: Error: HTTP 429 https://www.loc.gov/item/2005682800/?fo=json | 98517997: Error: HTTP 429 
+  {"source":"loc","q":"Federal Art Project poster silkscreen","max":6} → 失败：Error: HTTP 429 https://www.loc.gov/photos/?q=Federal%20Art%20Project%20poster%20silkscreen&fo=json&c=18
+[下载] nordic-fairy #11 → commons-23614544（源图 1758×1773）
+[封面] nordic-fairy → commons-23614544
+[下载] nordic-fairy #4 → commons-22264347（源图 3047×3042）
+[下载] nordic-fairy #2 → commons-10196466（源图 3278×2489）
+[下载] nordic-fairy #18 → commons-99859248（源图 2796×4000）
+[下载] nordic-fairy #28 → commons-225207（源图 4000×2845）
+[下载] nordic-fairy #15 → commons-29840475（源图 5667×3714）
+[下载] nordic-fairy #29 → commons-115771786（源图 2000×1581）
+[作品] 共 7 幅，图片合计 2.8 MB

@@ -1,1 +1,254 @@
-[]
+[
+  {
+    "id": "commons-10196466",
+    "styleIds": [
+      "nordic-fairy"
+    ],
+    "title": "I julnatten",
+    "artist": "John Bauer",
+    "date": "1913",
+    "source": "commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:John_Bauer_-I_julnatten.jpg",
+    "license": "PD",
+    "credit": "I julnatten，John Bauer，1913。维基共享资源，公共领域。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/commons-10196466-480.webp",
+      "display": "img/art/commons-10196466-1600.webp",
+      "width": 1600,
+      "height": 1215
+    },
+    "sourceSize": {
+      "width": 3278,
+      "height": 2489
+    },
+    "palette": [
+      "#2D2A27",
+      "#F4F2EE",
+      "#7A7267",
+      "#A59C8E",
+      "#4D463F"
+    ],
+    "subjects": [
+      "narrative",
+      "landscape"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "commons-115771786",
+    "styleIds": [
+      "nordic-fairy"
+    ],
+    "title": "Why don't you come over and give an Old Hag a Helping Hand? (Illustration for Herding the King's Hares)",
+    "artist": "Erik Werenskiold",
+    "date": "1878",
+    "source": "commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erik_Werenskiold_-_Why_don%27t_you_come_over_and_give_an_Old_Hag_a_Helping_Hand,_Illustration_for_Herding_the_King%27s_Hares_-_NG.K%26H.B.05094_-_National_Museum_of_Art,_Architecture_and_Design.jpg",
+    "license": "PD",
+    "credit": "Why don't you come over and give an Old Hag a Helping Hand? (Illustration for Herding the King's Hares)，Erik Werenskiold，1878。维基共享资源，公共领域。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/commons-115771786-480.webp",
+      "display": "img/art/commons-115771786-1600.webp",
+      "width": 1600,
+      "height": 1265
+    },
+    "sourceSize": {
+      "width": 2000,
+      "height": 1581
+    },
+    "palette": [
+      "#E5DBCA",
+      "#CDC3B5",
+      "#B1A89D",
+      "#918881",
+      "#625B59"
+    ],
+    "subjects": [
+      "narrative",
+      "figures"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "commons-22264347",
+    "styleIds": [
+      "nordic-fairy"
+    ],
+    "title": "The Princess and the Trolls",
+    "artist": "John Bauer",
+    "date": "1913",
+    "source": "commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:John_Bauer_-_The_Princess_and_the_Trolls_-_Google_Art_Project.jpg",
+    "license": "PD",
+    "credit": "The Princess and the Trolls，John Bauer，1913。维基共享资源，公共领域。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/commons-22264347-480.webp",
+      "display": "img/art/commons-22264347-1600.webp",
+      "width": 1600,
+      "height": 1598
+    },
+    "sourceSize": {
+      "width": 3047,
+      "height": 3042
+    },
+    "palette": [
+      "#72694A",
+      "#837B5D",
+      "#4D4838",
+      "#A39774",
+      "#CEC6B5"
+    ],
+    "subjects": [
+      "narrative",
+      "figures"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "commons-225207",
+    "styleIds": [
+      "nordic-fairy"
+    ],
+    "title": "Nøkken (The Water Sprite)",
+    "artist": "Theodor Kittelsen",
+    "date": "1887–1892",
+    "source": "commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Theodor_Kittelsen_-_N%C3%B8kken,_1887-92_(The_Water_Sprite).jpg",
+    "license": "PD",
+    "credit": "Nøkken (The Water Sprite)，Theodor Kittelsen，1887–1892。维基共享资源，公共领域。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/commons-225207-480.webp",
+      "display": "img/art/commons-225207-1600.webp",
+      "width": 1600,
+      "height": 1138
+    },
+    "sourceSize": {
+      "width": 4000,
+      "height": 2845
+    },
+    "palette": [
+      "#575149",
+      "#6B645B",
+      "#3D3B35",
+      "#B1A698",
+      "#8E8579"
+    ],
+    "subjects": [
+      "landscape",
+      "narrative"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "commons-23614544",
+    "styleIds": [
+      "nordic-fairy"
+    ],
+    "title": "Princess Tuvstarr gazing down into the dark waters of the forest tarn",
+    "artist": "John Bauer",
+    "date": "1913",
+    "source": "commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:John_Bauer_-_Princess_Tuvstarr_gazing_down_into_the_dark_waters_of_the_forest_tarn._-_Google_Art_Project.jpg",
+    "license": "PD",
+    "credit": "Princess Tuvstarr gazing down into the dark waters of the forest tarn，John Bauer，1913。维基共享资源，公共领域。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/commons-23614544-480.webp",
+      "display": "img/art/commons-23614544-1600.webp",
+      "width": 1586,
+      "height": 1600
+    },
+    "sourceSize": {
+      "width": 1758,
+      "height": 1773
+    },
+    "palette": [
+      "#31312A",
+      "#494538",
+      "#9C896D",
+      "#746652",
+      "#C0AB8D"
+    ],
+    "subjects": [
+      "narrative",
+      "landscape"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "commons-29840475",
+    "styleIds": [
+      "nordic-fairy"
+    ],
+    "title": "The Princess picking Lice from the Troll",
+    "artist": "Theodor Kittelsen",
+    "date": "1900",
+    "source": "commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Theodor_Kittelsen_-_The_Princess_picking_Lice_from_the_Troll_-_Google_Art_Project.jpg",
+    "license": "PD",
+    "credit": "The Princess picking Lice from the Troll，Theodor Kittelsen，1900。维基共享资源，公共领域。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/commons-29840475-480.webp",
+      "display": "img/art/commons-29840475-1600.webp",
+      "width": 1600,
+      "height": 1048
+    },
+    "sourceSize": {
+      "width": 5667,
+      "height": 3714
+    },
+    "palette": [
+      "#0E0E07",
+      "#251B0C",
+      "#392F1C",
+      "#6A400F",
+      "#9F7C33"
+    ],
+    "subjects": [
+      "narrative",
+      "figures"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "commons-99859248",
+    "styleIds": [
+      "nordic-fairy"
+    ],
+    "title": "Skogtroll (Forest Troll)",
+    "artist": "Theodor Kittelsen",
+    "date": "1906",
+    "source": "commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Theodor_Kittelsen_-_Forest_Troll_-_NG.K%26H.B.03222_-_National_Museum_of_Art,_Architecture_and_Design.jpg",
+    "license": "PD",
+    "credit": "Skogtroll (Forest Troll)，Theodor Kittelsen，1906。维基共享资源，公共领域。",
+    "downloadedAt": "2026-11-11",
+    "img": {
+      "thumb": "img/art/commons-99859248-480.webp",
+      "display": "img/art/commons-99859248-1600.webp",
+      "width": 1118,
+      "height": 1600
+    },
+    "sourceSize": {
+      "width": 2796,
+      "height": 4000
+    },
+    "palette": [
+      "#D0DADB",
+      "#8D8581",
+      "#9D9691",
+      "#78706D",
+      "#B8B4AE"
+    ],
+    "subjects": [
+      "landscape",
+      "narrative"
+    ],
+    "blindEligible": true
+  }
+]

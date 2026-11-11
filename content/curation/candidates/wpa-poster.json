@@ -1,9 +1,10 @@
 {
   "styleId": "wpa-poster",
-  "requestHash": "e170fc5615f6",
-  "fetchedAt": "2026-11-11T13:00:20.036Z",
+  "requestHash": "be32b083be73",
+  "fetchedAt": "2026-11-11T13:08:51.259Z",
   "candidates": [],
   "notes": [
-    "{\"source\":\"loc\",\"q\":\"WPA poster\",\"max\":8} → 0 条"
+    "{\"source\":\"loc\",\"q\":\"WPA poster\",\"max\":6} → 失败：Error: LoC 无可用条目：找到 17 个 id；93511160: Error: HTTP 429 https://www.loc.gov/item/93511160/?fo=json | 2005682800: Error: HTTP 429 https://www.loc.gov/item/2005682800/?fo=json | 98517997: Error: HTTP 429 ",
+    "{\"source\":\"loc\",\"q\":\"Federal Art Project poster silkscreen\",\"max\":6} → 失败：Error: HTTP 429 https://www.loc.gov/photos/?q=Federal%20Art%20Project%20poster%20silkscreen&fo=json&c=18"
   ]
 }

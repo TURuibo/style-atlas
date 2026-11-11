@@ -1,8 +1,78 @@
 {
   "styleId": "art-nouveau",
-  "requestHash": "1da7e7d572c5",
-  "fetchedAt": "2026-11-11T12:56:02.133Z",
+  "requestHash": "a9c22da3d2f4",
+  "fetchedAt": "2026-11-11T13:05:26.847Z",
   "candidates": [
+    {
+      "source": "met",
+      "sourceId": "343047",
+      "title": "Jewelry Design",
+      "artist": "Eugène-Samuel Grasset",
+      "date": "n.d.",
+      "medium": "Purple, green and white gold watercolor",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/343047",
+      "previewUrl": "https://images.metmuseum.org/CRDImages/dp/web-large/DP806612.jpg",
+      "fullUrl": "https://images.metmuseum.org/CRDImages/dp/original/DP806612.jpg",
+      "license": "CC0",
+      "museum": "大都会艺术博物馆",
+      "n": 1
+    },
+    {
+      "source": "met",
+      "sourceId": "344024",
+      "title": "Design for a Pendant",
+      "artist": "Eugène-Samuel Grasset",
+      "date": "",
+      "medium": "Gouache on dark gray paper",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/344024",
+      "previewUrl": "https://images.metmuseum.org/CRDImages/dp/web-large/DP806613.jpg",
+      "fullUrl": "https://images.metmuseum.org/CRDImages/dp/original/DP806613.jpg",
+      "license": "CC0",
+      "museum": "大都会艺术博物馆",
+      "n": 2
+    },
+    {
+      "source": "met",
+      "sourceId": "633554",
+      "title": "Vitrioleuse, from \"L'Estampe Originale\"",
+      "artist": "Eugène-Samuel Grasset",
+      "date": "1894",
+      "medium": "Lithograph, hand-stenciled in five colors",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/633554",
+      "previewUrl": "https://images.metmuseum.org/CRDImages/dp/web-large/DP834484.jpg",
+      "fullUrl": "https://images.metmuseum.org/CRDImages/dp/original/DP834484.jpg",
+      "license": "CC0",
+      "museum": "大都会艺术博物馆",
+      "n": 3
+    },
+    {
+      "source": "met",
+      "sourceId": "351137",
+      "title": "Costumes des Représentans du peuple francais",
+      "artist": "Jacques Grasset de Saint-Sauveur",
+      "date": "1796",
+      "medium": "plates:  hand colored engraving",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/351137",
+      "previewUrl": "https://images.metmuseum.org/CRDImages/dp/web-large/DP-23054-002.jpg",
+      "fullUrl": "https://images.metmuseum.org/CRDImages/dp/original/DP-23054-002.jpg",
+      "license": "CC0",
+      "museum": "大都会艺术博物馆",
+      "n": 4
+    },
+    {
+      "source": "met",
+      "sourceId": "700440",
+      "title": "Plate from \"La Voye de Laict ou le Chemin des Heros à l'entrée de Louis XIV en la Cité d'Avignon le 16 Novembre 1622\"",
+      "artist": "Thomas de Berton",
+      "date": "1623",
+      "medium": "Etching",
+      "sourceUrl": "https://www.metmuseum.org/art/collection/search/700440",
+      "previewUrl": "https://images.metmuseum.org/CRDImages/dp/web-large/DP855551.jpg",
+      "fullUrl": "https://images.metmuseum.org/CRDImages/dp/original/DP855551.jpg",
+      "license": "CC0",
+      "museum": "大都会艺术博物馆",
+      "n": 5
+    },
     {
       "source": "aic",
       "sourceId": "111986",
@@ -18,7 +88,7 @@
       "museum": "芝加哥艺术博物馆",
       "width": 2235,
       "height": 3000,
-      "n": 1
+      "n": 6
     },
     {
       "source": "aic",
@@ -35,7 +105,7 @@
       "museum": "芝加哥艺术博物馆",
       "width": 3000,
       "height": 1622,
-      "n": 2
+      "n": 7
     },
     {
       "source": "aic",
@@ -52,7 +122,7 @@
       "museum": "芝加哥艺术博物馆",
       "width": 2016,
       "height": 1864,
-      "n": 3
+      "n": 8
     },
     {
       "source": "cma",
@@ -69,7 +139,7 @@
       "museum": "克利夫兰艺术博物馆",
       "width": 2435,
       "height": 3400,
-      "n": 4
+      "n": 9
     },
     {
       "source": "cma",
@@ -86,7 +156,7 @@
       "museum": "克利夫兰艺术博物馆",
       "width": 2400,
       "height": 3400,
-      "n": 5
+      "n": 10
     },
     {
       "source": "cma",
@@ -103,14 +173,65 @@
       "museum": "克利夫兰艺术博物馆",
       "width": 2493,
       "height": 3400,
-      "n": 6
+      "n": 11
+    },
+    {
+      "source": "cma",
+      "sourceId": "153129",
+      "title": "Sculptress",
+      "artist": "Eugène Grasset (French, 1841–1917)",
+      "date": "1897",
+      "medium": "lithograph with watercolor added by hand",
+      "culture": "France",
+      "sourceUrl": "https://clevelandart.org/art/1986.136",
+      "previewUrl": "https://openaccess-cdn.clevelandart.org/1986.136/1986.136_web.jpg",
+      "fullUrl": "https://openaccess-cdn.clevelandart.org/1986.136/1986.136_print.jpg",
+      "license": "CC0",
+      "museum": "克利夫兰艺术博物馆",
+      "width": 2396,
+      "height": 3400,
+      "n": 12
+    },
+    {
+      "source": "cma",
+      "sourceId": "312102",
+      "title": "Morphine Addict",
+      "artist": "Eugène Grasset (French, 1841–1917)",
+      "date": "1897",
+      "medium": "color lithograph",
+      "culture": "France",
+      "sourceUrl": "https://clevelandart.org/art/2018.31",
+      "previewUrl": "https://openaccess-cdn.clevelandart.org/2018.31/2018.31_web.jpg",
+      "fullUrl": "https://openaccess-cdn.clevelandart.org/2018.31/2018.31_print.jpg",
+      "license": "CC0",
+      "museum": "克利夫兰艺术博物馆",
+      "width": 2564,
+      "height": 3400,
+      "n": 13
+    },
+    {
+      "source": "cma",
+      "sourceId": "148500",
+      "title": "Andalusia at the Time of the Moors (left side)",
+      "artist": "Eugène Grasset (French, 1841–1917)",
+      "date": "c. 1900",
+      "medium": "color lithograph",
+      "culture": "France, Paris",
+      "sourceUrl": "https://clevelandart.org/art/1976.1071.a",
+      "previewUrl": "https://openaccess-cdn.clevelandart.org/1976.1071.a/1976.1071.a_web.jpg",
+      "fullUrl": "https://openaccess-cdn.clevelandart.org/1976.1071.a/1976.1071.a_print.jpg",
+      "license": "CC0",
+      "museum": "克利夫兰艺术博物馆",
+      "width": 2394,
+      "height": 3400,
+      "n": 14
     },
     {
       "source": "commons",
       "sourceId": "8886929",
       "title": "The Lady of the Camellias",
       "artist": "Alphonse Mucha",
-      "date": "1896 date QS:P571,+1896-00-00T00:00:00Z/9",
+      "date": "1896",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alfons_Mucha_-_1896_-_La_Dame_aux_Cam%C3%A9lias_-_Sarah_Bernhardt.jpg",
       "previewUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Alfons_Mucha_-_1896_-_La_Dame_aux_Cam%C3%A9lias_-_Sarah_Bernhardt.jpg/1920px-Alfons_Mucha_-_1896_-_La_Dame_aux_Cam%C3%A9lias_-_Sarah_Bernhardt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "fullUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Alfons_Mucha_-_1896_-_La_Dame_aux_Cam%C3%A9lias_-_Sarah_Bernhardt.jpg/1920px-Alfons_Mucha_-_1896_-_La_Dame_aux_Cam%C3%A9lias_-_Sarah_Bernhardt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -118,14 +239,14 @@
       "museum": "维基共享资源",
       "width": 2928,
       "height": 7804,
-      "n": 7
+      "n": 15
     },
     {
       "source": "commons",
       "sourceId": "15477181",
       "title": "Jaroslava Mucha by Alfons Mucha",
       "artist": "Alphonse Mucha",
-      "date": "circa 1920 date QS:P571,+1920-00-00T00:00:00Z/9,P1480,Q5727902 s",
+      "date": "circa 1920 s",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jaroslava_Mucha_by_Alfons_Mucha.jpg",
       "previewUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Jaroslava_Mucha_by_Alfons_Mucha.jpg/1920px-Jaroslava_Mucha_by_Alfons_Mucha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "fullUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Jaroslava_Mucha_by_Alfons_Mucha.jpg/1920px-Jaroslava_Mucha_by_Alfons_Mucha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -133,7 +254,7 @@
       "museum": "维基共享资源",
       "width": 3276,
       "height": 4403,
-      "n": 8
+      "n": 16
     },
     {
       "source": "commons",
@@ -148,7 +269,7 @@
       "museum": "维基共享资源",
       "width": 1447,
       "height": 4094,
-      "n": 9
+      "n": 17
     },
     {
       "source": "commons",
@@ -163,17 +284,18 @@
       "museum": "维基共享资源",
       "width": 1600,
       "height": 4244,
-      "n": 10
+      "n": 18
     }
   ],
   "notes": [
-    "{\"source\":\"met\",\"q\":\"Mucha\",\"departmentId\":9,\"artistOrCulture\":true,\"max\":8} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=9&artistOrCulture=true&q=Mucha",
-    "{\"source\":\"met\",\"q\":\"Grasset\",\"departmentId\":9,\"artistOrCulture\":true,\"max\":4} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=9&artistOrCulture=true&q=Grasset",
-    "{\"source\":\"met\",\"q\":\"Privat-Livemont\",\"artistOrCulture\":true,\"max\":3} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&artistOrCulture=true&q=Privat-Livemont",
-    "{\"source\":\"met\",\"q\":\"Berthon\",\"departmentId\":9,\"artistOrCulture\":true,\"max\":3} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=9&artistOrCulture=true&q=Berthon",
-    "{\"source\":\"met\",\"q\":\"de Feure\",\"departmentId\":9,\"artistOrCulture\":true,\"max\":3} → 失败：Error: HTTP 410 https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&departmentId=9&artistOrCulture=true&q=de%20Feure",
+    "{\"source\":\"met\",\"q\":\"Mucha\",\"departmentId\":9,\"artistOrCulture\":true,\"max\":6} → 0 条",
+    "{\"source\":\"met\",\"q\":\"Grasset\",\"departmentId\":9,\"artistOrCulture\":true,\"max\":4} → 4 条",
+    "{\"source\":\"met\",\"q\":\"Privat-Livemont\",\"artistOrCulture\":true,\"max\":3} → 0 条",
+    "{\"source\":\"met\",\"q\":\"Berthon\",\"departmentId\":9,\"artistOrCulture\":true,\"max\":3} → 1 条",
+    "{\"source\":\"met\",\"q\":\"de Feure\",\"departmentId\":9,\"artistOrCulture\":true,\"max\":2} → 0 条",
     "{\"source\":\"aic\",\"q\":\"Alphonse Mucha\",\"max\":3} → 3 条",
     "{\"source\":\"cma\",\"q\":\"Mucha\",\"max\":3} → 3 条",
+    "{\"source\":\"cma\",\"q\":\"Grasset\",\"max\":3} → 3 条",
     "{\"source\":\"commons\",\"search\":\"Alphonse Mucha lithograph poster\",\"max\":4} → 4 条"
   ]
 }
