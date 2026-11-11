@@ -13,7 +13,7 @@ import { processCandidate } from './images'
 import { makeContactSheet } from './sheet'
 import { fetchQuery } from './sources'
 import type { CandidatesFile, PicksFile, RawCandidate, RequestFile } from './types'
-import { SHEET_PAGE_SIZE, artworkIdOf, buildArtwork, chunk, dedupe } from './util'
+import { SHEET_PAGE_SIZE, artworkIdOf, buildArtwork, chunk, findCandidate, mergeCandidates } from './util'
 
 const curationDir = path.join(root, 'content', 'curation')
 const dirs = {
@@ -36,7 +36,8 @@ async function refreshCandidates() {
     const request = readJson<RequestFile>(path.join(dirs.requests, file))
     const outFile = path.join(dirs.candidates, `${request.styleId}.json`)
     const requestHash = hashOf(request)
-    if (fs.existsSync(outFile) && readJson<CandidatesFile>(outFile).requestHash === requestHash) {
+    const previous = fs.existsSync(outFile) ? readJson<CandidatesFile>(outFile) : undefined
+    if (previous?.requestHash === requestHash) {
       console.log(`[候选] ${request.styleId}：请求没变，跳过`)
       continue
     }
@@ -51,7 +52,7 @@ async function refreshCandidates() {
         notes.push(`${JSON.stringify(query)} → 失败：${String(error).slice(0, 200)}`)
       }
     }
-    const candidates = dedupe(raw)
+    const candidates = mergeCandidates(previous?.candidates ?? [], raw)
 
     // 旧的联系表先删掉，再按每页 20 条重新拼
     for (const f of fs.readdirSync(dirs.sheets)) {
@@ -61,7 +62,8 @@ async function refreshCandidates() {
       notes.push(...(await makeContactSheet(page, path.join(dirs.sheets, `${request.styleId}-${i + 1}.jpg`))))
     }
     writeJson(outFile, { styleId: request.styleId, requestHash, fetchedAt: new Date().toISOString(), candidates, notes })
-    console.log(`[候选] ${request.styleId}：${candidates.length} 条\n  ${notes.join('\n  ')}`)
+    const added = candidates.length - (previous?.candidates.length ?? 0)
+    console.log(`[候选] ${request.styleId}：${candidates.length} 条（新增 ${added}）\n  ${notes.join('\n  ')}`)
   }
 }
 
@@ -80,9 +82,13 @@ async function applyPicks() {
     const keep = new Set<string>()
 
     for (const pick of picks.picks) {
-      const c = candidates.find((x) => x.n === pick.n)
+      const c = findCandidate(candidates, pick)
       if (!c) {
-        console.log(`[下载] ${picks.styleId}：候选 #${pick.n} 不存在`)
+        // 候选重抓后可能暂时少了这一条（如来源限流），已下载的作品照旧保留
+        if (pick.id && artworks.some((a) => a.id === pick.id)) {
+          keep.add(pick.id)
+          console.log(`[下载] ${picks.styleId}：候选里暂时没有 ${pick.id}，保留已下载的作品`)
+        } else console.log(`[下载] ${picks.styleId}：找不到候选 ${pick.id ?? `#${pick.n}`}`)
         continue
       }
       const id = artworkIdOf(c)

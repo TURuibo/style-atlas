@@ -60,10 +60,10 @@ async function fromMet(q: Extract<Query, { source: 'met' }>): Promise<RawCandida
   const max = q.max ?? 8
   let ids = [...(q.ids ?? [])]
   if (q.q) {
-    ids = [...ids, ...(await metSearch(q, max * 8))]
+    ids = [...ids, ...(await metSearch(q, max * 4))]
   }
   const out: RawCandidate[] = []
-  for (const id of ids.slice(0, max * 8)) {
+  for (const id of ids.slice(0, max * 4)) {
     if (out.length >= max) break
     try {
       const o = await getJson<MetObject>(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`)

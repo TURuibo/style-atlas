@@ -294,3 +294,20 @@ describe('查询拼装', () => {
     expect(a.credit).toBe('Clean，Katsushika Hokusai，1913。大都会艺术博物馆，CC0。')
   })
 })
+
+describe('候选合并与按 id 挑图', () => {
+  it('旧候选保留编号，新的接在后面', async () => {
+    const { mergeCandidates, findCandidate } = await import('../scripts/curate/util')
+    const base = mapMet(metObject)!
+    const first = mergeCandidates([], [base, { ...base, sourceId: '2' }])
+    const second = mergeCandidates(first, [{ ...base, sourceId: '3' }, base])
+    expect(second.map((c) => [c.n, c.sourceId])).toEqual([
+      [1, '45434'],
+      [2, '2'],
+      [3, '3'],
+    ])
+    expect(findCandidate(second, { id: 'met-3', subjects: [] })?.n).toBe(3)
+    expect(findCandidate(second, { n: 2, subjects: [] })?.sourceId).toBe('2')
+    expect(findCandidate(second, { id: 'met-999', n: 1, subjects: [] })).toBeUndefined()
+  })
+})

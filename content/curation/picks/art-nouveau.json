@@ -1,0 +1,11 @@
+{
+  "styleId": "art-nouveau",
+  "picks": [
+    { "id": "aic-111986", "cover": true, "subjects": ["figures", "ornament"], "reason": "穆夏《黄道十二宫》：侧脸女子、飘散的头发、圆环光轮，新艺术最典型的一张" },
+    { "id": "aic-97439", "subjects": ["figures", "flora-fauna"], "reason": "四季装饰画屏，女性与植物合为一体" },
+    { "id": "commons-92202401", "title": "Gismonda", "date": "1894", "subjects": ["figures"], "reason": "穆夏为莎拉·伯恩哈特画的第一张海报，竖长画幅成了他的招牌" },
+    { "id": "cma-144595", "subjects": ["ornament", "flora-fauna"], "reason": "《装饰资料》：把罂粟画成可以直接用的图案" },
+    { "id": "met-633554", "subjects": ["figures"], "reason": "格拉塞的石版画：粗黑轮廓、平涂色块、卷曲的长发" },
+    { "id": "cma-148500", "subjects": ["figures", "narrative"], "reason": "格拉塞为 1900 年巴黎世博会画的海报" }
+  ]
+}

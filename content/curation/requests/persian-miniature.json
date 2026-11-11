@@ -1,13 +1,12 @@
 {
   "styleId": "persian-miniature",
   "queries": [
-    { "source": "met", "q": "Shahnama of Shah Tahmasp", "departmentId": 14, "title": true, "max": 8 },
-    { "source": "met", "q": "Khamsa of Nizami", "departmentId": 14, "title": true, "max": 4 },
-    { "source": "met", "q": "Mantiq al-Tair", "departmentId": 14, "title": true, "max": 3 },
-    { "source": "met", "q": "Riza-yi 'Abbasi", "departmentId": 14, "artistOrCulture": true, "max": 4 },
-    { "source": "met", "q": "Bihzad", "departmentId": 14, "artistOrCulture": true, "max": 2 },
+    { "source": "met", "q": "Shahnama of Shah Tahmasp", "departmentId": 14, "title": true, "max": 6 },
+    { "source": "met", "q": "Riza-yi 'Abbasi", "departmentId": 14, "artistOrCulture": true, "max": 3 },
     { "source": "cma", "q": "Shahnama", "max": 4 },
     { "source": "cma", "q": "Khamsa Nizami", "max": 3 },
-    { "source": "aic", "q": "Shahnama", "max": 3 }
+    { "source": "cma", "q": "Riza Abbasi", "max": 3 },
+    { "source": "aic", "q": "Shahnama", "max": 3 },
+    { "source": "aic", "q": "Riza Abbasi", "max": 3 }
   ]
 }

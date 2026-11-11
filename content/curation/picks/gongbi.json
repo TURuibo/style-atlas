@@ -1,0 +1,13 @@
+{
+  "styleId": "gongbi",
+  "picks": [
+    { "id": "cma-152556", "cover": true, "subjects": ["flora-fauna"], "reason": "宋代册页：一鸟一枝，勾线填色、绢底留空，工笔花鸟的标准样子" },
+    { "id": "met-39936", "titleZh": "竹禽图", "subjects": ["flora-fauna"], "reason": "传为宋徽宗赵佶，院体花鸟的源头" },
+    { "id": "cma-152551", "subjects": ["flora-fauna"], "reason": "宋代团扇：圆形画幅里的折枝构图" },
+    { "id": "met-51409", "subjects": ["flora-fauna"], "reason": "一枝山茶，看工笔怎样用层层罩染画出浓艳的红" },
+    { "id": "met-39551", "subjects": ["flora-fauna"], "reason": "明代宫廷画家吕纪，满幅浓彩的院体花鸟" },
+    { "id": "met-36105", "subjects": ["flora-fauna"], "reason": "清代沈铨，传到日本影响了江户花鸟画" },
+    { "id": "met-36013", "subjects": ["figures"], "reason": "仇英的仕女，细线勾人物、淡彩设色" },
+    { "id": "met-39935", "subjects": ["figures", "daily-life"], "reason": "宋代宫中仕女与孩童，工笔人物的另一面" }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "styleId": "ukiyo-e",
+  "picks": [
+    { "id": "aic-24645", "cover": true, "titleZh": "神奈川冲浪里", "subjects": ["landscape"], "reason": "北斋《富岳三十六景》，浮世绘最有名的一张" },
+    { "id": "cma-103244", "titleZh": "大桥安宅骤雨", "subjects": ["landscape", "daily-life"], "reason": "广重《名所江户百景》：斜线雨、俯视桥面，梵高临摹过" },
+    { "id": "cma-126086", "titleZh": "庄野·白雨", "subjects": ["landscape", "daily-life"], "reason": "广重《东海道五十三次》：风雨中奔跑的行人，深浅三层的竹林" },
+    { "id": "aic-19236", "subjects": ["figures"], "reason": "歌麿的美人画：半身特写、细腻的发丝和衣纹" },
+    { "id": "aic-13405", "subjects": ["figures", "daily-life"], "reason": "歌麿画母子与金鱼，市井生活的一面" },
+    { "id": "aic-9861", "subjects": ["landscape", "daily-life"], "reason": "国芳的江户名所，带一点西洋透视" }
+  ]
+}

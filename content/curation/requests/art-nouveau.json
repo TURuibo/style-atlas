@@ -1,14 +1,13 @@
 {
   "styleId": "art-nouveau",
   "queries": [
-    { "source": "met", "q": "Mucha", "departmentId": 9, "artistOrCulture": true, "max": 6 },
-    { "source": "met", "q": "Grasset", "departmentId": 9, "artistOrCulture": true, "max": 4 },
-    { "source": "met", "q": "Privat-Livemont", "artistOrCulture": true, "max": 3 },
-    { "source": "met", "q": "Berthon", "departmentId": 9, "artistOrCulture": true, "max": 3 },
-    { "source": "met", "q": "de Feure", "departmentId": 9, "artistOrCulture": true, "max": 2 },
     { "source": "aic", "q": "Alphonse Mucha", "max": 3 },
     { "source": "cma", "q": "Mucha", "max": 3 },
     { "source": "cma", "q": "Grasset", "max": 3 },
-    { "source": "commons", "search": "Alphonse Mucha lithograph poster", "max": 4 }
+    { "source": "commons", "search": "Alphonse Mucha lithograph poster", "max": 4 },
+    { "source": "cma", "q": "Privat-Livemont", "max": 3 },
+    { "source": "cma", "q": "Paul Berthon", "max": 3 },
+    { "source": "aic", "artist": "Paul Berthon", "max": 3 },
+    { "source": "aic", "artist": "Henri Privat-Livemont", "max": 3 }
   ]
 }

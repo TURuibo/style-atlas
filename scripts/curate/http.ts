@@ -6,16 +6,17 @@ export const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve
 
 /** 每个主机两次请求之间的最小间隔（毫秒） */
 const minGap: Record<string, number> = {
-  'collectionapi.metmuseum.org': 150,
-  'images.metmuseum.org': 200,
+  // Met 文档允许每秒 80 次，但 GitHub 机器上连续请求几十次后会被防火墙拦（HTTP 403），所以放慢
+  'collectionapi.metmuseum.org': 1000,
+  'images.metmuseum.org': 1000,
   'api.artic.edu': 1100,
   'www.artic.edu': 1100,
   'openaccess-api.clevelandart.org': 400,
   'openaccess-cdn.clevelandart.org': 300,
   'commons.wikimedia.org': 500,
   'upload.wikimedia.org': 1000,
-  'www.loc.gov': 1000,
-  'tile.loc.gov': 500,
+  'www.loc.gov': 3000,
+  'tile.loc.gov': 1000,
 }
 
 const lastCall = new Map<string, number>()
@@ -46,6 +47,12 @@ export async function fetchWithRetry(url: string, accept = '*/*', tries = 3): Pr
     if (res.ok) return res
     lastError = new Error(`HTTP ${res.status} ${url}`)
     if ([400, 401, 403, 404, 410].includes(res.status)) break
+    if (res.status === 429) {
+      // 限流：按 Retry-After 等（最多 60 秒）
+      const retryAfter = Number(res.headers.get('retry-after'))
+      await sleep(Math.min(Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1000 : 15_000 * attempt, 60_000))
+      continue
+    }
     await sleep(1500 * attempt)
   }
   throw lastError

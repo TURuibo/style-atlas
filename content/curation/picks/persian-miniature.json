@@ -1,0 +1,12 @@
+{
+  "styleId": "persian-miniature",
+  "picks": [
+    { "id": "cma-133447", "cover": true, "subjects": ["figures", "landscape"], "reason": "帖木儿时期《列王纪》卷首画：满幅人物、高视点、宝石般的颜色" },
+    { "id": "cma-123434", "subjects": ["narrative"], "reason": "伊尔汗国时期的《列王纪》，图文同页，中国山水的影响很明显" },
+    { "id": "aic-51815", "subjects": ["narrative", "figures"], "reason": "帖木儿晚期，贝赫扎德的时代" },
+    { "id": "aic-93923", "subjects": ["narrative", "landscape"], "reason": "萨非王朝：渡海场景，装饰化的水纹" },
+    { "id": "aic-120662", "subjects": ["narrative", "figures"], "reason": "扎尔攀上鲁达贝的城楼，建筑立面像图案一样平铺" },
+    { "id": "cma-125575", "subjects": ["narrative", "figures"], "reason": "内扎米《五卷诗》：霍斯鲁与希琳" },
+    { "id": "cma-123990", "subjects": ["narrative", "ornament"], "reason": "带金色页边的书页，看文字与插图怎样排在一起" }
+  ]
+}

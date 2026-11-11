@@ -1,13 +1,9 @@
 {
   "styleId": "ukiyo-e",
   "queries": [
-    { "source": "met", "ids": [45434], "max": 1 },
-    { "source": "met", "q": "Hokusai", "departmentId": 6, "artistOrCulture": true, "max": 4 },
-    { "source": "met", "q": "Hiroshige", "departmentId": 6, "artistOrCulture": true, "max": 4 },
-    { "source": "met", "q": "Utamaro", "departmentId": 6, "artistOrCulture": true, "max": 4 },
-    { "source": "met", "q": "Harunobu", "departmentId": 6, "artistOrCulture": true, "max": 3 },
-    { "source": "met", "q": "Kuniyoshi", "departmentId": 6, "artistOrCulture": true, "max": 3 },
-    { "source": "met", "q": "Sharaku", "departmentId": 6, "artistOrCulture": true, "max": 2 },
+    { "source": "aic", "ids": [24645], "max": 1 },
+    { "source": "aic", "artist": "Katsushika Hokusai", "q": "Thirty-six Views of Mount Fuji", "max": 3 },
+    { "source": "aic", "artist": "Suzuki Harunobu", "q": "woodblock print", "max": 3 },
     { "source": "aic", "artist": "Utagawa Kuniyoshi", "q": "woodblock print", "max": 3 },
     { "source": "aic", "artist": "Kitagawa Utamaro", "q": "woodblock print", "max": 3 },
     { "source": "cma", "q": "Hiroshige", "type": "Print", "max": 3 }

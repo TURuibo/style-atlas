@@ -8,15 +8,29 @@ export function artworkIdOf(c: Pick<Candidate, 'source' | 'sourceId'>): string {
   return `${c.source}-${c.sourceId.replace(/[^A-Za-z0-9_-]/g, '_')}`
 }
 
+/** 挑图记录优先按作品 id 找候选，没有 id 才按联系表编号 */
+export function findCandidate(candidates: Candidate[], pick: PickEntry): Candidate | undefined {
+  if (pick.id) return candidates.find((c) => artworkIdOf(c) === pick.id)
+  return candidates.find((c) => c.n === pick.n)
+}
+
 /** 按 来源+编号 去重，并从 1 开始编号 */
 export function dedupe(raw: RawCandidate[]): Candidate[] {
-  const seen = new Set<string>()
-  const out: Candidate[] = []
+  return mergeCandidates([], raw)
+}
+
+/**
+ * 把新抓到的候选并进旧的：旧候选保留原编号（来源偶尔限流时也不会丢），新的接在后面编号。
+ */
+export function mergeCandidates(previous: Candidate[], raw: RawCandidate[]): Candidate[] {
+  const out = [...previous]
+  const seen = new Set(previous.map((c) => `${c.source}:${c.sourceId}`))
+  let next = previous.reduce((max, c) => Math.max(max, c.n), 0) + 1
   for (const c of raw) {
     const key = `${c.source}:${c.sourceId}`
     if (seen.has(key)) continue
     seen.add(key)
-    out.push({ ...c, n: out.length + 1 })
+    out.push({ ...c, n: next++ })
   }
   return out
 }

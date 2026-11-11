@@ -1,12 +1,12 @@
 {
   "styleId": "nordic-fairy",
   "picks": [
-    { "n": 11, "cover": true, "title": "Princess Tuvstarr gazing down into the dark waters of the forest tarn", "date": "1913", "subjects": ["narrative", "landscape"], "reason": "鲍尔最有名的一幅：幽暗森林、苍白的公主、大片留白的水面" },
-    { "n": 4, "title": "The Princess and the Trolls", "date": "1913", "subjects": ["narrative", "figures"], "reason": "山怪与公主的体量对比，鲍尔典型的土褐色调" },
-    { "n": 2, "title": "I julnatten", "date": "1913", "subjects": ["narrative", "landscape"], "reason": "雪夜森林里的山怪队列，横构图、平涂与细线并用" },
-    { "n": 18, "title": "Skogtroll (Forest Troll)", "date": "1906", "subjects": ["landscape", "narrative"], "reason": "基特尔森把山怪画成长着树的山，童话与风景合一" },
-    { "n": 28, "title": "Nøkken (The Water Sprite)", "date": "1887–1892", "subjects": ["landscape", "narrative"], "reason": "水妖只露出两只发光的眼睛，靠气氛而不是形象吓人" },
-    { "n": 15, "title": "The Princess picking Lice from the Troll", "date": "1900", "subjects": ["narrative", "figures"], "reason": "挪威民间故事插图，幽默的一面" },
-    { "n": 29, "title": "Why don't you come over and give an Old Hag a Helping Hand? (Illustration for Herding the King's Hares)", "date": "1878", "subjects": ["narrative", "figures"], "reason": "韦伦斯基奥尔的钢笔线描，同一批民间故事的另一种画法" }
+    { "id": "commons-23614544", "cover": true, "title": "Princess Tuvstarr gazing down into the dark waters of the forest tarn", "date": "1913", "subjects": ["narrative", "landscape"], "reason": "鲍尔最有名的一幅：幽暗森林、苍白的公主、大片留白的水面" },
+    { "id": "commons-22264347", "title": "The Princess and the Trolls", "date": "1913", "subjects": ["narrative", "figures"], "reason": "山怪与公主的体量对比，鲍尔典型的土褐色调" },
+    { "id": "commons-10196466", "title": "I julnatten", "date": "1913", "subjects": ["narrative", "landscape"], "reason": "雪夜森林里的山怪队列，横构图、平涂与细线并用" },
+    { "id": "commons-99859248", "title": "Skogtroll (Forest Troll)", "date": "1906", "subjects": ["landscape", "narrative"], "reason": "基特尔森把山怪画成长着树的山，童话与风景合一" },
+    { "id": "commons-225207", "title": "Nøkken (The Water Sprite)", "date": "1887–1892", "subjects": ["landscape", "narrative"], "reason": "水妖只露出两只发光的眼睛，靠气氛而不是形象吓人" },
+    { "id": "commons-29840475", "title": "The Princess picking Lice from the Troll", "date": "1900", "subjects": ["narrative", "figures"], "reason": "挪威民间故事插图，幽默的一面" },
+    { "id": "commons-115771786", "title": "Why don't you come over and give an Old Hag a Helping Hand? (Illustration for Herding the King's Hares)", "date": "1878", "subjects": ["narrative", "figures"], "reason": "韦伦斯基奥尔的钢笔线描，同一批民间故事的另一种画法" }
   ]
 }

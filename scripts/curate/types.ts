@@ -60,7 +60,10 @@ export interface RequestFile {
 
 /** content/curation/picks/<styleId>.json：从联系表里选中的作品 */
 export interface PickEntry {
-  n: number
+  /** 联系表编号；候选重抓后编号会变，所以优先用 id */
+  n?: number
+  /** 作品 id，即 `来源-编号`，如 cma-152556；重抓候选也不会变 */
+  id?: string
   subjects: string[]
   /** 选它的理由，一句话 */
   reason?: string
