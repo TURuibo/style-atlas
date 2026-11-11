@@ -6,6 +6,8 @@
     { "id": "commons-92202401", "title": "Gismonda", "date": "1894", "subjects": ["figures"], "reason": "穆夏为莎拉·伯恩哈特画的第一张海报，竖长画幅成了他的招牌" },
     { "id": "cma-144595", "subjects": ["ornament", "flora-fauna"], "reason": "《装饰资料》：把罂粟画成可以直接用的图案" },
     { "id": "met-633554", "subjects": ["figures"], "reason": "格拉塞的石版画：粗黑轮廓、平涂色块、卷曲的长发" },
-    { "id": "cma-148500", "subjects": ["figures", "narrative"], "reason": "格拉塞为 1900 年巴黎世博会画的海报" }
+    { "id": "cma-148500", "subjects": ["figures", "narrative"], "reason": "格拉塞为 1900 年巴黎世博会画的海报" },
+    { "id": "aic-16876", "subjects": ["figures", "flora-fauna"], "reason": "比利时的普里瓦-利夫蒙：花环、长发和商品广告" },
+    { "id": "cma-79015", "subjects": ["figures", "flora-fauna"], "reason": "贝尔东的石版画：低饱和的土色调、侧脸和郁金香" }
   ]
 }

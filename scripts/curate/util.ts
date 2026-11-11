@@ -23,7 +23,12 @@ export function dedupe(raw: RawCandidate[]): Candidate[] {
  * 把新抓到的候选并进旧的：旧候选保留原编号（来源偶尔限流时也不会丢），新的接在后面编号。
  */
 export function mergeCandidates(previous: Candidate[], raw: RawCandidate[]): Candidate[] {
-  const out = [...previous]
+  // 这次又抓到的旧候选，用新数据（如修正过的作者字段），编号不变
+  const fresh = new Map(raw.map((c) => [`${c.source}:${c.sourceId}`, c]))
+  const out = previous.map((c) => {
+    const update = fresh.get(`${c.source}:${c.sourceId}`)
+    return update ? { ...update, n: c.n } : c
+  })
   const seen = new Set(previous.map((c) => `${c.source}:${c.sourceId}`))
   let next = previous.reduce((max, c) => Math.max(max, c.n), 0) + 1
   for (const c of raw) {
@@ -67,7 +72,12 @@ export function buildArtwork(args: {
   today: string
 }): Artwork {
   const { pick, styleId, existing, image, today } = args
-  const c = { ...args.candidate, title: pick.title ?? args.candidate.title, date: pick.date ?? args.candidate.date }
+  const c = {
+    ...args.candidate,
+    title: pick.title ?? args.candidate.title,
+    date: pick.date ?? args.candidate.date,
+    artist: pick.artist ?? args.candidate.artist,
+  }
   const id = artworkIdOf(c)
   return {
     id,

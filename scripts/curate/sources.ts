@@ -13,6 +13,8 @@ export interface MetObject {
   primaryImage: string
   primaryImageSmall: string
   title: string
+  /** 如 Attributed to、After、Workshop of；没有它会把仿作记成真迹 */
+  artistPrefix?: string
   artistDisplayName: string
   objectDate: string
   medium: string
@@ -26,7 +28,7 @@ export function mapMet(o: MetObject): RawCandidate | null {
     source: 'met',
     sourceId: String(o.objectID),
     title: o.title || '无题',
-    artist: o.artistDisplayName || undefined,
+    artist: [o.artistPrefix, o.artistDisplayName].filter(Boolean).join(' ') || undefined,
     date: o.objectDate || '',
     medium: o.medium || undefined,
     culture: o.culture || undefined,
@@ -124,29 +126,29 @@ async function fromAic(q: Extract<Query, { source: 'aic' }>): Promise<RawCandida
     found.push(...res.data)
   }
   if (q.q || q.artist) {
-    const must: unknown[] = [{ term: { is_public_domain: true } }]
+    let artistId: number | undefined
     if (q.artist) {
       // 先按名字查到画家 id，再按 artist_ids 精确筛选，比全文搜索准
       const agents = await getJson<{ data: { id: number; title: string }[] }>(
         `https://api.artic.edu/api/v1/agents/search?q=${encodeURIComponent(q.artist)}&fields=id,title&limit=1`,
       )
-      const agent = agents.data[0]
-      if (!agent) throw new Error(`AIC 找不到画家：${q.artist}`)
-      must.push({ term: { artist_ids: agent.id } })
+      artistId = agents.data[0]?.id
+      if (artistId === undefined) throw new Error(`AIC 找不到画家：${q.artist}`)
     }
-    const res = await getJson<{ data: AicArtwork[] }>(`https://api.artic.edu/api/v1/artworks/search?params=${encodeURIComponent(JSON.stringify(aicSearchBody(q, must, max)))}`)
+    const res = await getJson<{ data: AicArtwork[] }>(aicSearchUrl(q, max, artistId))
     found.push(...res.data)
   }
   return found.map(mapAic).filter((c): c is RawCandidate => c !== null).slice(0, max)
 }
 
-export function aicSearchBody(q: Extract<Query, { source: 'aic' }>, must: unknown[], max: number) {
-  return {
-    ...(q.q ? { q: q.q } : {}),
-    query: { bool: { must } },
-    fields: AIC_FIELDS,
-    limit: Math.min(max * 3, 60),
-  }
+/** AIC 搜索地址。筛选用方括号参数；放进 params JSON 时 q 会被忽略（2026-11 实测） */
+export function aicSearchUrl(q: Extract<Query, { source: 'aic' }>, max: number, artistId?: number): string {
+  const parts: string[] = []
+  if (q.q) parts.push(`q=${encodeURIComponent(q.q)}`)
+  parts.push('query[bool][must][0][term][is_public_domain]=true')
+  if (artistId !== undefined) parts.push(`query[bool][must][1][term][artist_ids]=${artistId}`)
+  parts.push(`fields=${AIC_FIELDS}`, `limit=${Math.min(max * 3, 60)}`)
+  return `https://api.artic.edu/api/v1/artworks/search?${parts.join('&')}`
 }
 
 // ---------- 克利夫兰艺术博物馆 ----------

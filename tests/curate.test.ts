@@ -274,10 +274,17 @@ describe('查询拼装', () => {
     expect(url.endsWith(`q=${encodeURIComponent("Riza-yi 'Abbasi")}`)).toBe(true)
   })
 
-  it('AIC 的 params 里带公共领域筛选', async () => {
-    const { aicSearchBody } = await import('../scripts/curate/sources')
-    const body = aicSearchBody({ source: 'aic', q: 'print', max: 3 }, [{ term: { is_public_domain: true } }], 3)
-    expect(body).toMatchObject({ q: 'print', limit: 9, query: { bool: { must: [{ term: { is_public_domain: true } }] } } })
+  it('AIC 搜索用方括号参数，带公共领域和画家筛选', async () => {
+    const { aicSearchUrl } = await import('../scripts/curate/sources')
+    const url = aicSearchUrl({ source: 'aic', q: 'woodblock print', max: 3 }, 3, 123)
+    expect(url).toContain('q=woodblock%20print')
+    expect(url).toContain('query[bool][must][0][term][is_public_domain]=true')
+    expect(url).toContain('query[bool][must][1][term][artist_ids]=123')
+    expect(url).toContain('limit=9')
+  })
+
+  it('Met 作者带上 Attributed to / After 前缀', () => {
+    expect(mapMet({ ...metObject, artistPrefix: 'After' })?.artist).toBe('After Katsushika Hokusai')
   })
 
   it('清掉维基共享资源的隐藏片段', async () => {
@@ -309,5 +316,7 @@ describe('候选合并与按 id 挑图', () => {
     expect(findCandidate(second, { id: 'met-3', subjects: [] })?.n).toBe(3)
     expect(findCandidate(second, { n: 2, subjects: [] })?.sourceId).toBe('2')
     expect(findCandidate(second, { id: 'met-999', n: 1, subjects: [] })).toBeUndefined()
+    const refreshed = mergeCandidates(second, [{ ...base, sourceId: '2', artist: 'After X' }])
+    expect(refreshed.find((c) => c.sourceId === '2')).toMatchObject({ n: 2, artist: 'After X' })
   })
 })

@@ -74,6 +74,8 @@ export interface PickEntry {
   title?: string
   /** 同上，来源年代字段太乱时手工给出 */
   date?: string
+  /** 来源作者字段有误或缺少“传”“仿”等限定时，按馆方页面改写 */
+  artist?: string
   titleZh?: string
   attributes?: Record<string, number>
 }
