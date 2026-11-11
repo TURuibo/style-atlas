@@ -54,8 +54,10 @@ export function coverageReport(bundle: ContentBundle, fileSize: (relative: strin
   for (const family of bundle.families) {
     const styles = bundle.styles.filter((s) => s.family === family.id).sort((a, b) => a.era.start - b.era.start)
     lines.push(`## ${family.nameZh}（${styles.length} / ${family.planned}）`, '')
+    const todo = bundle.plan.filter((p) => p.family === family.id && !styles.some((s) => s.id === p.id))
+    const todoLine = todo.length ? `还没写：${todo.map((p) => p.nameZh).join('、')}。` : ''
     if (styles.length === 0) {
-      lines.push('还没有写。', '')
+      lines.push(todoLine || '还没有写。', '')
       continue
     }
     lines.push('| 风格 | 状态 | 方式 | 图数 | 来源 | 作者数（约） | 封面 | 体积 |', '| --- | --- | --- | --- | --- | --- | --- | --- |')
@@ -76,6 +78,7 @@ export function coverageReport(bundle: ContentBundle, fileSize: (relative: strin
       )
     }
     lines.push('')
+    if (todoLine) lines.push(todoLine, '')
   }
 
   const external = bundle.styles.filter((s) => s.imageMode === 'external-only')

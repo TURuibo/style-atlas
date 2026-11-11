@@ -1,23 +1,117 @@
-import { Link } from 'react-router'
-import { Card, Page } from '../../components/ui'
-import { content } from '../../content'
+import { useEffect, useMemo, useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router'
+import { Button, Card, Page, Section } from '../../components/ui'
+import { content, stylesById } from '../../content'
+import { blindCandidates, FIRST_ROUND_SIZE, NEXT_ROUND_SIZE, pickFirstRound, pickNextRound } from '../../lib/blind'
+import { activeBlindRound, lastCompletedBlindRound, requestPersistentStorage } from '../../lib/storage'
+import { useUserStore } from '../../store/userStore'
+import { BlindSession } from './BlindSession'
 
-/** 盲测在 Phase 3 实现；这里先说明开放条件。 */
-export const BLIND_FIRST_ROUND = 24
-
+/** 盲测入口（SPEC §4.2）：开始、继续、再来一轮；进行中是全屏的 BlindSession */
 export function BlindPage() {
-  const eligible = content.artworks.filter((a) => a.blindEligible).length
+  const ready = useUserStore((s) => s.ready)
+  const state = useUserStore((s) => s.state)
+  const startBlindRound = useUserStore((s) => s.startBlindRound)
+  const markIntroSeen = useUserStore((s) => s.markIntroSeen)
+  const navigate = useNavigate()
+  const location = useLocation()
+  const autostart = (location.state as { autostart?: boolean } | null)?.autostart === true
+  const [running, setRunning] = useState(false)
+
+  const candidates = useMemo(() => blindCandidates(content.artworks, stylesById), [])
+  const active = activeBlindRound(state)
+  const done = state.progress.blindRounds.filter((r) => r.completedAt)
+  const lastDone = lastCompletedBlindRound(state)
+  const firstRound = done.length === 0
+  const enough = candidates.length >= (firstRound ? FIRST_ROUND_SIZE : NEXT_ROUND_SIZE)
+
+  const begin = () => {
+    markIntroSeen()
+    if (!activeBlindRound(useUserStore.getState().state)) {
+      const shown = state.progress.blindRounds.flatMap((r) => r.artworkIds)
+      const ids = firstRound
+        ? pickFirstRound(candidates, Math.random)
+        : pickNextRound(candidates, shown, Math.random)
+      startBlindRound(ids)
+    }
+    setRunning(true)
+  }
+
+  // 从首次说明页点“开始盲测”进来时直接开始
+  useEffect(() => {
+    if (ready && autostart && enough) {
+      navigate('.', { replace: true, state: null })
+      begin()
+    }
+    // begin 每次渲染都是新函数，这里只在条件满足时跑一次
+  }, [ready, autostart, enough])
+
+  const finish = () => {
+    setRunning(false)
+    // 第一次完成盲测后申请持久存储（SPEC §10.5）
+    if (firstRound) void requestPersistentStorage()
+    navigate('/blind/reveal')
+  }
+
+  if (!ready) return <Page title="盲测">{null}</Page>
+  if (running && active) return <BlindSession onExit={() => setRunning(false)} onFinish={finish} />
+
   return (
     <Page title="盲测" subtitle="不看名字，只凭第一眼打分，看看你真正喜欢什么。">
-      <Card>
-        <p className="leading-relaxed">
-          盲测需要至少 {BLIND_FIRST_ROUND} 幅来自不同大类的图。现在有 {eligible} 幅，图片上线后这里会自动开放。
-        </p>
-        <p className="mt-3 text-sm text-muted">在那之前，可以先去导览读一读各个大类。</p>
-        <Link to="/" className="mt-4 inline-block text-accent underline underline-offset-4">
-          去导览
-        </Link>
-      </Card>
+      {active ? (
+        <Card>
+          <p className="font-serif text-lg font-semibold">
+            第 {active.number} 轮还剩 {active.artworkIds.length - active.position} 张
+          </p>
+          <p className="mt-1 text-sm text-muted">已评的都存好了，从第 {active.position + 1} 张接着来。</p>
+          <div className="mt-4">
+            <Button variant="primary" onClick={() => setRunning(true)}>
+              继续盲测
+            </Button>
+          </div>
+        </Card>
+      ) : enough ? (
+        <Card>
+          <p className="font-serif text-lg font-semibold">
+            {firstRound ? `首轮 ${FIRST_ROUND_SIZE} 张，大约 3 分钟` : `再来一轮，${NEXT_ROUND_SIZE} 张`}
+          </p>
+          <p className="mt-1 text-sm leading-relaxed text-muted">
+            {firstRound
+              ? '图都来自博物馆的公共领域藏品，覆盖已上线的各个大类。看完会揭晓每张是什么风格。'
+              : '优先出现你在盲测里还没见过的作品。'}
+          </p>
+          <div className="mt-4">
+            <Button variant="primary" onClick={begin}>
+              开始盲测
+            </Button>
+          </div>
+        </Card>
+      ) : (
+        <Card>
+          <p className="leading-relaxed">
+            盲测需要至少 {FIRST_ROUND_SIZE} 幅来自不同大类的图。现在有 {candidates.length} 幅，图片上线后这里会自动开放。
+          </p>
+          <Link to="/" className="mt-3 inline-block text-accent underline underline-offset-4">
+            先去导览
+          </Link>
+        </Card>
+      )}
+
+      <Section title="怎么评">
+        <ul className="space-y-2 text-sm leading-relaxed">
+          <li>点下面的五个按钮，或者直接在图上滑：左滑“不太喜欢”，右滑“喜欢”，上滑“超爱”。</li>
+          <li>点一下图可以放大细看；拿不准就“跳过”，点错了就“撤销上一张”。</li>
+          <li>随时可以停下，已评的都会保存，下次从停下的地方接着来。</li>
+        </ul>
+      </Section>
+
+      {lastDone && (
+        <Section title="上一轮">
+          <Link to="/blind/reveal" className="text-accent underline underline-offset-4">
+            看第 {lastDone.number} 轮的揭晓
+          </Link>
+        </Section>
+      )}
     </Page>
   )
 }

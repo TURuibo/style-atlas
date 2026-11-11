@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { HashRouter, Outlet, Route, Routes, useLocation } from 'react-router'
 import { TabBar } from './components/TabBar'
 import { BlindPage } from './features/blind/BlindPage'
+import { RevealPage } from './features/blind/RevealPage'
 import { DataPage } from './features/data/DataPage'
 import { ExplorePage } from './features/explore/ExplorePage'
 import { EraPage, RegionPage } from './features/explore/FilteredList'
@@ -11,6 +12,7 @@ import { MePage } from './features/me/MePage'
 import { NotFound } from './features/NotFound'
 import { StylePage } from './features/style/StylePage'
 import { ChapterPage } from './features/tour/ChapterPage'
+import { StationPage } from './features/tour/StationPage'
 import { TourHome } from './features/tour/TourHome'
 import { useUserStore } from './store/userStore'
 
@@ -41,11 +43,13 @@ export default function App() {
         <Route element={<Layout />}>
           <Route index element={<TourHome />} />
           <Route path="tour/:familyId" element={<ChapterPage />} />
+          <Route path="tour/:familyId/:styleId" element={<StationPage />} />
           <Route path="style/:styleId" element={<StylePage />} />
           <Route path="explore" element={<ExplorePage />} />
           <Route path="explore/region/:regionId" element={<RegionPage />} />
           <Route path="explore/era/:eraId" element={<EraPage />} />
           <Route path="blind" element={<BlindPage />} />
+          <Route path="blind/reveal" element={<RevealPage />} />
           <Route path="me" element={<MePage />} />
           <Route path="me/data" element={<DataPage />} />
           <Route path="me/install" element={<InstallGuide />} />

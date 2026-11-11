@@ -6,6 +6,7 @@ import { z } from 'zod'
 import {
   ArtworkSchema,
   FamilySchema,
+  PlanEntrySchema,
   StyleFrontmatterSchema,
   VocabSchema,
   type ContentBundle,
@@ -42,6 +43,11 @@ export function loadContent(): LoadResult {
     .safeParse(YAML.parse(fs.readFileSync(path.join(contentDir, 'families.yaml'), 'utf8')))
   if (!familiesResult.success) errors.push(`families.yaml 格式错误：\n${describe(familiesResult.error)}`)
 
+  const planResult = z
+    .object({ styles: z.array(PlanEntrySchema) })
+    .safeParse(YAML.parse(fs.readFileSync(path.join(contentDir, 'plan.yaml'), 'utf8')))
+  if (!planResult.success) errors.push(`plan.yaml 格式错误：\n${describe(planResult.error)}`)
+
   const artworksResult = z
     .array(ArtworkSchema)
     .safeParse(JSON.parse(fs.readFileSync(path.join(contentDir, 'artworks.json'), 'utf8')))
@@ -69,7 +75,7 @@ export function loadContent(): LoadResult {
     styleFiles.set(front.data.id, file)
   }
 
-  if (!vocabResult.success || !familiesResult.success || !artworksResult.success) {
+  if (!vocabResult.success || !familiesResult.success || !artworksResult.success || !planResult.success) {
     return { bundle: null, errors, warnings, styleFiles }
   }
 
@@ -77,6 +83,7 @@ export function loadContent(): LoadResult {
     builtAt: new Date().toISOString(),
     vocab: vocabResult.data,
     families: [...familiesResult.data].sort((a, b) => a.order - b.order),
+    plan: planResult.data.styles,
     styles,
     artworks: artworksResult.data,
   }

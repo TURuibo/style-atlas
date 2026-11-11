@@ -36,6 +36,22 @@ export function checkContent(bundle: ContentBundle, ctx: RuleContext): RuleRepor
   const orders = bundle.families.map((f) => f.order)
   if (new Set(orders).size !== orders.length) errors.push('families.yaml 的 order 有重复')
 
+  // 计划清单（plan.yaml）：id 不重复、大类有效；写好的风格都应在清单里
+  const planIds = new Set<string>()
+  for (const entry of bundle.plan) {
+    if (planIds.has(entry.id)) errors.push(`plan.yaml 里 ${entry.id} 重复`)
+    planIds.add(entry.id)
+    if (!(entry.family in vocab.families)) errors.push(`plan.yaml 里 ${entry.id} 的大类 ${entry.family} 不在 vocab.yaml 中`)
+  }
+  for (const style of bundle.styles) {
+    const entry = bundle.plan.find((p) => p.id === style.id)
+    if (!entry) warnings.push(`风格 ${style.id} 不在 plan.yaml 的计划清单里`)
+    else if (entry.family !== style.family) errors.push(`风格 ${style.id} 的大类和 plan.yaml 不一致`)
+    for (const id of [...style.related.influencedBy, ...style.related.influenced, ...style.related.similar]) {
+      if (!planIds.has(id) && !bundle.styles.some((s) => s.id === id)) errors.push(`风格 ${style.id} 的相关风格 ${id} 不存在`)
+    }
+  }
+
   // 作品
   const artworkIds = new Set<string>()
   for (const art of bundle.artworks) {

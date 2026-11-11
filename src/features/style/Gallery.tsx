@@ -1,17 +1,17 @@
-import { ChevronLeft, ChevronRight, ExternalLink, X } from 'lucide-react'
-import { useCallback, useEffect, useRef, useState } from 'react'
 import { artworksOfStyle, publicUrl } from '../../content'
 import type { Artwork, Style } from '../../content/schema'
+import type { RatingContext } from '../../lib/storage'
+import { artworkAlt, useViewer } from '../viewer/useViewer'
 
-/** 作品显示名：有把握的中文名在前，原名在后 */
-export function artworkTitle(art: Artwork): string {
-  return art.titleZh ? `${art.titleZh}（${art.title}）` : art.title
+/** 缩略图在 480 和 1600 两档里由浏览器挑（SPEC §10.6） */
+export function artworkSrcSet(art: Artwork): string {
+  return `${publicUrl(art.img.thumb)} 480w, ${publicUrl(art.img.display)} 1600w`
 }
 
-/** 风格页的图廊：两列按原比例排，点开是全屏看图器（Phase 3 换成可缩放的看图器） */
-export function Gallery({ style }: { style: Style }) {
+/** 风格页的作品墙：两列按原比例排，封面在前；点开进看图器 */
+export function Gallery({ style, context = 'browse' }: { style: Style; context?: RatingContext }) {
   const artworks = artworksOfStyle(style.id)
-  const [open, setOpen] = useState<number | null>(null)
+  const viewer = useViewer()
 
   if (style.imageMode === 'external-only') return null
   if (artworks.length === 0) {
@@ -33,13 +33,15 @@ export function Gallery({ style }: { style: Style }) {
           <figure key={art.id} className="mb-3 break-inside-avoid">
             <button
               type="button"
-              onClick={() => setOpen(i)}
+              onClick={() => viewer.open(artworks, i, { context })}
               className="block w-full overflow-hidden rounded-xl bg-line/60"
-              aria-label={`看大图：${artworkTitle(art)}`}
+              aria-label={`看大图：${art.titleZh ?? art.title}`}
             >
               <img
                 src={publicUrl(art.img.thumb)}
-                alt={[art.titleZh ?? art.title, art.artist, art.date].filter(Boolean).join('，')}
+                srcSet={artworkSrcSet(art)}
+                sizes="(max-width: 640px) 46vw, 300px"
+                alt={artworkAlt(art)}
                 loading="lazy"
                 width={art.img.width}
                 height={art.img.height}
@@ -54,123 +56,7 @@ export function Gallery({ style }: { style: Style }) {
         ))}
       </div>
       <p className="text-[11px] text-muted">图片均为博物馆开放的公共领域或 CC0 藏品，点开可看出处与许可。</p>
-      {open !== null && (
-        <Viewer artworks={artworks} index={open} onIndex={setOpen} onClose={() => setOpen(null)} />
-      )}
+      {viewer.element}
     </>
-  )
-}
-
-function Viewer({
-  artworks,
-  index,
-  onIndex,
-  onClose,
-}: {
-  artworks: Artwork[]
-  index: number
-  onIndex: (i: number) => void
-  onClose: () => void
-}) {
-  const art = artworks[index]!
-  const closeRef = useRef<HTMLButtonElement>(null)
-  const go = useCallback(
-    (delta: number) => onIndex((index + delta + artworks.length) % artworks.length),
-    [index, artworks.length, onIndex],
-  )
-
-  useEffect(() => {
-    closeRef.current?.focus()
-    const previous = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.body.style.overflow = previous
-    }
-  }, [])
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose()
-      else if (e.key === 'ArrowRight') go(1)
-      else if (e.key === 'ArrowLeft') go(-1)
-    }
-    window.addEventListener('keydown', onKey)
-    return () => {
-      window.removeEventListener('keydown', onKey)
-    }
-  }, [go, onClose])
-
-  return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-label={artworkTitle(art)}
-      className="fixed inset-0 z-50 flex flex-col bg-gallery text-white"
-    >
-      <div className="pt-safe flex items-center justify-between px-2">
-        <span className="px-3 text-xs text-white/60">
-          {index + 1} / {artworks.length}
-        </span>
-        <button
-          ref={closeRef}
-          type="button"
-          onClick={onClose}
-          className="flex size-11 items-center justify-center rounded-full active:bg-white/10"
-          aria-label="关闭"
-        >
-          <X size={22} aria-hidden />
-        </button>
-      </div>
-
-      <div className="relative flex min-h-0 flex-1 items-center justify-center px-2">
-        <img
-          key={art.id}
-          src={publicUrl(art.img.display)}
-          alt={[art.titleZh ?? art.title, art.artist, art.date].filter(Boolean).join('，')}
-          width={art.img.width}
-          height={art.img.height}
-          className="max-h-full max-w-full object-contain"
-        />
-        {artworks.length > 1 && (
-          <>
-            <button
-              type="button"
-              onClick={() => go(-1)}
-              className="absolute left-1 top-1/2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 active:bg-black/60"
-              aria-label="上一幅"
-            >
-              <ChevronLeft size={22} aria-hidden />
-            </button>
-            <button
-              type="button"
-              onClick={() => go(1)}
-              className="absolute right-1 top-1/2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 active:bg-black/60"
-              aria-label="下一幅"
-            >
-              <ChevronRight size={22} aria-hidden />
-            </button>
-          </>
-        )}
-      </div>
-
-      <div
-        className="max-h-[38vh] overflow-y-auto px-5 pt-3 text-sm"
-        style={{ paddingBottom: 'calc(env(safe-area-inset-bottom) + 1.25rem)' }}
-      >
-        <p className="font-serif text-base leading-snug">{art.titleZh ?? art.title}</p>
-        {art.titleZh && <p className="mt-0.5 text-xs text-white/60">{art.title}</p>}
-        {art.medium && <p className="mt-1 text-xs text-white/70">{art.medium}</p>}
-        <p className="mt-2 text-xs leading-relaxed text-white/80">{art.credit}</p>
-        <a
-          href={art.sourceUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="mt-1 inline-flex min-h-11 items-center gap-1 text-xs text-white/80 underline underline-offset-2"
-        >
-          原始页面
-          <ExternalLink size={12} aria-hidden />
-        </a>
-      </div>
-    </div>
   )
 }

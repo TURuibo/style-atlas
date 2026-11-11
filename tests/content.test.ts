@@ -105,3 +105,20 @@ describe('覆盖报告', () => {
     expect(artistKey('Unidentified artist')).toBeNull()
   })
 })
+
+describe('用真实内容抽首轮盲测', () => {
+  it('能抽满 24 张，且满足大类与相邻规则', async () => {
+    const { blindCandidates, pickFirstRound } = await import('../src/lib/blind')
+    const { seededRandom } = await import('../src/lib/random')
+    const { bundle } = loadContent()
+    if (!bundle) throw new Error('no bundle')
+    const stylesById = new Map(bundle.styles.map((s) => [s.id, s]))
+    const cands = blindCandidates(bundle.artworks, stylesById)
+    const ids = pickFirstRound(cands, seededRandom(1))
+    expect(ids.length).toBe(Math.min(24, cands.length))
+    const byId = new Map(cands.map((c) => [c.id, c]))
+    const families = new Set(cands.map((c) => c.family))
+    for (const f of families) expect(ids.filter((id) => byId.get(id)!.family === f).length).toBeGreaterThanOrEqual(2)
+    for (let i = 1; i < ids.length; i++) expect(byId.get(ids[i]!)!.styleId).not.toBe(byId.get(ids[i - 1]!)!.styleId)
+  })
+})

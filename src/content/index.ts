@@ -7,6 +7,12 @@ export const content = raw as unknown as ContentBundle
 export const familiesById = new Map<string, Family>(content.families.map((f) => [f.id, f]))
 export const stylesById = new Map<string, Style>(content.styles.map((s) => [s.id, s]))
 export const artworksById = new Map<string, Artwork>(content.artworks.map((a) => [a.id, a]))
+export const planById = new Map(content.plan.map((p) => [p.id, p]))
+
+/** 风格的中文名：写好的取风格文件，没写的取计划清单 */
+export function styleNameZh(id: string): string {
+  return stylesById.get(id)?.nameZh ?? planById.get(id)?.nameZh ?? id
+}
 
 const byEra = (a: Style, b: Style) => a.era.start - b.era.start || a.nameZh.localeCompare(b.nameZh, 'zh')
 
@@ -39,6 +45,11 @@ export const familyName = (id: string) => content.vocab.families[id] ?? id
 export const regionName = (id: string) => content.vocab.regions[id] ?? id
 export const moodName = (id: string) => content.vocab.moods[id] ?? id
 export const mediumName = (id: string) => content.vocab.mediums[id] ?? id
+export const subjectNames: Readonly<Record<string, string>> = content.vocab.subjects
+export const subjectName = (id: string) => subjectNames[id] ?? id
+
+/** 导览的章与站：章按大类顺序，站按起始年份（SPEC §3 流程规则 3） */
+export const tourChapters = content.families.map((f) => ({ family: f.id, styles: stylesOfFamily(f.id).map((s) => s.id) }))
 
 export interface EraBucket {
   id: string

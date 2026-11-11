@@ -1,7 +1,9 @@
 import { create } from 'zustand'
 import { mergeStates } from '../lib/backup'
 import {
+  activeBlindRound,
   createDefaultState,
+  type BlindRound,
   idbStore,
   loadState,
   saveState,
@@ -23,6 +25,14 @@ interface UserStore {
   setNote: (styleId: string, text: string) => void
   visitStyle: (styleId: string) => void
   setTourPosition: (family: string, style?: string) => void
+  markIntroSeen: () => void
+  /** 开始新一轮盲测；已有没看完的一轮时不重开 */
+  startBlindRound: (artworkIds: string[]) => void
+  /** 给当前这张打分并前进一张 */
+  rateBlind: (score: Score) => void
+  skipBlind: () => void
+  /** 退回上一张，并撤销那张在本轮的评分 */
+  undoBlind: () => void
   savePrompt: (subject: string, text: string) => void
   toggleExercise: (styleId: string) => void
   updateSettings: (settings: Partial<UserState['settings']>) => void
@@ -31,6 +41,18 @@ interface UserStore {
   reset: () => void
   markBackedUp: () => void
   flush: () => Promise<void>
+}
+
+function replaceRound(s: UserState, round: BlindRound): UserState {
+  const rounds = s.progress.blindRounds.map((r) => (r.number === round.number ? round : r))
+  return { ...s, progress: { ...s.progress, blindRounds: rounds } }
+}
+
+/** 前进一张；最后一张之后标记本轮完成 */
+function advanceBlind(s: UserState, round: BlindRound): UserState {
+  const position = round.position + 1
+  const done = position >= round.artworkIds.length
+  return replaceRound(s, { ...round, position, ...(done ? { completedAt: new Date().toISOString() } : {}) })
 }
 
 let backend: KeyValueStore = idbStore
@@ -90,6 +112,50 @@ export const useUserStore = create<UserStore>((setStore, getStore) => {
 
     setTourPosition: (family, style) =>
       update((s) => ({ ...s, progress: { ...s.progress, tour: { family, style } } })),
+
+    markIntroSeen: () =>
+      update((s) => (s.progress.introSeenAt ? s : { ...s, progress: { ...s.progress, introSeenAt: now() } })),
+
+    startBlindRound: (artworkIds) =>
+      update((s) => {
+        if (activeBlindRound(s) || artworkIds.length === 0) return s
+        const round: BlindRound = {
+          number: s.progress.blindRounds.length + 1,
+          artworkIds,
+          position: 0,
+          startedAt: now(),
+        }
+        return { ...s, progress: { ...s.progress, blindRounds: [...s.progress.blindRounds, round] } }
+      }),
+
+    rateBlind: (score) =>
+      update((s) => {
+        const round = activeBlindRound(s)
+        const id = round?.artworkIds[round.position]
+        if (!round || !id) return s
+        const ratings = [...s.ratings, { target: 'artwork' as const, id, score, context: 'blind' as const, at: now() }]
+        return { ...advanceBlind(s, round), ratings }
+      }),
+
+    skipBlind: () =>
+      update((s) => {
+        const round = activeBlindRound(s)
+        return round ? advanceBlind(s, round) : s
+      }),
+
+    undoBlind: () =>
+      update((s) => {
+        const round = activeBlindRound(s)
+        if (!round || round.position === 0) return s
+        const position = round.position - 1
+        const id = round.artworkIds[position]
+        // 只撤销本轮里给这张图的最后一次盲测评分；跳过的那张没有评分可撤
+        const index = s.ratings.findLastIndex(
+          (r) => r.target === 'artwork' && r.id === id && r.context === 'blind' && r.at >= round.startedAt,
+        )
+        const ratings = index >= 0 ? s.ratings.filter((_, i) => i !== index) : s.ratings
+        return { ...replaceRound(s, { ...round, position }), ratings }
+      }),
 
     savePrompt: (subject, text) =>
       update((s) => ({ ...s, prompts: [...s.prompts, { subject, text, at: now() }] })),

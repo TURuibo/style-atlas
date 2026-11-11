@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { SCHEMA_VERSION, UserStateSchema, type Rating, type UserState } from './storage'
+import { SCHEMA_VERSION, UserStateSchema, type BlindRound, type Rating, type UserState } from './storage'
 
 /** 备份文件（SPEC §4.10、§10.5）：{ app, schemaVersion, exportedAt, data } */
 export const BACKUP_APP = 'style-atlas' as const
@@ -79,6 +79,19 @@ export function needsBackupReminder(state: UserState, now: Date = new Date()): b
 const ratingKey = (r: Rating) => `${r.target}:${r.id}:${r.at}`
 const union = (a: readonly string[], b: readonly string[]) => [...new Set([...a, ...b])]
 
+/** 两台设备的盲测记录按开始时间并在一起，重新编号 */
+function mergeRounds(a: readonly BlindRound[], b: readonly BlindRound[]): BlindRound[] {
+  const byStart = new Map<string, BlindRound>()
+  for (const r of [...a, ...b]) {
+    const prev = byStart.get(r.startedAt)
+    // 同一轮两边都有时，取看得更多的那份
+    if (!prev || r.position > prev.position) byStart.set(r.startedAt, r)
+  }
+  return [...byStart.values()]
+    .sort((x, y) => x.startedAt.localeCompare(y.startedAt))
+    .map((r, i) => ({ ...r, number: i + 1 }))
+}
+
 /**
  * 合并导入：评分、收藏、练习、看过的风格取并集（评分按时间去重）；
  * 笔记同一风格以较新的备份为准；设置保留当前的。
@@ -98,6 +111,8 @@ export function mergeStates(current: UserState, incoming: UserState): UserState 
     progress: {
       visitedStyles: union(current.progress.visitedStyles, incoming.progress.visitedStyles),
       tour: current.progress.tour ?? incoming.progress.tour,
+      blindRounds: mergeRounds(current.progress.blindRounds, incoming.progress.blindRounds),
+      introSeenAt: [current.progress.introSeenAt, incoming.progress.introSeenAt].filter(Boolean).sort()[0],
     },
     prompts: [...prompts.values()].sort((a, b) => a.at.localeCompare(b.at)),
     exercisesDone: union(current.exercisesDone, incoming.exercisesDone),

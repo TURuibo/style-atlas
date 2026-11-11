@@ -138,10 +138,21 @@ export const ArtworkSchema = z.object({
 })
 export type Artwork = z.infer<typeof ArtworkSchema>
 
+/** content/plan.yaml：77 种风格的计划清单（SPEC §6），用来显示还没写的风格名 */
+export const PlanEntrySchema = z.object({
+  id: z.string().regex(/^[a-z0-9-]+$/),
+  nameZh: z.string().min(1),
+  nameEn: z.string(),
+  family: z.string(),
+  phase: z.string().optional(),
+})
+export type PlanEntry = z.infer<typeof PlanEntrySchema>
+
 export interface ContentBundle {
   builtAt: string
   vocab: Vocab
   families: Family[]
+  plan: PlanEntry[]
   styles: Style[]
   artworks: Artwork[]
 }

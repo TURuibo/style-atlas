@@ -80,3 +80,31 @@ describe('backup', () => {
     expect(needsBackupReminder(state, now)).toBe(false)
   })
 })
+
+describe('合并盲测记录', () => {
+  it('两台设备的轮次按开始时间合并并重新编号，同一轮取看得多的', () => {
+    const base = createDefaultState(new Date('2026-11-01T00:00:00Z'))
+    const round = (startedAt: string, position: number, completedAt?: string) => ({
+      number: 1,
+      artworkIds: ['a', 'b', 'c'],
+      position,
+      startedAt,
+      ...(completedAt ? { completedAt } : {}),
+    })
+    const phone = { ...base, progress: { ...base.progress, blindRounds: [round('2026-11-02T10:00:00Z', 3, '2026-11-02T10:05:00Z')] } }
+    const tablet = {
+      ...base,
+      progress: {
+        ...base.progress,
+        blindRounds: [round('2026-11-02T10:00:00Z', 1), round('2026-11-01T09:00:00Z', 3, '2026-11-01T09:04:00Z')],
+        introSeenAt: '2026-11-01T08:00:00Z',
+      },
+    }
+    const merged = mergeStates(phone, tablet)
+    expect(merged.progress.blindRounds.map((r) => [r.number, r.startedAt, r.position])).toEqual([
+      [1, '2026-11-01T09:00:00Z', 3],
+      [2, '2026-11-02T10:00:00Z', 3],
+    ])
+    expect(merged.progress.introSeenAt).toBe('2026-11-01T08:00:00Z')
+  })
+})

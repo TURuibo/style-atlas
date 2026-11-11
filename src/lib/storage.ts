@@ -22,6 +22,16 @@ export type Rating = z.infer<typeof RatingSchema>
 export type RatingTarget = Rating['target']
 export type RatingContext = Rating['context']
 
+/** 一轮盲测（SPEC §4.2）。position 是下一张要看的序号；看完一轮写 completedAt。 */
+export const BlindRoundSchema = z.object({
+  number: z.number().int().positive(),
+  artworkIds: z.array(z.string()),
+  position: z.number().int().nonnegative(),
+  startedAt: z.string(),
+  completedAt: z.string().optional(),
+})
+export type BlindRound = z.infer<typeof BlindRoundSchema>
+
 const SettingsSchema = z.object({
   tourOrder: z.enum(['history', 'taste']).default('history'),
   includeArtistNames: z.boolean().default(true),
@@ -37,8 +47,11 @@ export const UserStateSchema = z.object({
     .object({
       visitedStyles: z.array(z.string()).default([]),
       tour: z.object({ family: z.string(), style: z.string().optional() }).optional(),
+      blindRounds: z.array(BlindRoundSchema).default([]),
+      /** 看过首次打开的说明页 */
+      introSeenAt: z.string().optional(),
     })
-    .default({ visitedStyles: [] }),
+    .default({ visitedStyles: [], blindRounds: [] }),
   prompts: z.array(z.object({ subject: z.string(), text: z.string(), at: z.string() })).default([]),
   exercisesDone: z.array(z.string()).default([]),
   settings: SettingsSchema.default({ tourOrder: 'history', includeArtistNames: true }),
@@ -53,7 +66,7 @@ export function createDefaultState(now: Date = new Date()): UserState {
     ratings: [],
     favorites: [],
     notes: {},
-    progress: { visitedStyles: [] },
+    progress: { visitedStyles: [], blindRounds: [] },
     prompts: [],
     exercisesDone: [],
     settings: { tourOrder: 'history', includeArtistNames: true },
@@ -72,6 +85,17 @@ export function migrate(raw: unknown): UserState | null {
   return null
 }
 
+/** 还没看完的那一轮盲测（最多一轮） */
+export function activeBlindRound(state: UserState): BlindRound | undefined {
+  const last = state.progress.blindRounds.at(-1)
+  return last && !last.completedAt ? last : undefined
+}
+
+/** 最近看完的一轮盲测 */
+export function lastCompletedBlindRound(state: UserState): BlindRound | undefined {
+  return [...state.progress.blindRounds].reverse().find((r) => r.completedAt)
+}
+
 /** 同一对象只取最新一次评分（SPEC §9.1）。键为 `${target}:${id}`。 */
 export function latestRatings(ratings: readonly Rating[]): Map<string, Rating> {
   const latest = new Map<string, Rating>()
@@ -81,6 +105,13 @@ export function latestRatings(ratings: readonly Rating[]): Map<string, Rating> {
     if (!prev || prev.at <= rating.at) latest.set(key, rating)
   }
   return latest
+}
+
+/** 某个对象最新一次的分数；给组件选取用，返回原始值，避免每次生成新对象 */
+export function latestScore(ratings: readonly Rating[], target: RatingTarget, id: string): Score | undefined {
+  let best: Rating | undefined
+  for (const r of ratings) if (r.target === target && r.id === id && (!best || best.at <= r.at)) best = r
+  return best?.score
 }
 
 export interface KeyValueStore {

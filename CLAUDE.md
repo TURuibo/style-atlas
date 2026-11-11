@@ -4,6 +4,7 @@
 
 ## 常用命令
 - npm run dev / build / test / typecheck
+- npm run e2e             端到端测试（Playwright，iPhone 13 与 Pixel 7 视口，用系统 Chrome）
 - npm run content:build   Markdown + YAML 编译为 src/content/generated/content.json
 - npm run validate        内容与许可校验，必须零错误
 - npm run coverage        生成 docs/COVERAGE.md（Phase 2 起）

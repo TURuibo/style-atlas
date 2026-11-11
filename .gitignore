@@ -9,3 +9,5 @@ coverage/
 # 构建生成，不手改
 src/content/generated/
 
+test-results/
+playwright-report/

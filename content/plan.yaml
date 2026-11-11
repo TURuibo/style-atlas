@@ -1,0 +1,79 @@
+# 全部 77 种风格的计划清单（由 docs/SPEC.md §6 整理），用来显示还没写的风格名和覆盖报告
+styles:
+  - { id: egyptian-papyrus, nameZh: "古埃及纸草书", nameEn: "Book of the Dead", family: manuscripts }
+  - { id: insular, nameZh: "海岛风格抄本", nameEn: "Insular illumination", family: manuscripts }
+  - { id: thangka, nameZh: "唐卡", nameEn: "Thangka", family: manuscripts }
+  - { id: gothic-illumination, nameZh: "哥特抄本与时祷书", nameEn: "Gothic illumination", family: manuscripts, phase: "MVP" }
+  - { id: persian-miniature, nameZh: "波斯细密画", nameEn: "Persian miniature", family: manuscripts, phase: "切片" }
+  - { id: mesoamerican-codex, nameZh: "中美洲古抄本", nameEn: "Mesoamerican codices", family: manuscripts }
+  - { id: ethiopian, nameZh: "埃塞俄比亚抄本绘画", nameEn: "Ethiopian manuscript painting", family: manuscripts }
+  - { id: mughal, nameZh: "莫卧儿细密画", nameEn: "Mughal painting", family: manuscripts, phase: "MVP" }
+  - { id: rajput-pahari, nameZh: "拉杰普特与帕哈里绘画", nameEn: "Rajput & Pahari painting", family: manuscripts }
+  - { id: gongbi, nameZh: "工笔", nameEn: "Gongbi", family: east-asian, phase: "切片" }
+  - { id: baimiao, nameZh: "白描", nameEn: "Baimiao", family: east-asian }
+  - { id: emaki, nameZh: "绘卷与大和绘", nameEn: "Emaki & Yamato-e", family: east-asian }
+  - { id: xieyi, nameZh: "写意与文人画", nameEn: "Literati ink painting", family: east-asian, phase: "MVP" }
+  - { id: suiboku-zenga, nameZh: "水墨与禅画", nameEn: "Suiboku & Zenga", family: east-asian }
+  - { id: rinpa, nameZh: "琳派", nameEn: "Rinpa", family: east-asian, phase: "MVP" }
+  - { id: korean-genre, nameZh: "朝鲜风俗画", nameEn: "Joseon genre painting", family: east-asian }
+  - { id: renaissance-print, nameZh: "文艺复兴木刻与铜版", nameEn: "Renaissance woodcut & engraving", family: printmaking, phase: "MVP" }
+  - { id: ming-qing-woodblock, nameZh: "明清版刻与饾版", nameEn: "Ming–Qing woodblock illustration", family: printmaking }
+  - { id: etching, nameZh: "欧洲蚀刻版画", nameEn: "Etching", family: printmaking }
+  - { id: ukiyo-e, nameZh: "浮世绘", nameEn: "Ukiyo-e", family: printmaking, phase: "切片" }
+  - { id: wood-engraving, nameZh: "木口木刻", nameEn: "Wood engraving", family: printmaking, phase: "MVP" }
+  - { id: posada, nameZh: "墨西哥通俗版画", nameEn: "Mexican popular prints", family: printmaking }
+  - { id: expressionist-woodcut, nameZh: "表现主义木刻", nameEn: "Expressionist woodcut", family: printmaking }
+  - { id: shin-hanga, nameZh: "新版画", nameEn: "Shin-hanga", family: printmaking }
+  - { id: chinese-woodcut-movement, nameZh: "新兴木刻运动", nameEn: "Modern Woodcut Movement", family: printmaking }
+  - { id: nianhua, nameZh: "木版年画", nameEn: "Nianhua", family: folk, phase: "MVP" }
+  - { id: minhwa, nameZh: "朝鲜民画", nameEn: "Minhwa", family: folk, phase: "MVP" }
+  - { id: lubok-epinal, nameZh: "卢布克与埃皮纳勒版画", nameEn: "Lubok & Images d’Épinal", family: folk }
+  - { id: fraktur, nameZh: "宾州德裔花体画", nameEn: "Fraktur", family: folk, phase: "MVP" }
+  - { id: dalmalning, nameZh: "达拉纳民间画", nameEn: "Dalmålning", family: folk }
+  - { id: kalighat, nameZh: "卡利加特画", nameEn: "Kalighat painting", family: folk }
+  - { id: mithila, nameZh: "米提拉画", nameEn: "Mithila (Madhubani)", family: folk }
+  - { id: islamic-science, nameZh: "伊斯兰科学抄本", nameEn: "Islamic scientific manuscripts", family: natural-history }
+  - { id: anatomy, nameZh: "解剖图谱", nameEn: "Anatomical illustration", family: natural-history }
+  - { id: botanical, nameZh: "植物图谱", nameEn: "Botanical illustration", family: natural-history, phase: "MVP" }
+  - { id: japan-natural-history, nameZh: "日本本草图谱", nameEn: "Japanese natural history", family: natural-history }
+  - { id: ornithology, nameZh: "鸟类图谱", nameEn: "Ornithological illustration", family: natural-history }
+  - { id: china-export, nameZh: "中国外销画", nameEn: "Chinese export painting", family: natural-history }
+  - { id: haeckel, nameZh: "海克尔：自然的艺术形态", nameEn: "Haeckel", family: natural-history }
+  - { id: giga-manga, nameZh: "戏画与北斋漫画", nameEn: "Giga & Hokusai Manga", family: satire-comics }
+  - { id: british-satire, nameZh: "英国讽刺画", nameEn: "British satirical prints", family: satire-comics, phase: "MVP" }
+  - { id: daumier, nameZh: "法国石版讽刺画", nameEn: "French lithographic caricature", family: satire-comics, phase: "MVP" }
+  - { id: proto-comics, nameZh: "早期连环画", nameEn: "Proto-comics", family: satire-comics }
+  - { id: newspaper-comics, nameZh: "美国早期报纸漫画", nameEn: "Early newspaper comics", family: satire-comics }
+  - { id: lianhuanhua, nameZh: "连环画（小人书）", nameEn: "Lianhuanhua", family: satire-comics }
+  - { id: chinese-manhua, nameZh: "中国现代漫画", nameEn: "Chinese manhua", family: satire-comics }
+  - { id: bande-dessinee, nameZh: "法比漫画与清线", nameEn: "Bande dessinée", family: satire-comics }
+  - { id: american-comics, nameZh: "美式漫画", nameEn: "American comic books", family: satire-comics }
+  - { id: manga, nameZh: "日本漫画", nameEn: "Manga", family: satire-comics, phase: "切片" }
+  - { id: blake, nameZh: "布莱克的彩印诗书", nameEn: "Blake’s illuminated books", family: book-fairy }
+  - { id: victorian-toy-books, nameZh: "维多利亚彩色童书", nameEn: "Victorian toy books", family: book-fairy, phase: "MVP" }
+  - { id: american-golden-age, nameZh: "美国黄金时代插画", nameEn: "American Golden Age", family: book-fairy }
+  - { id: nordic-fairy, nameZh: "北欧童话插画", nameEn: "Nordic fairy-tale illustration", family: book-fairy, phase: "切片" }
+  - { id: swedish-home, nameZh: "瑞典家园与童书", nameEn: "Swedish home & picture books", family: book-fairy }
+  - { id: bilibin, nameZh: "俄罗斯童话插画", nameEn: "Russian fairy-tale illustration", family: book-fairy }
+  - { id: golden-age-fairy, nameZh: "黄金时代童话插画", nameEn: "Golden Age fairy-tale illustration", family: book-fairy, phase: "MVP" }
+  - { id: arts-and-crafts, nameZh: "工艺美术运动", nameEn: "Arts & Crafts", family: decorative-poster }
+  - { id: japonisme, nameZh: "日本主义", nameEn: "Japonisme", family: decorative-poster }
+  - { id: belle-epoque-poster, nameZh: "美好年代海报", nameEn: "Belle Époque posters", family: decorative-poster, phase: "MVP" }
+  - { id: beardsley, nameZh: "唯美主义黑白线描", nameEn: "Aestheticism & Beardsley", family: decorative-poster, phase: "MVP" }
+  - { id: art-nouveau, nameZh: "新艺术运动", nameEn: "Art Nouveau", family: decorative-poster, phase: "切片" }
+  - { id: secession, nameZh: "维也纳分离派与青年风格", nameEn: "Secession & Jugendstil", family: decorative-poster }
+  - { id: yuefenpai, nameZh: "月份牌", nameEn: "Shanghai calendar posters", family: decorative-poster }
+  - { id: art-deco, nameZh: "装饰艺术风插画", nameEn: "Art Deco illustration", family: decorative-poster }
+  - { id: wpa-poster, nameZh: "WPA 海报 WPA posters", nameEn: "", family: decorative-poster }
+  - { id: soviet-avant-garde, nameZh: "苏联先锋派", nameEn: "Soviet avant-garde", family: modern }
+  - { id: mid-century-modern, nameZh: "中世纪现代插画", nameEn: "Mid-century modern", family: modern, phase: "MVP" }
+  - { id: polish-poster, nameZh: "波兰海报学派", nameEn: "Polish School of Posters", family: modern }
+  - { id: picture-books, nameZh: "当代绘本", nameEn: "Contemporary picture books", family: modern }
+  - { id: psychedelic, nameZh: "迷幻海报", nameEn: "Psychedelic posters", family: modern }
+  - { id: editorial, nameZh: "观念插画", nameEn: "Conceptual editorial illustration", family: modern }
+  - { id: anime-art, nameZh: "日本动画美术", nameEn: "Anime background art", family: modern }
+  - { id: pixel-art, nameZh: "像素艺术", nameEn: "Pixel art", family: modern }
+  - { id: concept-art, nameZh: "数字厚涂与概念美术", nameEn: "Digital painting & concept art", family: modern }
+  - { id: risograph, nameZh: "孔版印刷风", nameEn: "Risograph aesthetic", family: modern }
+  - { id: flat-vector, nameZh: "扁平矢量插画", nameEn: "Flat vector illustration", family: modern, phase: "MVP" }
+  - { id: guochao, nameZh: "国潮插画", nameEn: "Guochao", family: modern }
