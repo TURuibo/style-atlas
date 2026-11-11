@@ -1,0 +1,11 @@
+{
+  "styleId": "nordic-fairy",
+  "queries": [
+    { "source": "commons", "search": "\"John Bauer\" troll", "max": 10 },
+    { "source": "commons", "search": "\"Bland tomtar och troll\" Bauer", "max": 6 },
+    { "source": "commons", "search": "Kittelsen troll", "max": 8 },
+    { "source": "commons", "search": "Kittelsen Soria Moria", "max": 3 },
+    { "source": "commons", "search": "Kittelsen Nøkken", "max": 3 },
+    { "source": "commons", "search": "Werenskiold eventyr", "max": 4 }
+  ]
+}

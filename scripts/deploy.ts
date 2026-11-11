@@ -1,6 +1,6 @@
 /**
- * 本地发布（备用）：校验、测试、构建，再把 dist/ 增量提交到 gh-pages 分支。
- * 平时推送到 main 后由 .github/workflows/deploy.yml 自动发布，不需要运行这个脚本。
+ * 发布（CLAUDE.md 第 7 条：部署只用 npm run deploy）：
+ * 校验、测试、构建，再把 dist/ 增量提交到 gh-pages 分支。
  */
 import { execSync } from 'node:child_process'
 import fs from 'node:fs'

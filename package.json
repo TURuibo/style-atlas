@@ -13,6 +13,7 @@
     "content:build": "tsx scripts/build-content.ts",
     "validate": "tsx scripts/validate.ts",
     "coverage": "tsx scripts/coverage.ts",
+    "curate": "tsx scripts/curate/run.ts",
     "deploy": "tsx scripts/deploy.ts",
     "pretest": "npm run content:build"
   },

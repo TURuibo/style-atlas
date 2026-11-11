@@ -1,0 +1,6 @@
+{
+  "styleId": "wpa-poster",
+  "queries": [
+    { "source": "loc", "q": "WPA poster", "max": 8 }
+  ]
+}

@@ -129,6 +129,8 @@ export const ArtworkSchema = z.object({
     width: z.number().int().positive(),
     height: z.number().int().positive(),
   }),
+  /** 下载时源图的尺寸（SPEC §8.2 第 2 条“原图尺寸”） */
+  sourceSize: z.object({ width: z.number().int().positive(), height: z.number().int().positive() }).optional(),
   palette: z.array(z.string().regex(/^#[0-9a-fA-F]{6}$/)).default([]),
   subjects: z.array(z.string()).default([]),
   attributes: AttributesSchema.partial().optional(),

@@ -1,0 +1,14 @@
+{
+  "styleId": "ukiyo-e",
+  "queries": [
+    { "source": "met", "ids": [45434], "max": 1 },
+    { "source": "met", "q": "Thirty-six Views of Mount Fuji", "departmentId": 6, "max": 4 },
+    { "source": "met", "q": "One Hundred Famous Views of Edo", "departmentId": 6, "max": 4 },
+    { "source": "met", "q": "Utamaro", "departmentId": 6, "artistOrCulture": true, "max": 4 },
+    { "source": "met", "q": "Harunobu", "departmentId": 6, "artistOrCulture": true, "max": 4 },
+    { "source": "met", "q": "Kuniyoshi", "departmentId": 6, "artistOrCulture": true, "max": 4 },
+    { "source": "met", "q": "Sharaku", "departmentId": 6, "artistOrCulture": true, "max": 3 },
+    { "source": "aic", "q": "Kuniyoshi woodblock print", "max": 3 },
+    { "source": "cma", "q": "Hiroshige", "type": "Print", "max": 3 }
+  ]
+}
