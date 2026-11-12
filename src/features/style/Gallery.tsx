@@ -1,4 +1,4 @@
-import { artworksOfStyle, publicUrl } from '../../content'
+import { artImgAttrs, artworksOfStyle, publicUrl } from '../../content'
 import type { Artwork, Style } from '../../content/schema'
 import type { RatingContext } from '../../lib/storage'
 import { artworkAlt, useViewer } from '../viewer/useViewer'
@@ -38,6 +38,7 @@ export function Gallery({ style, context = 'browse' }: { style: Style; context?:
               aria-label={`看大图：${art.titleZh ?? art.title}`}
             >
               <img
+                {...artImgAttrs(art)}
                 src={publicUrl(art.img.thumb)}
                 srcSet={artworkSrcSet(art)}
                 sizes="(max-width: 640px) 46vw, 300px"

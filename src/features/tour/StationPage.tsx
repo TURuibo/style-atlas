@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { AttributeBars } from '../../components/AttributeBars'
 import { RatingBar } from '../../components/RatingBar'
 import { Chip, Page } from '../../components/ui'
-import { artworksOfStyle, chapterLabel, chaptersById, publicUrl, regionName, stylesById, tourChapters } from '../../content'
+import { artImgAttrs, artworksOfStyle, chapterLabel, chaptersById, publicUrl, regionName, stylesById, tourChapters } from '../../content'
 import type { Style } from '../../content/schema'
 import { externalSearchLinks } from '../../lib/links'
 import { latestScore } from '../../lib/storage'
@@ -92,6 +92,7 @@ export function StationPage() {
               style={stripItemStyle(art.img.width, art.img.height)}
             >
               <img
+                {...artImgAttrs(art)}
                 src={publicUrl(art.img.thumb)}
                 srcSet={artworkSrcSet(art)}
                 sizes="85vw"

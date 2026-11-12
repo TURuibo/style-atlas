@@ -33,6 +33,8 @@ interface Slide {
   width: number
   height: number
   alt: string
+  /** 像素画：放大时不做平滑 */
+  pixelated?: boolean
 }
 
 type ViewerState =
@@ -96,6 +98,9 @@ export function useViewer(): {
       window.history.pushState({ atlasViewer: true }, '')
       window.addEventListener('popstate', onPop)
 
+      pswp.on('contentAppend', ({ content: slide }) => {
+        if ((slide.data as Slide).pixelated && slide.element) slide.element.dataset.pixelated = ''
+      })
       pswp.on('change', () => setState((s) => (s ? { ...s, index: pswp.currIndex } : s)))
       pswp.on('destroy', () => {
         window.removeEventListener('popstate', onPop)
@@ -117,6 +122,7 @@ export function useViewer(): {
         width: a.img.width,
         height: a.img.height,
         alt: blind ? (options.blindLabel ?? '盲测图片') : artworkAlt(a),
+        ...(a.pixelated ? { pixelated: true } : {}),
       }))
       launch(slides, index, blind, { kind: 'artworks', artworks, options })
     },

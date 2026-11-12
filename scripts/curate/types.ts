@@ -101,6 +101,8 @@ export interface PickEntry {
   artist?: string
   titleZh?: string
   attributes?: Record<string, number>
+  /** 像素画：用原图还原原始像素，整数倍放大，存无损 WebP；应用里按像素显示，不做平滑 */
+  pixelated?: boolean
 }
 
 export interface PicksFile {

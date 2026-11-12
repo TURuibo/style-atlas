@@ -1,7 +1,7 @@
 import { Link } from 'react-router'
 import { scoreLabels } from '../../components/RatingBar'
 import { Card, Page, Section } from '../../components/ui'
-import { artworksById, content, modernChapters, publicUrl, stylesById, subjectNames } from '../../content'
+import { artImgAttrs, artworksById, content, modernChapters, publicUrl, stylesById, subjectNames } from '../../content'
 import { revealGroups, revealSummary, roundScores, subjectHint } from '../../lib/reveal'
 import { lastCompletedBlindRound } from '../../lib/storage'
 import { useUserStore } from '../../store/userStore'
@@ -54,6 +54,7 @@ export function RevealPage() {
                 <li key={item.artworkId}>
                   <Link to={`/style/${style.id}`} className="block active:opacity-80">
                     <img
+                      {...artImgAttrs(art)}
                       src={publicUrl(art.img.thumb)}
                       alt={[art.titleZh ?? art.title, art.artist, art.date].filter(Boolean).join('，')}
                       loading="lazy"

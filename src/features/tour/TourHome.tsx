@@ -2,6 +2,7 @@ import { EyeOff } from 'lucide-react'
 import { Link, useNavigate } from 'react-router'
 import { Badge, Button, Card, ListLink, Page, Section } from '../../components/ui'
 import {
+  artImgAttrs,
   artworksById,
   chapterLabel,
   chaptersById,
@@ -115,13 +116,19 @@ export function TourHome() {
                     <div className="flex">
                       {cover ? (
                         <img
+                          {...artImgAttrs(cover)}
                           src={publicUrl(cover.img.thumb)}
                           alt=""
                           loading="lazy"
                           className="w-24 shrink-0 self-stretch bg-line/60 object-cover"
                         />
                       ) : (
-                        <div className="w-24 shrink-0 bg-line/50" aria-hidden />
+                        <div
+                          className="flex w-24 shrink-0 items-center justify-center bg-accent-soft font-serif text-3xl text-accent/70"
+                          aria-hidden
+                        >
+                          {chapter.number}
+                        </div>
                       )}
                       <div className="min-w-0 flex-1 p-4">
                         <div className="flex items-center gap-2">
@@ -160,7 +167,7 @@ export function TourHome() {
                 detail={`${chapter.glance} · ${total > 0 ? `已走 ${seen}/${total} 站 · ` : ''}计划 ${chapter.planned} 种`}
                 leading={
                   cover ? (
-                    <img src={publicUrl(cover.img.thumb)} alt="" loading="lazy" className="size-12 shrink-0 rounded-lg object-cover" />
+                    <img {...artImgAttrs(cover)} src={publicUrl(cover.img.thumb)} alt="" loading="lazy" className="size-12 shrink-0 rounded-lg object-cover" />
                   ) : (
                     <div className="size-12 shrink-0 rounded-lg bg-line/70" aria-hidden />
                   )

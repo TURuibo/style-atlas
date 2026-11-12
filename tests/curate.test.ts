@@ -7,6 +7,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import { ArtworkSchema } from '../src/content/schema'
 import { processCandidate } from '../scripts/curate/images'
 import { kmeansPalette, toHex, type RGB } from '../scripts/curate/palette'
+import { commonsOriginalUrl, detectPixelGrid, downsampleToGrid, integerScale, type RawImage } from '../scripts/curate/pixel'
 import { makeContactSheet } from '../scripts/curate/sheet'
 import { isCommonsPublicDomain, isLocUnrestricted, mapAic, mapCma, mapCommons, mapLoc, mapMet, parseCommonsOpenLicense, parsePrathamMetadata, type MetObject } from '../scripts/curate/sources'
 import type { Candidate } from '../scripts/curate/types'
@@ -378,5 +379,138 @@ describe('开放许可来源（2026-11-11）', () => {
     expect(creditOf({ ...found[0]!, title: 'Girl and grandmother' })).toBe(
       'Girl and grandmother，Some Artist，年代不详。StoryWeaver / Pratham Books，CC BY 4.0。',
     )
+  })
+})
+
+describe('像素画（2026-11-12）', () => {
+  // 固定种子的伪随机数，测试可重复
+  const rng = (seed: number) => () => {
+    seed = (seed * 1664525 + 1013904223) >>> 0
+    return seed / 2 ** 32
+  }
+  const palette: RGB[] = [
+    [20, 20, 40],
+    [240, 230, 200],
+    [200, 60, 60],
+    [60, 160, 90],
+    [90, 120, 230],
+    [250, 200, 40],
+  ]
+  function nativeArt(w: number, h: number, seed = 7): RawImage {
+    const rand = rng(seed)
+    const data = new Uint8Array(w * h * 3)
+    for (let i = 0; i < w * h; i++) data.set(palette[Math.floor(rand() * palette.length)]!, i * 3)
+    return { data, width: w, height: h, channels: 3 }
+  }
+  /** 整数倍放大，再从左上裁掉几像素、加噪点（模拟 JPEG） */
+  function upscale(img: RawImage, k: number, cropX: number, cropY: number, noise = 0, seed = 11): RawImage {
+    const rand = rng(seed)
+    const width = img.width * k - cropX
+    const height = img.height * k - cropY
+    const data = new Uint8Array(width * height * 3)
+    for (let y = 0; y < height; y++)
+      for (let x = 0; x < width; x++) {
+        const src = (Math.floor((y + cropY) / k) * img.width + Math.floor((x + cropX) / k)) * 3
+        for (let ch = 0; ch < 3; ch++) {
+          const v = img.data[src + ch]! + (noise ? Math.round((rand() * 2 - 1) * noise) : 0)
+          data[(y * width + x) * 3 + ch] = Math.max(0, Math.min(255, v))
+        }
+      }
+    return { data, width, height, channels: 3 }
+  }
+
+  it('找出放大倍数和网格起点，还原出原始像素', () => {
+    const native = nativeArt(40, 36)
+    const big = upscale(native, 5, 2, 3)
+    const grid = detectPixelGrid(big)
+    expect(grid).toEqual({ k: 5, ox: 3, oy: 2 })
+    const back = downsampleToGrid(big, grid)
+    // 左上被裁掉的不完整格子舍去
+    expect([back.width, back.height]).toEqual([39, 35])
+    const at = (img: RawImage, x: number, y: number) => Array.from(img.data.slice((y * img.width + x) * 3, (y * img.width + x) * 3 + 3))
+    expect(at(back, 0, 0)).toEqual(at(native, 1, 1))
+    expect(at(back, 38, 34)).toEqual(at(native, 39, 35))
+  })
+
+  it('带噪点（像 JPEG）也能找到网格，颜色误差在噪点以内', () => {
+    const native = nativeArt(48, 30, 3)
+    const big = upscale(native, 4, 0, 0, 10)
+    const grid = detectPixelGrid(big)
+    expect(grid.k).toBe(4)
+    const back = downsampleToGrid(big, grid)
+    let maxErr = 0
+    for (let i = 0; i < back.data.length; i++) maxErr = Math.max(maxErr, Math.abs(back.data[i]! - native.data[i]!))
+    expect(maxErr).toBeLessThanOrEqual(10)
+  })
+
+  it('不是整数倍放大的图返回 k = 1，原样保留', () => {
+    const plain = nativeArt(200, 160, 5)
+    const grid = detectPixelGrid(plain)
+    expect(grid.k).toBe(1)
+    expect(downsampleToGrid(plain, grid)).toBe(plain)
+  })
+
+  it('整数倍与原图地址', () => {
+    expect(integerScale(400, 300, 1600, 1600)).toBe(4)
+    expect(integerScale(280, 256, 480, 960)).toBe(1)
+    expect(integerScale(2000, 100, 1600, 1600)).toBe(0)
+    expect(
+      commonsOriginalUrl(
+        'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Pixel_art_game_mockup.jpg/1920px-Pixel_art_game_mockup.jpg?utm_source=commons.wikimedia.org',
+      ),
+    ).toBe('https://upload.wikimedia.org/wikipedia/commons/1/14/Pixel_art_game_mockup.jpg')
+    expect(commonsOriginalUrl('https://upload.wikimedia.org/wikipedia/commons/6/6a/Landscape_pixel_art.png?utm_content=x')).toBeUndefined()
+  })
+
+  describe('下载像素画（本地服务器）', () => {
+    let server: http.Server
+    let base = ''
+    let tmp = ''
+    beforeAll(async () => {
+      tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'pixel-'))
+      const big = upscale(nativeArt(64, 40, 9), 6, 0, 0)
+      const png = await sharp(Buffer.from(big.data), { raw: { width: big.width, height: big.height, channels: 3 } }).png().toBuffer()
+      server = http.createServer((req, res) => {
+        if (req.url === '/art.png') {
+          res.writeHead(200, { 'content-type': 'image/png' })
+          res.end(png)
+        } else {
+          res.writeHead(404)
+          res.end()
+        }
+      })
+      await new Promise<void>((resolve) => server.listen(0, '127.0.0.1', resolve))
+      const addr = server.address()
+      base = `http://127.0.0.1:${typeof addr === 'object' && addr ? addr.port : 0}`
+    })
+    afterAll(() => {
+      server.close()
+      fs.rmSync(tmp, { recursive: true, force: true })
+    })
+
+    it('展示图是原始像素的整数倍，缩略图也是', async () => {
+      const c: Candidate = {
+        n: 1,
+        source: 'commons',
+        sourceId: '1',
+        title: 'Pixel test',
+        date: '2024',
+        sourceUrl: 'https://example.org/',
+        previewUrl: `${base}/art.png`,
+        fullUrl: `${base}/art.png`,
+        license: 'CC BY',
+        museum: '测试',
+      }
+      const result = await processCandidate(c, 'commons-1', tmp, { pixelated: true })
+      // 原始 64×40：展示图放大 1600/64 = 25 倍，缩略图 7 倍
+      expect(result).toMatchObject({ width: 1600, height: 1000, inputWidth: 384, inputHeight: 240, pixelGrid: 6 })
+      const thumb = await sharp(path.join(tmp, 'img', 'art', 'commons-1-480.webp')).metadata()
+      expect([thumb.width, thumb.height]).toEqual([448, 280])
+      // 无损：放大后的方块颜色和原图一致
+      const { data, info } = await sharp(path.join(tmp, 'img', 'art', 'commons-1-1600.webp')).raw().toBuffer({ resolveWithObject: true })
+      const native = nativeArt(64, 40, 9)
+      const px = (x: number, y: number) => Array.from(data.slice((y * info.width + x) * info.channels, (y * info.width + x) * info.channels + 3))
+      expect(px(25 * 10 + 12, 25 * 7 + 3)).toEqual(Array.from(native.data.slice((7 * 64 + 10) * 3, (7 * 64 + 10) * 3 + 3)))
+    }, 30_000)
   })
 })

@@ -114,7 +114,7 @@ async function applyPicks() {
         }
       } else {
         try {
-          const p = await processCandidate(c, id, publicDir)
+          const p = await processCandidate(c, id, publicDir, { pixelated: pick.pixelated })
           image = {
             width: p.width,
             height: p.height,
@@ -125,7 +125,8 @@ async function applyPicks() {
           const longEdge = Math.max(image.sourceWidth, image.sourceHeight)
           console.log(
             `[下载] ${picks.styleId} #${c.n} → ${id}（源图 ${image.sourceWidth}×${image.sourceHeight}）` +
-              (longEdge < 1200 ? ' ⚠ 源图长边不足 1200px' : ''),
+              (p.pixelGrid !== undefined ? `，像素网格 ${p.pixelGrid}×` : '') +
+              (longEdge < 1200 && !pick.pixelated ? ' ⚠ 源图长边不足 1200px' : ''),
           )
         } catch (error) {
           console.log(`[下载] ${picks.styleId} #${c.n} → 失败：${String(error).slice(0, 200)}`)

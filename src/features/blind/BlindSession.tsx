@@ -1,7 +1,7 @@
 import { SkipForward, Undo2, X } from 'lucide-react'
 import { useEffect, useRef, useState, type PointerEvent } from 'react'
 import { RatingBar, scoreLabels } from '../../components/RatingBar'
-import { artworksById, publicUrl } from '../../content'
+import { artImgAttrs, artworksById, publicUrl } from '../../content'
 import { activeBlindRound, type Score } from '../../lib/storage'
 import { classifyGesture } from '../../lib/swipe'
 import { useUserStore } from '../../store/userStore'
@@ -146,6 +146,7 @@ export function BlindSession({ onExit, onFinish }: { onExit: () => void; onFinis
         )}
         <img
           key={art.id}
+          {...artImgAttrs(art)}
           src={publicUrl(art.img.display)}
           alt={label}
           width={art.img.width}

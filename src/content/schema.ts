@@ -151,10 +151,12 @@ export const ArtworkSchema = z.object({
   subjects: z.array(z.string()).default([]),
   attributes: AttributesSchema.partial().optional(),
   blindEligible: z.boolean().default(true),
+  /** 像素画：图片按原始像素整数倍放大，显示时不做平滑（image-rendering: pixelated） */
+  pixelated: z.boolean().optional(),
 })
 export type Artwork = z.infer<typeof ArtworkSchema>
 
-/** content/plan.yaml：77 种风格的计划清单（SPEC §6），用来显示还没写的风格名 */
+/** content/plan.yaml：80 种风格的计划清单（SPEC §6），用来显示还没写的风格名 */
 export const PlanEntrySchema = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/),
   nameZh: z.string().min(1),

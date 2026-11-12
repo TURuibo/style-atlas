@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link, useParams } from 'react-router'
 import { Badge, Card, Chip, ListLink, Page, Section } from '../../components/ui'
 import {
+  artImgAttrs,
   artworksById,
   chapterLabel,
   chaptersById,
@@ -51,6 +52,7 @@ export function ChapterPage() {
           {images.map((art) => (
             <img
               key={art.id}
+              {...artImgAttrs(art)}
               src={publicUrl(art.img.thumb)}
               alt={[art.titleZh ?? art.title, art.artist, art.date].filter(Boolean).join('，')}
               className="aspect-[3/4] w-full rounded-lg bg-line/60 object-cover"
@@ -117,6 +119,7 @@ export function ChapterPage() {
                   leading={
                     cover ? (
                       <img
+                        {...artImgAttrs(cover)}
                         src={publicUrl(cover.img.thumb)}
                         alt=""
                         loading="lazy"

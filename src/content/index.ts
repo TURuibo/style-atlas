@@ -37,6 +37,11 @@ export function coverOfStyle(style: Style): Artwork | undefined {
   return own.find((a) => a.id === style.coverArtworkId) ?? own.at(0)
 }
 
+/** 作品图片的公共属性：像素画加 data-pixelated，由全局样式关闭平滑 */
+export function artImgAttrs(art: { pixelated?: boolean }): { 'data-pixelated'?: '' } {
+  return art.pixelated ? { 'data-pixelated': '' } : {}
+}
+
 /** public/ 下的文件路径 → 带部署路径的 URL；blob:、data:、http(s): 地址原样返回（剪贴簿的图） */
 export function publicUrl(path: string): string {
   if (/^(blob:|data:|https?:)/.test(path)) return path

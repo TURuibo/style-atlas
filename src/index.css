@@ -58,3 +58,8 @@ body {
 .pt-safe {
   padding-top: env(safe-area-inset-top);
 }
+
+/* 像素画按原始像素显示，放大缩小都不做平滑 */
+img[data-pixelated] {
+  image-rendering: pixelated;
+}

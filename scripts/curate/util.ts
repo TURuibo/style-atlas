@@ -110,5 +110,6 @@ export function buildArtwork(args: {
     subjects: pick.subjects,
     ...(pick.attributes ? { attributes: pick.attributes } : {}),
     blindEligible: pick.blindEligible ?? true,
+    ...(pick.pixelated ? { pixelated: true } : {}),
   }
 }

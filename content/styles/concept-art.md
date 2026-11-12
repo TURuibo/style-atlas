@@ -6,7 +6,7 @@ nameEn: Digital painting & concept art
 family: modern
 regions: [global, north-america]
 era: { start: 1990, end: null, label: "约 1990 至今（数字时代）" }
-imageMode: external-only
+imageMode: open-license
 attributes: { lineMass: 2, flatVolume: 2, sparseDense: 1, naturalStylized: -1, mutedVivid: 0 }
 moods: [dark, romantic]
 mediums: [digital, opaque]
@@ -24,6 +24,7 @@ prompt:
   composition: ["epic wide establishing shot", "strong readable silhouette", "dramatic key light", "tiny figure for scale"]
   artistsPD: []
   negative: ["flat colors", "clean line art", "cartoon", "cel shading"]
+coverArtworkId: commons-118685874
 externalSearch: "concept art digital painting environment"
 externalExtra:
   - { site: zcool, q: "概念设计 原画" }
@@ -43,7 +44,7 @@ sources:
 - 看用途：很多图其实是工作稿，同一个设计常画好几版，供导演和团队挑。
 
 ## 为什么长这样
-“概念美术”一词至少在 1930 年代的迪士尼动画片场就在用，指开拍前确定世界和气氛的画。拉尔夫·麦夸里（Ralph McQuarrie，1929–2012）为 1977 年上映的《星球大战》画的概念图，让这门手艺广为人知。九十年代画师改用数位板和电脑：克雷格·穆林斯（Craig Mullins，1964–）1995 年为梦工厂的《埃及王子》全部用 Photoshop 画视觉开发图，被视为数字绘画的先驱。如今电影和游戏都靠数字厚涂快速试方案，也常混入照片和 3D 模型。
+“概念美术”一词至少在 1930 年代的迪士尼片场就在用，指开拍前确定世界和气氛的画。拉尔夫·麦夸里（Ralph McQuarrie，1929–2012）为 1977 年上映的《星球大战》画的概念图，让这门手艺广为人知。九十年代画师改用数位板和电脑：克雷格·穆林斯（Craig Mullins，1964–）1995 年为梦工厂的《埃及王子》全部用 Photoshop 画视觉开发图，被视为数字绘画的先驱。如今电影和游戏都靠数字厚涂快速试方案。应用里的图来自维基共享资源上以 CC BY 或 BY-SA 开放的作品，过半出自法国画家大卫·勒沃伊（David Revoy）。
 
 ## 怎么画
 工具：数位板加 Photoshop、Krita 或 Procreate；几支方头笔刷和纹理笔刷就够。

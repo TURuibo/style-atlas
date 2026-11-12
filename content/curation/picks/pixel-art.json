@@ -1,0 +1,38 @@
+{
+  "styleId": "pixel-art",
+  "picks": [
+    {
+      "id": "commons-172931842",
+      "cover": true,
+      "pixelated": true,
+      "title": "Pixel art of buildings almost at night",
+      "date": "2024",
+      "subjects": ["landscape", "daily-life"],
+      "reason": "AnubiArts：颜色压得很少，窗户、招牌和栏杆都是一格一格点出来的"
+    },
+    {
+      "id": "commons-95643696",
+      "pixelated": true,
+      "title": "Congress Centrum Hamburg and the Fairy Dust rocket",
+      "date": "2016",
+      "subjects": ["landscape"],
+      "reason": "blinry：长幅建筑像素画，斜线和弧线都靠像素台阶拼出来"
+    },
+    {
+      "id": "commons-116584419",
+      "pixelated": true,
+      "title": "Pixel art game mockup",
+      "date": "2022",
+      "subjects": ["landscape"],
+      "reason": "Nodin Cutfeet：横版游戏的地下剖面样稿，地形由重复的图块（tile）拼成"
+    },
+    {
+      "id": "commons-45029965",
+      "pixelated": true,
+      "title": "The Last Door: Devitt in the attic",
+      "date": "2015",
+      "subjects": ["figures", "narrative"],
+      "reason": "The Game Kitchen：独立游戏《The Last Door》的画面，像素很粗，靠暗部和一束光营造气氛"
+    }
+  ]
+}
