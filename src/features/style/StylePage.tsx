@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router'
 import { AttributeBars } from '../../components/AttributeBars'
 import { Collapsible } from '../../components/Collapsible'
 import { RatingBar, scoreLabels } from '../../components/RatingBar'
-import { Badge, Button, Card, Chip, Page } from '../../components/ui'
+import { Badge, Button, Card, Chip, hitArea44, Page } from '../../components/ui'
 import {
   chapterLabel,
   chaptersById,
@@ -60,7 +60,7 @@ function StyleDetail({ style }: { style: Style }) {
       title={style.nameZh}
       subtitle={[style.nameEn, style.nameOriginal].filter(Boolean).join(' · ')}
     >
-      <div className="flex flex-wrap gap-1.5">
+      <div className="flex flex-wrap gap-x-1.5 gap-y-3">
         {style.regions.map((r) => (
           <Chip key={r} to={`/explore/region/${r}`}>
             {regionName(r)}
@@ -323,13 +323,13 @@ function PromptKeywords({ style, includeArtists }: { style: Style; includeArtist
         {groups.map((group) => (
           <div key={group.label}>
             <div className="mb-1 text-xs text-muted">{group.label}</div>
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex flex-wrap gap-x-1.5 gap-y-3">
               {group.words.map((word) => (
                 <button
                   key={word}
                   type="button"
                   onClick={() => copy(word, word)}
-                  className="min-h-8 rounded-lg border border-line bg-surface px-2.5 text-left font-mono text-xs active:opacity-70"
+                  className={`min-h-8 rounded-lg border border-line bg-surface px-2.5 text-left font-mono text-xs active:opacity-70 ${hitArea44}`}
                 >
                   {copied === word ? '已复制' : word}
                 </button>
@@ -351,19 +351,19 @@ function Related({ style }: { style: Style }) {
   if (rows.length === 0) return null
   return (
     <Collapsible title="相关风格" defaultOpen>
-      <dl className="space-y-2">
+      <dl>
         {rows.map((row) => (
           <div key={row.label} className="flex gap-3">
-            <dt className="w-20 shrink-0 text-sm text-muted">{row.label}</dt>
-            <dd className="flex flex-wrap gap-1.5">
+            <dt className="w-20 shrink-0 py-3 text-sm leading-5 text-muted">{row.label}</dt>
+            <dd className="flex flex-wrap gap-x-3">
               {row.ids.map((id) => {
                 const other = stylesById.get(id)
                 return other ? (
-                  <Link key={id} to={`/style/${id}`} className="text-accent underline underline-offset-4">
+                  <Link key={id} to={`/style/${id}`} className="inline-flex min-h-11 min-w-11 items-center text-accent underline underline-offset-4">
                     {other.nameZh}
                   </Link>
                 ) : (
-                  <span key={id} className="text-sm text-muted">
+                  <span key={id} className="inline-flex min-h-11 items-center text-sm text-muted">
                     {styleNameZh(id)}（待上线）
                   </span>
                 )

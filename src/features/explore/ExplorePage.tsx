@@ -67,7 +67,7 @@ export function ExplorePage() {
                 type="button"
                 aria-selected={mode === m.id}
                 onClick={() => setMode(m.id)}
-                className={`min-h-10 rounded-lg text-sm ${mode === m.id ? 'bg-surface font-medium shadow-sm' : 'text-muted'}`}
+                className={`min-h-11 rounded-lg text-sm ${mode === m.id ? 'bg-surface font-medium shadow-sm' : 'text-muted'}`}
               >
                 {m.label}
               </button>

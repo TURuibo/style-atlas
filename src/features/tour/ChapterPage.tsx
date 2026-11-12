@@ -74,7 +74,7 @@ export function ChapterPage() {
           ))}
         </ul>
         {styles.length > 0 && (
-          <div className="mt-3 flex flex-wrap gap-1.5">
+          <div className="mt-3 flex flex-wrap gap-x-1.5 gap-y-3">
             {regions.map((r) => (
               <Chip key={r} to={`/explore/region/${r}`}>
                 {regionName(r)}

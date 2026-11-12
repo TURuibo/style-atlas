@@ -54,11 +54,17 @@ export function Card({ children, className = '' }: { children: ReactNode; classN
   return <div className={`rounded-2xl border border-line bg-surface p-4 ${className}`}>{children}</div>
 }
 
+/**
+ * 32px 高的小标签、小按钮：看起来不变，用 ::after 把可点区域上下各撑 6px 到 44px。
+ * 放这类元素的容器行距要不小于 12px（gap-y-3），免得上下两行的可点区域叠在一起。
+ */
+export const hitArea44 = "relative after:absolute after:inset-x-0 after:-inset-y-1.5 after:content-['']"
+
 export function Chip({ children, to }: { children: ReactNode; to?: string }) {
   const cls =
     'inline-flex min-h-8 items-center rounded-full border border-line bg-surface px-3 text-xs text-muted'
   return to ? (
-    <Link to={to} className={`${cls} active:bg-line/60`}>
+    <Link to={to} className={`${cls} ${hitArea44} active:bg-line/60`}>
       {children}
     </Link>
   ) : (
