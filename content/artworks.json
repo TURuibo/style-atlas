@@ -911,6 +911,44 @@
     "blindEligible": true
   },
   {
+    "id": "commons-116584419",
+    "styleIds": [
+      "pixel-art"
+    ],
+    "title": "Pixel art game mockup",
+    "artist": "Nodin Cutfeet",
+    "date": "2022",
+    "source": "commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pixel_art_game_mockup.jpg",
+    "license": "CC BY-SA",
+    "licenseVersion": "4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Pixel art game mockup，Nodin Cutfeet，2022。维基共享资源，CC BY-SA 4.0。",
+    "downloadedAt": "2026-11-12",
+    "img": {
+      "thumb": "img/art/commons-116584419-480.webp",
+      "display": "img/art/commons-116584419-1600.webp",
+      "width": 1456,
+      "height": 1120
+    },
+    "sourceSize": {
+      "width": 2080,
+      "height": 1600
+    },
+    "palette": [
+      "#7B89A2",
+      "#D3733F",
+      "#2E557F",
+      "#C0CBDB",
+      "#2B333E"
+    ],
+    "subjects": [
+      "landscape"
+    ],
+    "blindEligible": true,
+    "pixelated": true
+  },
+  {
     "id": "commons-118685874",
     "styleIds": [
       "concept-art"
@@ -1062,6 +1100,45 @@
     "blindEligible": true
   },
   {
+    "id": "commons-172931842",
+    "styleIds": [
+      "pixel-art"
+    ],
+    "title": "Pixel art of buildings almost at night",
+    "artist": "AnubiArts",
+    "date": "2024",
+    "source": "commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pixel_art_of_buildings_almost_at_night.png",
+    "license": "CC BY-SA",
+    "licenseVersion": "4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Pixel art of buildings almost at night，AnubiArts，2024。维基共享资源，CC BY-SA 4.0。",
+    "downloadedAt": "2026-11-12",
+    "img": {
+      "thumb": "img/art/commons-172931842-480.webp",
+      "display": "img/art/commons-172931842-1600.webp",
+      "width": 1540,
+      "height": 1408
+    },
+    "sourceSize": {
+      "width": 1120,
+      "height": 1024
+    },
+    "palette": [
+      "#605F74",
+      "#727083",
+      "#454657",
+      "#968898",
+      "#BAA3B0"
+    ],
+    "subjects": [
+      "landscape",
+      "daily-life"
+    ],
+    "blindEligible": true,
+    "pixelated": true
+  },
+  {
     "id": "commons-22264347",
     "styleIds": [
       "nordic-fairy"
@@ -1206,6 +1283,45 @@
     "blindEligible": true
   },
   {
+    "id": "commons-45029965",
+    "styleIds": [
+      "pixel-art"
+    ],
+    "title": "The Last Door: Devitt in the attic",
+    "artist": "The Game Kitchen",
+    "date": "2015",
+    "source": "commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:TLD_Devitt_in_the_Attic.png",
+    "license": "CC BY",
+    "licenseVersion": "4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "credit": "The Last Door: Devitt in the attic，The Game Kitchen，2015。维基共享资源，CC BY 4.0。",
+    "downloadedAt": "2026-11-12",
+    "img": {
+      "thumb": "img/art/commons-45029965-480.webp",
+      "display": "img/art/commons-45029965-1600.webp",
+      "width": 1530,
+      "height": 936
+    },
+    "sourceSize": {
+      "width": 851,
+      "height": 535
+    },
+    "palette": [
+      "#060B03",
+      "#0E1B05",
+      "#0D262F",
+      "#273E0C",
+      "#B0A89F"
+    ],
+    "subjects": [
+      "figures",
+      "narrative"
+    ],
+    "blindEligible": true,
+    "pixelated": true
+  },
+  {
     "id": "commons-71438947",
     "styleIds": [
       "concept-art"
@@ -1313,6 +1429,44 @@
       "figures"
     ],
     "blindEligible": true
+  },
+  {
+    "id": "commons-95643696",
+    "styleIds": [
+      "pixel-art"
+    ],
+    "title": "Congress Centrum Hamburg and the Fairy Dust rocket",
+    "artist": "Sebastian \"blinry\" Morr",
+    "date": "2016",
+    "source": "commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Congress_Centrum_Hamburg_pre-remodel_and_Fairy_Dust_by_blinry_long_DIN.png",
+    "license": "CC BY",
+    "licenseVersion": "4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "credit": "Congress Centrum Hamburg and the Fairy Dust rocket，Sebastian \"blinry\" Morr，2016。维基共享资源，CC BY 4.0。",
+    "downloadedAt": "2026-11-12",
+    "img": {
+      "thumb": "img/art/commons-95643696-480.webp",
+      "display": "img/art/commons-95643696-1600.webp",
+      "width": 1585,
+      "height": 560
+    },
+    "sourceSize": {
+      "width": 3170,
+      "height": 1120
+    },
+    "palette": [
+      "#5C6258",
+      "#999786",
+      "#242622",
+      "#F4F7F8",
+      "#C5D2D4"
+    ],
+    "subjects": [
+      "landscape"
+    ],
+    "blindEligible": true,
+    "pixelated": true
   },
   {
     "id": "commons-99859248",

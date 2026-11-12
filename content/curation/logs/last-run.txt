@@ -2,31 +2,24 @@
 [候选] concept-art：请求没变，跳过
 [候选] gongbi：请求没变，跳过
 [候选] gouache：请求没变，跳过
-[候选] isometric：76 条（新增 17）
-  {"source":"commons","search":"\"isometric pixel art\" filew:>400","open":true,"max":25} → 9 条
-  {"source":"commons","search":"\"isometric illustration\" filew:>800","open":true,"max":25} → 25 条
-  {"source":"commons","search":"deepcat:\"Isometric pixel art\"","open":true,"max":25} → 0 条
+[候选] isometric：请求没变，跳过
 [候选] nordic-fairy：请求没变，跳过
 [候选] persian-miniature：请求没变，跳过
 [候选] picture-books：请求没变，跳过
-[候选] pixel-art：61 条（新增 41）
-  {"source":"commons","search":"\"pixel art\" filew:>600","open":true,"max":40} → 40 条
-  {"source":"commons","search":"deepcat:\"Pixel art\" filew:>400","open":true,"max":40} → 1 条
+[候选] pixel-art：请求没变，跳过
 [候选] ukiyo-e：请求没变，跳过
 [候选] wpa-poster：请求没变，跳过
 [封面] art-nouveau → aic-111986
-[下载] concept-art #3 → commons-118685874（源图 4200×2663）
 [封面] concept-art → commons-118685874
-[下载] concept-art #23 → commons-152655347（源图 5610×3630）
-[下载] concept-art #17 → commons-152655352（源图 6048×3403）
-[下载] concept-art #18 → commons-152655425（源图 2000×3518）
-[下载] concept-art #8 → commons-71438947（源图 1600×1074）
-[下载] concept-art #39 → commons-84852533（源图 2100×1334）
-[下载] concept-art #37 → commons-112477131（源图 3840×2160）
 [封面] gongbi → cma-152556
 [封面] gouache → pratham-0146-08
 [封面] nordic-fairy → commons-23614544
 [封面] persian-miniature → met-452111
 [封面] picture-books → pratham-0133-01
+[下载] pixel-art #42 → commons-172931842（源图 1120×1024），像素网格 8×
+[封面] pixel-art → commons-172931842
+[下载] pixel-art #44 → commons-95643696（源图 3170×1120），像素网格 10×
+[下载] pixel-art #31 → commons-116584419（源图 2080×1600），像素网格 10×
+[下载] pixel-art #51 → commons-45029965（源图 851×535），像素网格 10×
 [封面] ukiyo-e → aic-24645
-[作品] 共 58 幅，图片合计 13.0 MB
+[作品] 共 62 幅，图片合计 13.0 MB
