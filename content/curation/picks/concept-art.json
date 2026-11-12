@@ -1,0 +1,73 @@
+{
+  "styleId": "concept-art",
+  "picks": [
+    {
+      "id": "commons-118685874",
+      "cover": true,
+      "title": "Paintover of the château at Geek Faëries 2018",
+      "date": "2018",
+      "subjects": [
+        "landscape"
+      ],
+      "reason": "David Revoy：在照片上直接重画（paintover），是概念美术常用的快速出方案的办法"
+    },
+    {
+      "id": "commons-152655347",
+      "title": "The rendezvous",
+      "date": "2018",
+      "subjects": [
+        "landscape",
+        "narrative"
+      ],
+      "reason": "David Revoy：大场景先定光和空气透视，人物只占很小一块"
+    },
+    {
+      "id": "commons-152655352",
+      "title": "Cover for Pepper&Carrot, book two",
+      "date": "2016",
+      "subjects": [
+        "figures",
+        "narrative"
+      ],
+      "reason": "David Revoy：室内光线和体积感都靠笔触叠出来"
+    },
+    {
+      "id": "commons-152655425",
+      "title": "Rainy days",
+      "date": "2017",
+      "subjects": [
+        "figures",
+        "landscape"
+      ],
+      "reason": "David Revoy：冷色雨天的气氛，边缘时实时虚"
+    },
+    {
+      "id": "commons-71438947",
+      "title": "Empty backdrop painting",
+      "date": "2015",
+      "artist": "Futurilla",
+      "subjects": [
+        "landscape"
+      ],
+      "reason": "Futurilla：科幻场景的背景稿，结构和光比细节更重要"
+    },
+    {
+      "id": "commons-84852533",
+      "title": "Dark Forest",
+      "date": "2019",
+      "subjects": [
+        "landscape"
+      ],
+      "reason": "Akshay Theril：暗部里只留几处光点，典型的数字厚涂气氛图"
+    },
+    {
+      "id": "commons-112477131",
+      "title": "Sunset, landscape digital painting made in Krita",
+      "date": "2021",
+      "subjects": [
+        "landscape"
+      ],
+      "reason": "Raghukamath：用开源软件 Krita 画的速写式风景，大笔触、色块概括"
+    }
+  ]
+}

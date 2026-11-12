@@ -3,21 +3,21 @@
   "queries": [
     {
       "source": "commons",
-      "search": "isometric illustration",
+      "search": "\"isometric pixel art\" filew:>400",
       "open": true,
-      "max": 20
+      "max": 25
     },
     {
       "source": "commons",
-      "search": "isometric pixel art",
+      "search": "\"isometric illustration\" filew:>800",
       "open": true,
-      "max": 20
+      "max": 25
     },
     {
       "source": "commons",
-      "search": "isometric city",
+      "search": "deepcat:\"Isometric pixel art\"",
       "open": true,
-      "max": 20
+      "max": 25
     }
   ]
 }

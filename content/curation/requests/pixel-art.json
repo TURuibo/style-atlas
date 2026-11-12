@@ -3,15 +3,15 @@
   "queries": [
     {
       "source": "commons",
-      "category": "Pixel art",
+      "search": "\"pixel art\" filew:>600",
       "open": true,
       "max": 40
     },
     {
       "source": "commons",
-      "search": "pixel art scene",
+      "search": "deepcat:\"Pixel art\" filew:>400",
       "open": true,
-      "max": 20
+      "max": 40
     }
   ]
 }
