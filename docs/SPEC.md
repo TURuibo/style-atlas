@@ -417,7 +417,7 @@ subjects: { figures: 人物, landscape: 风景, flora-fauna: 花鸟动物, narra
 | 数字厚涂与概念美术 Digital painting & concept art `concept-art` | 全球 · 1990 至今 | 拉尔夫·麦夸里、克雷格·穆林斯 | 开放许可：Commons，以大卫·勒瓦（David Revoy）的作品为主（CC BY / BY-SA） | 现代 1 |
 | 水粉插画 Gouache illustration `gouache` | 全球 · 1940 至今 | 玛丽·布莱尔；动画背景用的广告颜料 | 开放许可：按画面从 StoryWeaver 图库挑 | 现代 1 |
 | 孔版印刷风 Risograph aesthetic `risograph` | 全球 · 2005 至今 | 独立出版与 zine | 外链 | 现代 1 |
-| 扁平矢量插画 Flat vector illustration `flat-vector` | 全球 · 2010 至今 | 科技公司的人物插画（“Corporate Memphis”）、Buck 的 Alegria | 外链（开放素材多是零散的人物部件，凑不出完整插画） | 现代 1 |
+| 扁平矢量插画 Flat vector illustration `flat-vector` | 全球 · 2010 至今 | 科技公司的人物插画（“Corporate Memphis”）、Buck 的 Alegria | 外链（维基共享资源上没有够格的整幅作品） | 现代 1 |
 | 国潮插画 Guochao `guochao` | 中国 · 2016 至今 | 中国李宁、故宫文创；传统纹样与传统色 | 外链 | 现代 1 |
 
 MVP 暂缺非洲、拉丁美洲、喜马拉雅和东欧，全量阶段补齐。凯·尼尔森 1957 年去世，在欧盟 2028 年才进入公共领域，在此之前只给外链。
