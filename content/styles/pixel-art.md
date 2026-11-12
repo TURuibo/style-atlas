@@ -7,7 +7,7 @@ nameOriginal: ドット絵
 family: modern
 regions: [global, japan]
 era: { start: 1980, end: null, label: "约 1980 至今" }
-imageMode: external-only
+imageMode: open-license
 attributes: { lineMass: 1, flatVolume: -1, sparseDense: 0, naturalStylized: 2, mutedVivid: 1 }
 moods: [whimsical]
 mediums: [digital]
@@ -25,6 +25,7 @@ prompt:
   composition: ["side-view game scene", "tile-based layout", "small sprite characters"]
   artistsPD: []
   negative: ["anti-aliasing blur", "smooth gradients", "photorealistic", "3D render", "soft brush strokes"]
+coverArtworkId: commons-172931842
 externalSearch: "pixel art"
 externalExtra:
   - { site: pixiv, q: "ドット絵" }
@@ -44,7 +45,7 @@ sources:
 - 看斜线：好的像素画会手动排好斜线“台阶”的长短，不靠软件自动抗锯齿。
 
 ## 为什么长这样
-早期电脑和游戏机分辨率低、能同时显示的颜色很少，画师只能在方格里一点点安排颜色。“像素艺术”（pixel art）这个说法 1982 年由施乐帕洛阿尔托研究中心的两位研究者写进期刊文章。苏珊·卡雷（Susan Kare，1954–）为 1984 年的初代 Macintosh 画了图标，八九十年代的游戏又把这门手艺推到高峰。3D 普及以后，像素反而成了一种主动选择的风格：1997 年成立的 eBoy 和后来的独立游戏，都在证明限制本身就很迷人。
+早期电脑和游戏机分辨率低、能同时显示的颜色很少，画师只能在方格里一点点安排颜色。“像素艺术”（pixel art）这个说法 1982 年由施乐帕洛阿尔托研究中心的两位研究者写进期刊文章。苏珊·卡雷（Susan Kare，1954–）为 1984 年的初代 Macintosh 画了图标，八九十年代的游戏又把这门手艺推到高峰。3D 普及以后，像素反而成了一种主动选择的风格：1997 年成立的 eBoy 和后来的独立游戏，都在证明限制本身就很迷人。应用里的图来自维基共享资源上以 CC BY 或 BY-SA 开放的作品，按原始像素整数倍放大，不做平滑。
 
 ## 怎么画
 工具：Aseprite，或任何能画 1 像素硬边、能关掉抗锯齿的画图软件；方格纸加马克笔也行。

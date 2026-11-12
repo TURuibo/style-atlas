@@ -1,5 +1,5 @@
 import { artImgAttrs, artworksOfStyle, publicUrl } from '../../content'
-import type { Artwork, Style } from '../../content/schema'
+import { attributionLicenses, type Artwork, type Style } from '../../content/schema'
 import type { RatingContext } from '../../lib/storage'
 import { artworkAlt, useViewer } from '../viewer/useViewer'
 
@@ -56,7 +56,11 @@ export function Gallery({ style, context = 'browse' }: { style: Style; context?:
           </figure>
         ))}
       </div>
-      <p className="text-[11px] text-muted">图片均为博物馆开放的公共领域或 CC0 藏品，点开可看出处与许可。</p>
+      <p className="text-[11px] text-muted">
+        {artworks.some((a) => attributionLicenses.includes(a.license))
+          ? '图片是作者用 CC BY、CC BY-SA 等许可公开的作品，点开可看作者、出处与许可。'
+          : '图片均为公共领域或 CC0 作品，点开可看出处与许可。'}
+      </p>
       {viewer.element}
     </>
   )

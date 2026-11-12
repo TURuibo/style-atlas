@@ -7,6 +7,7 @@ const sourceNames: Record<string, string> = {
   cma: 'CMA',
   commons: 'Commons',
   loc: 'LoC',
+  pratham: 'StoryWeaver',
 }
 
 const modeNames: Record<string, string> = {

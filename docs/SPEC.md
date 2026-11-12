@@ -400,8 +400,6 @@ subjects: { figures: 人物, landscape: 风景, flora-fauna: 花鸟动物, narra
 
 ### 6.9 现代与当代
 
-| 风格 | 地域 · 年代 | 代表 | 图源 | 阶段 |
-| --- | --- | --- | --- | --- |
 2026-11-11 起这一章是导览主线的主体，先做“现代第 1 批”12 种（新增日系角色插画、等距插画、水粉插画 3 种）。图源一栏的“开放许可”指作者自己用 CC0、CC BY 或 CC BY-SA 开放的作品（§8），凑不够 4 幅好图的照旧只给外链；所有外链风格都可以用剪贴簿补你自己存的图（§4.5）。
 
 | 风格 | 地域 · 年代 | 代表 | 图源 | 阶段 |
@@ -414,12 +412,12 @@ subjects: { figures: 人物, landscape: 风景, flora-fauna: 花鸟动物, narra
 | 观念插画 Conceptual editorial illustration `editorial` | 全球 · 1970 至今 | 布拉德·霍兰、让-米歇尔·弗隆、克里斯托夫·尼曼 | 外链 | 现代 1 |
 | 日本动画美术 Anime background art `anime-art` | 日本 · 1980 至今 | 男鹿和雄（吉卜力背景）、新海诚 | 外链 | 现代 1 |
 | 日系角色插画 Anime-style character illustration `anime-illustration` | 日本、全球 · 1980 至今 | 美树本晴彦、贞本义行；pixiv | 外链 | 现代 1 |
-| 像素艺术 Pixel art `pixel-art` | 全球 · 1980 至今 | 苏珊·卡雷、eBoy | 开放许可：Commons、OpenGameArt（CC0 / CC BY） | 现代 1 |
-| 等距插画 Isometric illustration `isometric` | 全球 · 1982 至今 | 《Zaxxon》、eBoy、《纪念碑谷》 | 开放许可：Commons（CC0 / CC BY） | 现代 1 |
-| 数字厚涂与概念美术 Digital painting & concept art `concept-art` | 全球 · 1990 至今 | 拉尔夫·麦夸里、克雷格·穆林斯 | 开放许可：Blender 开源电影、大卫·勒瓦（David Revoy，CC BY） | 现代 1 |
+| 像素艺术 Pixel art `pixel-art` | 全球 · 1980 至今 | 苏珊·卡雷、eBoy | 开放许可：Commons（CC BY / BY-SA），按原始像素放大（§8.2 第 9 条） | 现代 1 |
+| 等距插画 Isometric illustration `isometric` | 全球 · 1982 至今 | 《Zaxxon》、eBoy、《纪念碑谷》 | 外链（Commons 上几乎只有制图课的投影示意图） | 现代 1 |
+| 数字厚涂与概念美术 Digital painting & concept art `concept-art` | 全球 · 1990 至今 | 拉尔夫·麦夸里、克雷格·穆林斯 | 开放许可：Commons，以大卫·勒瓦（David Revoy）的作品为主（CC BY / BY-SA） | 现代 1 |
 | 水粉插画 Gouache illustration `gouache` | 全球 · 1940 至今 | 玛丽·布莱尔；动画背景用的广告颜料 | 开放许可：按画面从 StoryWeaver 图库挑 | 现代 1 |
 | 孔版印刷风 Risograph aesthetic `risograph` | 全球 · 2005 至今 | 独立出版与 zine | 外链 | 现代 1 |
-| 扁平矢量插画 Flat vector illustration `flat-vector` | 全球 · 2010 至今 | 科技公司的人物插画（“Corporate Memphis”）、Buck 的 Alegria | 开放许可：Open Peeps 等 CC0 素材、Commons | 现代 1 |
+| 扁平矢量插画 Flat vector illustration `flat-vector` | 全球 · 2010 至今 | 科技公司的人物插画（“Corporate Memphis”）、Buck 的 Alegria | 外链（开放素材多是零散的人物部件，凑不出完整插画） | 现代 1 |
 | 国潮插画 Guochao `guochao` | 中国 · 2016 至今 | 中国李宁、故宫文创；传统纹样与传统色 | 外链 | 现代 1 |
 
 MVP 暂缺非洲、拉丁美洲、喜马拉雅和东欧，全量阶段补齐。凯·尼尔森 1957 年去世，在欧盟 2028 年才进入公共领域，在此之前只给外链。
