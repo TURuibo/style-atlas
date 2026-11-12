@@ -1,38 +1,32 @@
-[候选] anime-illustration：45 条（新增 45）
-  {"source":"commons","category":"Wikipe-tan","open":true,"max":20} → 20 条
-  {"source":"commons","search":"anime style illustration","open":true,"max":25} → 25 条
 [候选] art-nouveau：请求没变，跳过
-[候选] concept-art：50 条（新增 50）
-  {"source":"commons","category":"David Revoy","open":true,"max":30} → 10 条
-  {"source":"commons","category":"Pepper&Carrot","open":true,"max":20} → 20 条
-  {"source":"commons","search":"concept art digital painting","open":true,"max":20} → 20 条
-[候选] flat-vector：39 条（新增 39）
-  {"source":"commons","search":"flat design illustration","open":true,"max":20} → 18 条
-  {"source":"commons","search":"flat vector illustration people","open":true,"max":20} → 1 条
-  {"source":"commons","search":"Open Peeps","open":true,"max":10} → 10 条
-  {"source":"commons","search":"Corporate Memphis","open":true,"max":10} → 10 条
+[候选] concept-art：请求没变，跳过
 [候选] gongbi：请求没变，跳过
 [候选] gouache：请求没变，跳过
-[候选] isometric：59 条（新增 59）
-  {"source":"commons","search":"isometric illustration","open":true,"max":20} → 20 条
-  {"source":"commons","search":"isometric pixel art","open":true,"max":20} → 20 条
-  {"source":"commons","search":"isometric city","open":true,"max":20} → 20 条
+[候选] isometric：76 条（新增 17）
+  {"source":"commons","search":"\"isometric pixel art\" filew:>400","open":true,"max":25} → 9 条
+  {"source":"commons","search":"\"isometric illustration\" filew:>800","open":true,"max":25} → 25 条
+  {"source":"commons","search":"deepcat:\"Isometric pixel art\"","open":true,"max":25} → 0 条
 [候选] nordic-fairy：请求没变，跳过
 [候选] persian-miniature：请求没变，跳过
 [候选] picture-books：请求没变，跳过
-[候选] pixel-art：20 条（新增 20）
-  {"source":"commons","category":"Pixel art","open":true,"max":40} → 0 条
-  {"source":"commons","search":"pixel art scene","open":true,"max":20} → 20 条
-[候选] risograph：19 条（新增 19）
-  {"source":"commons","search":"risograph print","open":true,"max":30} → 18 条
-  {"source":"commons","search":"riso print illustration","open":true,"max":15} → 1 条
+[候选] pixel-art：61 条（新增 41）
+  {"source":"commons","search":"\"pixel art\" filew:>600","open":true,"max":40} → 40 条
+  {"source":"commons","search":"deepcat:\"Pixel art\" filew:>400","open":true,"max":40} → 1 条
 [候选] ukiyo-e：请求没变，跳过
 [候选] wpa-poster：请求没变，跳过
 [封面] art-nouveau → aic-111986
+[下载] concept-art #3 → commons-118685874（源图 4200×2663）
+[封面] concept-art → commons-118685874
+[下载] concept-art #23 → commons-152655347（源图 5610×3630）
+[下载] concept-art #17 → commons-152655352（源图 6048×3403）
+[下载] concept-art #18 → commons-152655425（源图 2000×3518）
+[下载] concept-art #8 → commons-71438947（源图 1600×1074）
+[下载] concept-art #39 → commons-84852533（源图 2100×1334）
+[下载] concept-art #37 → commons-112477131（源图 3840×2160）
 [封面] gongbi → cma-152556
 [封面] gouache → pratham-0146-08
 [封面] nordic-fairy → commons-23614544
 [封面] persian-miniature → met-452111
 [封面] picture-books → pratham-0133-01
 [封面] ukiyo-e → aic-24645
-[作品] 共 51 幅，图片合计 11.6 MB
+[作品] 共 58 幅，图片合计 13.0 MB

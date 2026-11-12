@@ -838,6 +838,43 @@
     "blindEligible": true
   },
   {
+    "id": "commons-112477131",
+    "styleIds": [
+      "concept-art"
+    ],
+    "title": "Sunset, landscape digital painting made in Krita",
+    "artist": "Raghukamath",
+    "date": "2021",
+    "source": "commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunset_-_Landscape_digital_painting_made_in_krita.png",
+    "license": "CC BY-SA",
+    "licenseVersion": "4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Sunset, landscape digital painting made in Krita，Raghukamath，2021。维基共享资源，CC BY-SA 4.0。",
+    "downloadedAt": "2026-11-12",
+    "img": {
+      "thumb": "img/art/commons-112477131-480.webp",
+      "display": "img/art/commons-112477131-1600.webp",
+      "width": 1600,
+      "height": 900
+    },
+    "sourceSize": {
+      "width": 3840,
+      "height": 2160
+    },
+    "palette": [
+      "#A899C8",
+      "#9F7D8B",
+      "#D3C2CD",
+      "#E7A888",
+      "#523D4B"
+    ],
+    "subjects": [
+      "landscape"
+    ],
+    "blindEligible": true
+  },
+  {
     "id": "commons-115771786",
     "styleIds": [
       "nordic-fairy"
@@ -870,6 +907,157 @@
     "subjects": [
       "narrative",
       "figures"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "commons-118685874",
+    "styleIds": [
+      "concept-art"
+    ],
+    "title": "Paintover of the château at Geek Faëries 2018",
+    "artist": "David Revoy",
+    "date": "2018",
+    "source": "commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:David_Revoy_paintover_of_Geek_Fa%C3%ABries_v9.0_IRL_2018_-_010.jpg",
+    "license": "CC BY-SA",
+    "licenseVersion": "4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Paintover of the château at Geek Faëries 2018，David Revoy，2018。维基共享资源，CC BY-SA 4.0。",
+    "downloadedAt": "2026-11-12",
+    "img": {
+      "thumb": "img/art/commons-118685874-480.webp",
+      "display": "img/art/commons-118685874-1600.webp",
+      "width": 1600,
+      "height": 1014
+    },
+    "sourceSize": {
+      "width": 4200,
+      "height": 2663
+    },
+    "palette": [
+      "#ACA085",
+      "#DAD6BD",
+      "#62716A",
+      "#51CAE8",
+      "#33A3A6"
+    ],
+    "subjects": [
+      "landscape"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "commons-152655347",
+    "styleIds": [
+      "concept-art"
+    ],
+    "title": "The rendezvous",
+    "artist": "David Revoy",
+    "date": "2018",
+    "source": "commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2018-03-28_The-rendezvous_by-David-Revoy.jpg",
+    "license": "CC BY",
+    "licenseVersion": "4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "credit": "The rendezvous，David Revoy，2018。维基共享资源，CC BY 4.0。",
+    "downloadedAt": "2026-11-12",
+    "img": {
+      "thumb": "img/art/commons-152655347-480.webp",
+      "display": "img/art/commons-152655347-1600.webp",
+      "width": 1600,
+      "height": 1035
+    },
+    "sourceSize": {
+      "width": 5610,
+      "height": 3630
+    },
+    "palette": [
+      "#7F4B31",
+      "#7AB1C7",
+      "#C0B656",
+      "#749074",
+      "#C1DDD4"
+    ],
+    "subjects": [
+      "landscape",
+      "narrative"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "commons-152655352",
+    "styleIds": [
+      "concept-art"
+    ],
+    "title": "Cover for Pepper&Carrot, book two",
+    "artist": "David Revoy",
+    "date": "2016",
+    "source": "commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2016-11-14_vertical-cover-book-two_screen_by-David-Revoy.jpg",
+    "license": "CC BY",
+    "licenseVersion": "4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "credit": "Cover for Pepper&Carrot, book two，David Revoy，2016。维基共享资源，CC BY 4.0。",
+    "downloadedAt": "2026-11-12",
+    "img": {
+      "thumb": "img/art/commons-152655352-480.webp",
+      "display": "img/art/commons-152655352-1600.webp",
+      "width": 1600,
+      "height": 900
+    },
+    "sourceSize": {
+      "width": 6048,
+      "height": 3403
+    },
+    "palette": [
+      "#6B413A",
+      "#926148",
+      "#BF8B58",
+      "#332022",
+      "#E2C980"
+    ],
+    "subjects": [
+      "figures",
+      "narrative"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "commons-152655425",
+    "styleIds": [
+      "concept-art"
+    ],
+    "title": "Rainy days",
+    "artist": "David Revoy",
+    "date": "2017",
+    "source": "commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2017-03-14_rainy-days_by-David-Revoy.jpg",
+    "license": "CC BY",
+    "licenseVersion": "4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "credit": "Rainy days，David Revoy，2017。维基共享资源，CC BY 4.0。",
+    "downloadedAt": "2026-11-12",
+    "img": {
+      "thumb": "img/art/commons-152655425-480.webp",
+      "display": "img/art/commons-152655425-1600.webp",
+      "width": 910,
+      "height": 1600
+    },
+    "sourceSize": {
+      "width": 2000,
+      "height": 3518
+    },
+    "palette": [
+      "#415E6C",
+      "#343A47",
+      "#458DAE",
+      "#7C8D86",
+      "#9CCBE1"
+    ],
+    "subjects": [
+      "figures",
+      "landscape"
     ],
     "blindEligible": true
   },
@@ -1014,6 +1202,80 @@
     "subjects": [
       "narrative",
       "figures"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "commons-71438947",
+    "styleIds": [
+      "concept-art"
+    ],
+    "title": "Empty backdrop painting",
+    "artist": "Futurilla",
+    "date": "2015",
+    "source": "commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Empty_backdrop_painting_Creative_Commons_(16317350652).jpg",
+    "license": "CC BY",
+    "licenseVersion": "2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "credit": "Empty backdrop painting，Futurilla，2015。维基共享资源，CC BY 2.0。",
+    "downloadedAt": "2026-11-12",
+    "img": {
+      "thumb": "img/art/commons-71438947-480.webp",
+      "display": "img/art/commons-71438947-1600.webp",
+      "width": 1600,
+      "height": 1074
+    },
+    "sourceSize": {
+      "width": 1600,
+      "height": 1074
+    },
+    "palette": [
+      "#172B42",
+      "#365169",
+      "#597994",
+      "#85ACC5",
+      "#C7DFE7"
+    ],
+    "subjects": [
+      "landscape"
+    ],
+    "blindEligible": true
+  },
+  {
+    "id": "commons-84852533",
+    "styleIds": [
+      "concept-art"
+    ],
+    "title": "Dark Forest",
+    "artist": "Akshay.Theril",
+    "date": "2019",
+    "source": "commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dark_Forest.png",
+    "license": "CC BY-SA",
+    "licenseVersion": "4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Dark Forest，Akshay.Theril，2019。维基共享资源，CC BY-SA 4.0。",
+    "downloadedAt": "2026-11-12",
+    "img": {
+      "thumb": "img/art/commons-84852533-480.webp",
+      "display": "img/art/commons-84852533-1600.webp",
+      "width": 1600,
+      "height": 1017
+    },
+    "sourceSize": {
+      "width": 2100,
+      "height": 1334
+    },
+    "palette": [
+      "#0A1823",
+      "#113048",
+      "#1E577E",
+      "#5090B4",
+      "#8DBBD5"
+    ],
+    "subjects": [
+      "landscape"
     ],
     "blindEligible": true
   },
